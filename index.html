@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -73,34 +73,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##IE兼容问题总结##</p>
-<p>###IE6下高度小于19px时，高度会被当作19px</p>
-<p>-解决办法：font-size:0;或者 overflow:hidden;</p>
-<p>###IE 6 7 下li本身没浮动，但内容浮动了，li下多出来几px的间隙</p>
-<p>-解决：给li加浮动或者给li设样式vertical-align:top|middle|bottom;</p>
-<p>-vertical-align:top|middle|bottom；也用来清除图片下的空隙</p>
-<p>-当ie6下最小高度问题和li间隙问题同时存在时，给li加浮动</p>
-<p>###ie6 下父级的overflow包不住子级的相对定位</p>
-<p>-解决：父级加上position:relative;</p>
-<p>###ie6 7 下父级有边框，子元素margin值消失</p>
-<p>-解决：触发父级的haslayout（overflow:hidden;<strong>zoom:1</strong>）</p>
-<p>###ie6 下的双边距bug（在ie6下块元素有浮动和横向的margin值，横向的margin值会放大两倍）</p>
-<p>-解决：display:inline;</p>
-<p>###ie6 下文字溢出bug（子元素宽度与父级宽高相差小于3px，两个浮动元素中间有注释或者内嵌元素）</p>
-<p>-用div把注释和内嵌元素包裹使用</p>
-<p>###ie6 下浮动元素与绝对定位元素并列时，绝对定位元素会消失</p>
-<p>-给定位元素外，加div包裹</p>
-<p>###在ie67 下输入表单控件上下有1px的间隙、</p>
-<p>-给input加浮动</p>
-<p>###ie6 下不支持png图片，</p>
-<p>-用条件注释语句</p>
-<p>###ie 6 7 下输入类型的表单控件输入文字时，背景图片跟着一块走</p>
-<p>-把背景加给父级，再清除掉自身的背景</p>
+        <h2 id="IE兼容问题总结"><a href="#IE兼容问题总结" class="headerlink" title="IE兼容问题总结"></a>IE兼容问题总结</h2><h3 id="IE6下高度小于19px时，高度会被当作19px"><a href="#IE6下高度小于19px时，高度会被当作19px" class="headerlink" title="IE6下高度小于19px时，高度会被当作19px"></a>IE6下高度小于19px时，高度会被当作19px</h3><p>-解决办法：font-size:0;或者 overflow:hidden;</p>
+<h3 id="IE-6-7-下li本身没浮动，但内容浮动了，li下多出来几px的间隙"><a href="#IE-6-7-下li本身没浮动，但内容浮动了，li下多出来几px的间隙" class="headerlink" title="IE 6 7 下li本身没浮动，但内容浮动了，li下多出来几px的间隙"></a>IE 6 7 下li本身没浮动，但内容浮动了，li下多出来几px的间隙</h3><p>-解决：给li加浮动或者给li设样式vertical-align:top|middle|bottom;</p>
+<ul>
+<li><p>vertical-align:top|middle|bottom；也用来清除图片下的空隙</p>
+</li>
+<li><p>当ie6下最小高度问题和li间隙问题同时存在时，给li加浮动</p>
+</li>
+</ul>
+<h3 id="ie6-下父级的overflow包不住子级的相对定位"><a href="#ie6-下父级的overflow包不住子级的相对定位" class="headerlink" title="ie6 下父级的overflow包不住子级的相对定位"></a>ie6 下父级的overflow包不住子级的相对定位</h3><ul>
+<li>解决：父级加上position:relative;</li>
+</ul>
+<h3 id="ie6-7-下父级有边框，子元素margin值消失"><a href="#ie6-7-下父级有边框，子元素margin值消失" class="headerlink" title="ie6 7 下父级有边框，子元素margin值消失"></a>ie6 7 下父级有边框，子元素margin值消失</h3><ul>
+<li>解决：触发父级的haslayout（overflow:hidden;<strong>zoom:1</strong>）</li>
+</ul>
+<h3 id="ie6-下的双边距bug（在ie6下块元素有浮动和横向的margin值，横向的margin值会放大两倍）"><a href="#ie6-下的双边距bug（在ie6下块元素有浮动和横向的margin值，横向的margin值会放大两倍）" class="headerlink" title="ie6 下的双边距bug（在ie6下块元素有浮动和横向的margin值，横向的margin值会放大两倍）"></a>ie6 下的双边距bug（在ie6下块元素有浮动和横向的margin值，横向的margin值会放大两倍）</h3><ul>
+<li>解决：display:inline;</li>
+</ul>
+<h3 id="ie6-下文字溢出bug（子元素宽度与父级宽高相差小于3px，两个浮动元素中间有注释或者内嵌元素）"><a href="#ie6-下文字溢出bug（子元素宽度与父级宽高相差小于3px，两个浮动元素中间有注释或者内嵌元素）" class="headerlink" title="ie6 下文字溢出bug（子元素宽度与父级宽高相差小于3px，两个浮动元素中间有注释或者内嵌元素）"></a>ie6 下文字溢出bug（子元素宽度与父级宽高相差小于3px，两个浮动元素中间有注释或者内嵌元素）</h3><ul>
+<li>用div把注释和内嵌元素包裹使用</li>
+</ul>
+<h3 id="ie6-下浮动元素与绝对定位元素并列时，绝对定位元素会消失"><a href="#ie6-下浮动元素与绝对定位元素并列时，绝对定位元素会消失" class="headerlink" title="ie6 下浮动元素与绝对定位元素并列时，绝对定位元素会消失"></a>ie6 下浮动元素与绝对定位元素并列时，绝对定位元素会消失</h3><ul>
+<li>给定位元素外，加div包裹</li>
+</ul>
+<h3 id="在ie67-下输入表单控件上下有1px的间隙、"><a href="#在ie67-下输入表单控件上下有1px的间隙、" class="headerlink" title="在ie67 下输入表单控件上下有1px的间隙、"></a>在ie67 下输入表单控件上下有1px的间隙、</h3><ul>
+<li>给input加浮动</li>
+</ul>
+<h3 id="ie6-下不支持png图片，"><a href="#ie6-下不支持png图片，" class="headerlink" title="ie6 下不支持png图片，"></a>ie6 下不支持png图片，</h3><ul>
+<li>用条件注释语句</li>
+</ul>
+<h3 id="ie-6-7-下输入类型的表单控件输入文字时，背景图片跟着一块走"><a href="#ie-6-7-下输入类型的表单控件输入文字时，背景图片跟着一块走" class="headerlink" title="ie 6 7 下输入类型的表单控件输入文字时，背景图片跟着一块走"></a>ie 6 7 下输入类型的表单控件输入文字时，背景图片跟着一块走</h3><ul>
+<li>把背景加给父级，再清除掉自身的背景</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cj2zgggom00016wsr4i49cwvl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cj2zgp9lu0003i4sr5hfegw8p" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -133,28 +142,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在vue设置路由时，出现router-link及router-view不渲染，或者只能出现router-link,而不出现router-view</p>
-<p>##文件目录</p>
-<p>[TOC]</p>
-<p>###src</p>
-<p>####components</p>
-<p>#####goods</p>
-<p>######goods.vue    </p>
-<p>####App.vue</p>
-<p>####main.js</p>
-<p>###index.js</p>
-<p>###index.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">   &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</div><div class="line">   &lt;!-- built files will be auto injected --&gt;</div><div class="line"> &lt;/body&gt;</div></pre></td></tr></table></figure>
-<p>###App.vue</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;v-header&gt;&lt;/v-header&gt;</div><div class="line">    &lt;div class=&quot;tab&quot;&gt;</div><div class="line">      &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">        &lt;router-link to=&quot;/goods&quot;&gt;商品&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt; </div><div class="line">     &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">       &lt;router-link to=&quot;/ratings&quot;&gt;评价&lt;/router-link&gt;</div><div class="line">     &lt;/div&gt; </div><div class="line">     &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">      &lt;router-link to=&quot;/seller&quot;&gt;商家&lt;/router-link&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  </div><div class="line">   &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
-<p>###main.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;</div><div class="line">import VueRouter from &apos;vue-router&apos;</div><div class="line">import App from &apos;./App&apos;</div><div class="line">import goods from &apos;./components/goods/goods&apos;</div><div class="line">import ratings from &apos;./components/ratings/ratings&apos;</div><div class="line">import seller from &apos;./components/seller/seller&apos;</div><div class="line"></div><div class="line"> Vue.use(VueRouter);</div><div class="line"></div><div class="line">const routes = [</div><div class="line">	&#123;path:&apos;/goods&apos;,component:goods&#125;,</div><div class="line">	&#123;path:&apos;/ratings&apos;,component:ratings&#125;,</div><div class="line">	&#123;path:&apos;/seller&apos;,component:seller&#125;</div><div class="line"></div><div class="line">];</div><div class="line"></div><div class="line">const router = new VueRouter(&#123;</div><div class="line">	routes</div><div class="line">&#125;);</div><div class="line">const app = new Vue(&#123;	</div><div class="line">	router,</div><div class="line">	**render:h=&gt;h(App)**</div><div class="line">&#125;).$mount(&apos;#app&apos;);</div><div class="line"></div><div class="line">router.push(&apos;/goods&apos;);</div></pre></td></tr></table></figure>
+<h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><p>[TOC]</p>
+<h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><h4 id="components"><a href="#components" class="headerlink" title="components"></a>components</h4><h5 id="goods"><a href="#goods" class="headerlink" title="goods"></a>goods</h5><h6 id="goods-vue"><a href="#goods-vue" class="headerlink" title="goods.vue"></a>goods.vue</h6><h4 id="App-vue"><a href="#App-vue" class="headerlink" title="App.vue"></a>App.vue</h4><h4 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h4><h3 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h3><h3 id="index-js-1"><a href="#index-js-1" class="headerlink" title="index.js"></a>index.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">   &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</div><div class="line">   &lt;!-- built files will be auto injected --&gt;</div><div class="line"> &lt;/body&gt;</div></pre></td></tr></table></figure>
+<h3 id="App-vue-1"><a href="#App-vue-1" class="headerlink" title="App.vue"></a>App.vue</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;v-header&gt;&lt;/v-header&gt;</div><div class="line">    &lt;div class=&quot;tab&quot;&gt;</div><div class="line">      &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">        &lt;router-link to=&quot;/goods&quot;&gt;商品&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt; </div><div class="line">     &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">       &lt;router-link to=&quot;/ratings&quot;&gt;评价&lt;/router-link&gt;</div><div class="line">     &lt;/div&gt; </div><div class="line">     &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">      &lt;router-link to=&quot;/seller&quot;&gt;商家&lt;/router-link&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  </div><div class="line">   &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
+<h3 id="main-js-1"><a href="#main-js-1" class="headerlink" title="main.js"></a>main.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;</div><div class="line">import VueRouter from &apos;vue-router&apos;</div><div class="line">import App from &apos;./App&apos;</div><div class="line">import goods from &apos;./components/goods/goods&apos;</div><div class="line">import ratings from &apos;./components/ratings/ratings&apos;</div><div class="line">import seller from &apos;./components/seller/seller&apos;</div><div class="line"></div><div class="line"> Vue.use(VueRouter);</div><div class="line"></div><div class="line">const routes = [</div><div class="line">	&#123;path:&apos;/goods&apos;,component:goods&#125;,</div><div class="line">	&#123;path:&apos;/ratings&apos;,component:ratings&#125;,</div><div class="line">	&#123;path:&apos;/seller&apos;,component:seller&#125;</div><div class="line"></div><div class="line">];</div><div class="line"></div><div class="line">const router = new VueRouter(&#123;</div><div class="line">	routes</div><div class="line">&#125;);</div><div class="line">const app = new Vue(&#123;	</div><div class="line">	router,</div><div class="line">	**render:h=&gt;h(App)**</div><div class="line">&#125;).$mount(&apos;#app&apos;);</div><div class="line"></div><div class="line">router.push(&apos;/goods&apos;);</div></pre></td></tr></table></figure>
 <p>根据官方文档，以下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const app = new Vue(&#123;	</div><div class="line">	router,</div><div class="line">	**render:h=&gt;h(App)**</div><div class="line">&#125;).$mount(&apos;#app&apos;);</div></pre></td></tr></table></figure></p>
 <p>没有render：h=&gt;h(App) (讲文档迁移时有)此时router-link,无法渲染成a标签，添上render:h=&gt;h(App)则全部渲染出来了，注意接口h(App)<br><a href="https://cn.vuejs.org/v2/guide/migration-vue-router.html#main" target="_blank" rel="external">文档迁移地址</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/vue router-link及router-view不渲染问题/" data-id="cj2zgggov00036wsrp2afdny7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/17/vue router-link及router-view不渲染问题/" data-id="cj2zgp9lz0004i4srm77rbn0h" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -193,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/vuejs调试错误更改/" data-id="cj2zgggoz00046wsrn082k32k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/vuejs调试错误更改/" data-id="cj2zgp9m30005i4sr6c8ncbjc" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -230,7 +228,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello/" data-id="cj2zgggob00006wsrrawi7abe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/hello/" data-id="cj2zgp9lp0002i4srb3xk7lss" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -276,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello-world2/" data-id="cj2zgggos00026wsrgn5knwyk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/hello-world2/" data-id="cj2zgp9l80000i4srjrgadpe6" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -321,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello-world/" data-id="cj2zgggrd00056wsro3771qhx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/hello-world/" data-id="cj2zgp9li0001i4srtqmxzdxm" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -356,7 +354,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -393,7 +391,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Waterdroppp<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
