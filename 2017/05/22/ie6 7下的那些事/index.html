@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hello | 我的博客</title>
+  <title>我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hello world ! my first blog">
+  <meta name="description" content="##IE兼容问题总结## ###IE6下高度小于19px时，高度会被当作19px -解决办法：font-size:0;或者 overflow:hidden; ###IE 6 7 下li本身没浮动，但内容浮动了，li下多出来几px的间隙 -解决：给li加浮动或者给li设样式vertical-align:top|middle|bottom; -vertical-align:top|middle|bot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello">
-<meta property="og:url" content="http://yoursite.com/2017/05/13/hello/index.html">
+<meta property="og:title" content="我的博客">
+<meta property="og:url" content="http://yoursite.com/2017/05/22/ie6 7下的那些事/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="hello world ! my first blog">
-<meta property="og:updated_time" content="2017-05-13T03:32:13.244Z">
+<meta property="og:description" content="##IE兼容问题总结## ###IE6下高度小于19px时，高度会被当作19px -解决办法：font-size:0;或者 overflow:hidden; ###IE 6 7 下li本身没浮动，但内容浮动了，li下多出来几px的间隙 -解决：给li加浮动或者给li设样式vertical-align:top|middle|bottom; -vertical-align:top|middle|bot">
+<meta property="og:updated_time" content="2017-05-22T01:29:17.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hello">
-<meta name="twitter:description" content="hello world ! my first blog">
+<meta name="twitter:title" content="我的博客">
+<meta name="twitter:description" content="##IE兼容问题总结## ###IE6下高度小于19px时，高度会被当作19px -解决办法：font-size:0;或者 overflow:hidden; ###IE 6 7 下li本身没浮动，但内容浮动了，li下多出来几px的间隙 -解决：给li加浮动或者给li设样式vertical-align:top|middle|bottom; -vertical-align:top|middle|bot">
   
     <link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -63,34 +63,46 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ie6 7下的那些事" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/13/hello/" class="article-date">
-  <time datetime="2017-05-13T03:30:59.000Z" itemprop="datePublished">2017-05-13</time>
+    <a href="/2017/05/22/ie6 7下的那些事/" class="article-date">
+  <time datetime="2017-05-22T01:29:17.220Z" itemprop="datePublished">2017-05-22</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      hello
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>hello world ! my first blog</p>
+        <p>##IE兼容问题总结##</p>
+<p>###IE6下高度小于19px时，高度会被当作19px</p>
+<p>-解决办法：font-size:0;或者 overflow:hidden;</p>
+<p>###IE 6 7 下li本身没浮动，但内容浮动了，li下多出来几px的间隙</p>
+<p>-解决：给li加浮动或者给li设样式vertical-align:top|middle|bottom;</p>
+<p>-vertical-align:top|middle|bottom；也用来清除图片下的空隙</p>
+<p>-当ie6下最小高度问题和li间隙问题同时存在时，给li加浮动</p>
+<p>###ie6 下父级的overflow包不住子级的相对定位</p>
+<p>-解决：父级加上position:relative;</p>
+<p>###ie6 7 下父级有边框，子元素margin值消失</p>
+<p>-解决：触发父级的haslayout（overflow:hidden;<strong>zoom:1</strong>）</p>
+<p>###ie6 下的双边距bug（在ie6下块元素有浮动和横向的margin值，横向的margin值会放大两倍）</p>
+<p>-解决：display:inline;</p>
+<p>###ie6 下文字溢出bug（子元素宽度与父级宽高相差小于3px，两个浮动元素中间有注释或者内嵌元素）</p>
+<p>-用div把注释和内嵌元素包裹使用</p>
+<p>###ie6 下浮动元素与绝对定位元素并列时，绝对定位元素会消失</p>
+<p>-给定位元素外，加div包裹</p>
+<p>###在ie67 下输入表单控件上下有1px的间隙、</p>
+<p>-给input加浮动</p>
+<p>###ie6 下不支持png图片，</p>
+<p>-用条件注释语句</p>
+<p>###ie 6 7 下输入类型的表单控件输入文字时，背景图片跟着一块走</p>
+<p>-把背景加给父级，再清除掉自身的背景</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello/" data-id="cj2zgggob00006wsrrawi7abe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cj2zgggom00016wsr4i49cwvl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -99,19 +111,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/05/16/vuejs调试错误更改/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          vuejs调试错误Error:Cannot find module &#39;stylus&#39;
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/13/hello-world2/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/05/17/vue router-link及router-view不渲染问题/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">router-link及router-view不渲染</div>
     </a>
   
 </nav>
