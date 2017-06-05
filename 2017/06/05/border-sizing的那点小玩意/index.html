@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>border-sizing 的那些小玩意 | 我的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="w3c标准盒模型123456/*外盒尺寸计算（元素空间尺寸）*/Element空间高度 = content height + padding + border + marginElement 空间宽度 = content width + padding + border + margin/*内盒尺寸计算（元素大小）*/Element Height = content height + paddin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="border-sizing 的那些小玩意">
+<meta property="og:url" content="http://yoursite.com/2017/06/05/border-sizing的那点小玩意/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="w3c标准盒模型123456/*外盒尺寸计算（元素空间尺寸）*/Element空间高度 = content height + padding + border + marginElement 空间宽度 = content width + padding + border + margin/*内盒尺寸计算（元素大小）*/Element Height = content height + paddin">
+<meta property="og:image" content="http://yoursite.com/image/diff.png">
+<meta property="og:image" content="http://yoursite.com/image/diff1.png">
+<meta property="og:image" content="http://yoursite.com/image/diff2.png">
+<meta property="og:image" content="http://yoursite.com/image/diff3.png">
+<meta property="og:updated_time" content="2017-06-05T06:20:27.250Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="border-sizing 的那些小玩意">
+<meta name="twitter:description" content="w3c标准盒模型123456/*外盒尺寸计算（元素空间尺寸）*/Element空间高度 = content height + padding + border + marginElement 空间宽度 = content width + padding + border + margin/*内盒尺寸计算（元素大小）*/Element Height = content height + paddin">
+<meta name="twitter:image" content="http://yoursite.com/image/diff.png">
+  
+    <link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">我的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-border-sizing的那点小玩意" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/05/border-sizing的那点小玩意/" class="article-date">
+  <time datetime="2017-06-05T03:57:13.731Z" itemprop="datePublished">2017-06-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      border-sizing 的那些小玩意
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="w3c标准盒模型"><a href="#w3c标准盒模型" class="headerlink" title="w3c标准盒模型"></a>w3c标准盒模型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/*外盒尺寸计算（元素空间尺寸）*/</div><div class="line">Element空间高度 = content height + padding + border + margin</div><div class="line">Element 空间宽度 = content width + padding + border + margin</div><div class="line">/*内盒尺寸计算（元素大小）*/</div><div class="line">Element Height = content height + padding + border （Height为内容高度）</div><div class="line">Element Width = content width + padding + border （Width为内容宽度）</div></pre></td></tr></table></figure>
+<h3 id="IE传统下的盒模型-怪异模式"><a href="#IE传统下的盒模型-怪异模式" class="headerlink" title="IE传统下的盒模型(怪异模式)"></a>IE传统下的盒模型(怪异模式)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/*外盒尺寸计算（元素空间尺寸）*/</div><div class="line">Element空间高度 = content Height + margin (Height包含了元素内容宽度，边框宽度，内距宽度)</div><div class="line">Element空间宽度 = content Width + margin (Width包含了元素内容宽度、边框宽度、内距宽度)</div><div class="line">/*内盒尺寸计算（元素大小）*/</div><div class="line">Element Height = content Height(Height包含了元素内容宽度，边框宽度，内距宽度)</div><div class="line">Element Width = content Width(Width包含了元素内容宽度、边框宽度、内距宽度)</div></pre></td></tr></table></figure>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例-"></a>实例-</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content-box"</span> <span class="attr">class</span>=<span class="string">"imgbox"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"1.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"border-box"</span> <span class="attr">class</span>=<span class="string">"imgbox"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"1.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.imgbox</span> <span class="selector-tag">img</span> &#123;                       </div><div class="line">    <span class="attribute">width</span>: <span class="number">680px</span>;                   </div><div class="line">    <span class="attribute">height</span>: <span class="number">344px</span>;                  </div><div class="line">    <span class="attribute">border</span>: <span class="number">5px</span> solid <span class="number">#000</span>;         </div><div class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;                  </div><div class="line">    <span class="attribute">margin</span>: <span class="number">20px</span>;                   </div><div class="line">&#125;                                   </div><div class="line">                                    </div><div class="line"><span class="selector-id">#content-box</span> <span class="selector-tag">img</span> &#123;                  </div><div class="line">    <span class="attribute">-moz-box-sizing</span>: content-box;   </div><div class="line">    <span class="attribute">-webkit-box-sizing</span>: content-box;</div><div class="line">    <span class="attribute">-o-box-sizing</span>: content-box;     </div><div class="line">    <span class="attribute">-ms-box-sizing</span>: content-box;    </div><div class="line">    <span class="attribute">box-sizing</span>: content-box;        </div><div class="line">                                    </div><div class="line">&#125;                                   </div><div class="line">                                    </div><div class="line"><span class="selector-id">#border-box</span> <span class="selector-tag">img</span> &#123;                   </div><div class="line">    <span class="attribute">-moz-box-sizing</span>: border-box;    </div><div class="line">    <span class="attribute">-webkit-box-sizing</span>: border-box; </div><div class="line">    <span class="attribute">-o-box-sizing</span>: border-box;      </div><div class="line">    <span class="attribute">-ms-box-sizing</span>: border-box;     </div><div class="line">    <span class="attribute">box-sizing</span>: border-box;         </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="效果对比"><a href="#效果对比" class="headerlink" title="效果对比"></a>效果对比</h4><p><img src="/image/diff.png" alt="&quot;对比&quot;"></p>
+<p>从以上的对比图中可以看出来，w3c标准的盒模型，图片大小不变，但外层盒子变大，ie标准的盒模型，图片变小，外层的盒子等于刚开始设定的，应用border-box可以避免盒子引用padding和border值时，改变其width<br>和height</p>
+<h4 id="应用例子"><a href="#应用例子" class="headerlink" title="应用例子"></a>应用例子</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>                                      </div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"header"</span> <span class="attr">class</span>=<span class="string">"Padding"</span>&gt;</span>I am header<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span> <span class="attr">class</span>=<span class="string">"clearfix "</span>&gt;</span>                </div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left Padding"</span>&gt;</span>i am left<span class="tag">&lt;/<span class="name">div</span>&gt;</span>       </div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right Padding"</span>&gt;</span>i am right<span class="tag">&lt;/<span class="name">div</span>&gt;</span>     </div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>                                              </div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer"</span> <span class="attr">class</span>=<span class="string">"Padding"</span>&gt;</span>i am footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.demo</span> &#123;                  </div><div class="line">    <span class="attribute">width</span>: <span class="number">960px</span>;        </div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;      </div><div class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;          </div><div class="line">    <span class="attribute">background</span>:<span class="number">#000</span>;     </div><div class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;         </div><div class="line">&#125;                        </div><div class="line"><span class="selector-id">#header</span> &#123;                </div><div class="line">    <span class="attribute">background</span>:<span class="number">#ccc</span>;     </div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>          </div><div class="line">&#125;                        </div><div class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;        </div><div class="line">    <span class="attribute">content</span>:<span class="string">""</span>;          </div><div class="line">    <span class="attribute">display</span>: block;      </div><div class="line">    <span class="attribute">clear</span>: both;         </div><div class="line">&#125;                        </div><div class="line"><span class="selector-class">.clearfix</span>  &#123;             </div><div class="line">    <span class="attribute">zoom</span>:<span class="number">1</span>;              </div><div class="line">&#125;                        </div><div class="line"><span class="selector-id">#content</span> <span class="selector-class">.left</span> &#123;         </div><div class="line">    <span class="attribute">width</span>: <span class="number">220px</span>;        </div><div class="line">    <span class="attribute">float</span>: left;         </div><div class="line">    <span class="attribute">margin-right</span>: <span class="number">20px</span>;  </div><div class="line">    <span class="attribute">background</span>: orange;  </div><div class="line">&#125;                        </div><div class="line"><span class="selector-id">#content</span> <span class="selector-class">.right</span> &#123;        </div><div class="line">    <span class="attribute">width</span>: <span class="number">720px</span>;        </div><div class="line">    <span class="attribute">float</span>: left;         </div><div class="line">    <span class="attribute">background</span>: pink;    </div><div class="line">&#125;                        </div><div class="line"><span class="selector-id">#footer</span> &#123;                </div><div class="line">    <span class="attribute">background</span>:green;    </div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;         </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/diff1.png" alt="&quot;对比2&quot;"></p>
+<p>从上面对比可以看出布局完好</p>
+<p>当加入下面代码时</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.Padding</span> &#123;                      </div><div class="line">     <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;    </div><div class="line">     <span class="attribute">padding</span>: <span class="number">10px</span>; </div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>布局错位</p>
+<p><img src="/image/diff2.png" alt="&quot;对比3&quot;"></p>
+<p>当有padding值时，而又不改其width，height值，布局错位</p>
+<p>使用border-box<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> <span class="selector-class">.Padding</span> &#123;                      </div><div class="line">      <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;    </div><div class="line">      <span class="attribute">padding</span>: <span class="number">10px</span>;             </div><div class="line">      <span class="attribute">box-sizing</span>: border-box;    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="/image/diff3.png" alt="&quot;对比3&quot;"></p>
+<p>布局恢复，但高变大，这是没有设高度的缘故</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/05/border-sizing的那点小玩意/" data-id="cj3jo750h0000h4srz9gt7gho" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/01/字符串中重复的字符及个数/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">字符串中重复字符及重复字符个数</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/05/border-sizing的那点小玩意/">border-sizing 的那些小玩意</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/01/字符串中重复的字符及个数/">字符串中重复字符及重复字符个数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/24/sticky foot 布局/">sticky footer 布局</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/22/ie6 7下的那些事/">ie6 7下的那些事(兼容)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/17/vue router-link及router-view不渲染问题/">router-link及router-view不渲染</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Waterdroppp<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
