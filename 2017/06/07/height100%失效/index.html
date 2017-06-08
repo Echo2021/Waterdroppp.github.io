@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>height 100%失效 | 我的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="当你想要页面占满整个页面时，一定会设置width：100%，height：100%但是当height:100%时，并没有撑起高度，W3C的规范，百分比的高度在设定时需要根据这个元素的父元素容器的高度 height无效Web浏览器在计算有效宽度时会考虑浏览器窗口的打开宽度。如果你不给宽度设定任何缺省值，那浏览器会自动将页面内容平铺填满整个横向宽度。但是高度的计算方式完全不一样。事实上，浏览器根本就不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="height 100%失效">
+<meta property="og:url" content="http://yoursite.com/2017/06/07/height100%失效/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="当你想要页面占满整个页面时，一定会设置width：100%，height：100%但是当height:100%时，并没有撑起高度，W3C的规范，百分比的高度在设定时需要根据这个元素的父元素容器的高度 height无效Web浏览器在计算有效宽度时会考虑浏览器窗口的打开宽度。如果你不给宽度设定任何缺省值，那浏览器会自动将页面内容平铺填满整个横向宽度。但是高度的计算方式完全不一样。事实上，浏览器根本就不">
+<meta property="og:image" content="http://yoursite.com/image/h.png">
+<meta property="og:image" content="http://yoursite.com/image/h2.png">
+<meta property="og:updated_time" content="2017-06-08T14:38:50.449Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="height 100%失效">
+<meta name="twitter:description" content="当你想要页面占满整个页面时，一定会设置width：100%，height：100%但是当height:100%时，并没有撑起高度，W3C的规范，百分比的高度在设定时需要根据这个元素的父元素容器的高度 height无效Web浏览器在计算有效宽度时会考虑浏览器窗口的打开宽度。如果你不给宽度设定任何缺省值，那浏览器会自动将页面内容平铺填满整个横向宽度。但是高度的计算方式完全不一样。事实上，浏览器根本就不">
+<meta name="twitter:image" content="http://yoursite.com/image/h.png">
+  
+    <link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">我的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-height100%失效" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/07/height100%失效/" class="article-date">
+  <time datetime="2017-06-07T03:11:45.072Z" itemprop="datePublished">2017-06-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      height 100%失效
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当你想要页面占满整个页面时，一定会设置width：100%，height：100%<br>但是当height:100%时，并没有撑起高度，W3C的规范，百分比的高度在设定时需要根据这个元素的父元素容器的高度</p>
+<h4 id="height无效"><a href="#height无效" class="headerlink" title="height无效"></a>height无效</h4><p>Web浏览器在计算有效宽度时会考虑浏览器窗口的打开宽度。如果你不给宽度设定任何缺省值，那浏览器会自动将页面内容平铺填满整个横向宽度。<br>但是高度的计算方式完全不一样。事实上，浏览器根本就不计算内容的高度，除非内容超出了视窗范围(导致滚动条出现)。或者你给整个页面设置一个绝对高度。否则，浏览器就会简单的让内容往下堆砌，页面的高度根本就无需考虑。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">	<span class="selector-tag">div</span> &#123;</div><div class="line">		<span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">		<span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">		<span class="attribute">background</span>:<span class="number">#eee</span>;</div><div class="line">	&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><img src="/image/h.png" alt="&quot;height失效&quot;"></p>
+<p>从以上可以看出height失效</p>
+<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>给此元素所有父级加上height：100%；</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span> &#123;</div><div class="line">	<span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/h2.png" alt="&quot;height&quot;"></p>
+<p>height失效问题已经解决</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/07/height100%失效/" data-id="cj3oj4byh0001m8srpxah9jq3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/05/border-sizing的那点小玩意/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">border-sizing 的那些小玩意</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/07/height100%失效/">height 100%失效</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/05/border-sizing的那点小玩意/">border-sizing 的那些小玩意</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/01/字符串中重复的字符及个数/">字符串中重复字符及重复字符个数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/24/sticky foot 布局/">sticky footer 布局</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/22/ie6 7下的那些事/">ie6 7下的那些事(兼容)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Waterdroppp<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
