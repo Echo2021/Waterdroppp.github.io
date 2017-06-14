@@ -61,6 +61,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-line-height为百分数垂直方向不居中" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/14/line-height为百分数垂直方向不居中/" class="article-date">
+  <time datetime="2017-06-14T08:56:27.851Z" itemprop="datePublished">2017-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/14/line-height为百分数垂直方向不居中/">line-height为百分数时，垂直方向不能居中</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用line-height和height进行垂直居中过程中，line-height为百分数时，并不能居中，这是因为line-height的百分数是相对当前字体大小的百分比，所以不能使垂直方向上居中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">span</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;</div><div class="line">		<span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="selector-tag">div</span> &#123;</div><div class="line">		<span class="attribute">width</span>:<span class="number">10%</span>;</div><div class="line">		<span class="attribute">height</span>:<span class="number">10%</span>;</div><div class="line">		<span class="attribute">line-height</span>:<span class="number">10%</span>;</div><div class="line">		<span class="attribute">background-color</span>:<span class="number">#ccc</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/line-height.png" alt="&quot;line-height为百分比时&quot;"></p>
+<p>从上可以看出不能垂直方向上居中；</p>
+<h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><p>父级加display:table,要居中的子级加display:table-cell和vertical-align</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">			width:10%;</div><div class="line">			height:10%;</div><div class="line">		</div><div class="line">			display:table;</div><div class="line">			background-color:#ccc;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	span &#123;</div><div class="line">		display:table-cell;</div><div class="line">		vertical-align:middle;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/line-height2.png" alt="&quot;对比&quot;"></p>
+<p>加过之后，垂直方向居中</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/14/line-height为百分数垂直方向不居中/" data-id="cj3wshf510000b8sr9uftelqo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-高德地图--插件使用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/13/高德地图--插件使用/" class="article-date">
@@ -98,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/13/高德地图--插件使用/" data-id="cj3vne7iq0007nksrzcg1jj20" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/13/高德地图--插件使用/" data-id="cj3wsdeol000bkgsrfxg5g5op" class="article-share-link">Share</a>
       
       
     </footer>
@@ -143,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/07/height100%失效/" data-id="cj3vne7it0008nksr92dm2sz4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/07/height100%失效/" data-id="cj3wsdena0002kgsr5quaxxhq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -198,7 +243,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/border-sizing的那点小玩意/" data-id="cj3vne7i40002nksrp2rvoael" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/border-sizing的那点小玩意/" data-id="cj3wsdena0001kgsr63hslwfz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -235,7 +280,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/01/字符串中重复的字符及个数/" data-id="cj3vne7io0006nksrk0p7ejz0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/01/字符串中重复的字符及个数/" data-id="cj3wsdeo60009kgsr6xbqw71j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -276,7 +321,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/24/sticky foot 布局/" data-id="cj3vne7ja0009nksrcvsfyv5j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/24/sticky foot 布局/" data-id="cj3wsdenq0006kgsroo33aoz5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -347,7 +392,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cj3vne7hz0001nksruu09f2ed" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cj3wsdenq0007kgsrwotgk75k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -390,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/vue router-link及router-view不渲染问题/" data-id="cj3vne7jc000anksrv08obltn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/17/vue router-link及router-view不渲染问题/" data-id="cj3wsdeo60008kgsr7bevfbte" class="article-share-link">Share</a>
       
       
     </footer>
@@ -429,7 +474,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/vuejs调试错误更改/" data-id="cj3vne7ij0005nksrzb3cjiys" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/vuejs调试错误更改/" data-id="cj3wsdeo6000akgsr4xpl2ym0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -466,53 +511,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello/" data-id="cj3vne7ic0004nksrjria1c46" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/13/hello-world2/" class="article-date">
-  <time datetime="2017-05-13T02:14:22.829Z" itemprop="datePublished">2017-05-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/13/hello-world2/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p><img src="/image/4.png" alt="&quot;图片&quot;">  </p>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello-world2/" data-id="cj3vne7hp0000nksre0ntb624" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/hello/" data-id="cj3wsdenq0003kgsrjx2xhvt5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -556,6 +555,10 @@
       <ul>
         
           <li>
+            <a href="/2017/06/14/line-height为百分数垂直方向不居中/">line-height为百分数时，垂直方向不能居中</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/13/高德地图--插件使用/">高德地图--插件的引用</a>
           </li>
         
@@ -569,10 +572,6 @@
         
           <li>
             <a href="/2017/06/01/字符串中重复的字符及个数/">字符串中重复字符及重复字符个数</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/24/sticky foot 布局/">sticky footer 布局</a>
           </li>
         
       </ul>
