@@ -5,16 +5,18 @@
   
   <title>js使用my97插件显示当前时间，且计算时间差 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="做页面需要两个时间输入框一个显示当前时间，一个显示之前的时间，并且需要一个select下拉框控制两个时间输入框之间的差,效果如下图： ！“时间” 这里使用的是My97DatePicer,简单方便,引入my97插件，设置input时间框的格式，这里设置的时间最大是当前时间，开始时间框不能比结束时间框的时间大 1234567891011121314&amp;lt;script src=&amp;quot;lib/da">
+  <meta name="description" content="做页面需要两个时间输入框一个显示当前时间，一个显示之前的时间，并且需要一个select下拉框控制两个时间输入框之间的差,效果如下图：  这里使用的是My97DatePicer,简单方便,引入my97插件，设置input时间框的格式，这里设置的时间最大是当前时间，开始时间框不能比结束时间框的时间大 1234567891011121314&amp;lt;script src=&amp;quot;lib/date/Wd">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js使用my97插件显示当前时间，且计算时间差">
 <meta property="og:url" content="http://yoursite.com/2017/06/17/my97DatePicker显示当时时间/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="做页面需要两个时间输入框一个显示当前时间，一个显示之前的时间，并且需要一个select下拉框控制两个时间输入框之间的差,效果如下图： ！“时间” 这里使用的是My97DatePicer,简单方便,引入my97插件，设置input时间框的格式，这里设置的时间最大是当前时间，开始时间框不能比结束时间框的时间大 1234567891011121314&amp;lt;script src=&amp;quot;lib/da">
-<meta property="og:updated_time" content="2017-06-17T08:36:05.989Z">
+<meta property="og:description" content="做页面需要两个时间输入框一个显示当前时间，一个显示之前的时间，并且需要一个select下拉框控制两个时间输入框之间的差,效果如下图：  这里使用的是My97DatePicer,简单方便,引入my97插件，设置input时间框的格式，这里设置的时间最大是当前时间，开始时间框不能比结束时间框的时间大 1234567891011121314&amp;lt;script src=&amp;quot;lib/date/Wd">
+<meta property="og:image" content="http://yoursite.com/image/time1.png">
+<meta property="og:updated_time" content="2017-06-17T08:50:00.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js使用my97插件显示当前时间，且计算时间差">
-<meta name="twitter:description" content="做页面需要两个时间输入框一个显示当前时间，一个显示之前的时间，并且需要一个select下拉框控制两个时间输入框之间的差,效果如下图： ！“时间” 这里使用的是My97DatePicer,简单方便,引入my97插件，设置input时间框的格式，这里设置的时间最大是当前时间，开始时间框不能比结束时间框的时间大 1234567891011121314&amp;lt;script src=&amp;quot;lib/da">
+<meta name="twitter:description" content="做页面需要两个时间输入框一个显示当前时间，一个显示之前的时间，并且需要一个select下拉框控制两个时间输入框之间的差,效果如下图：  这里使用的是My97DatePicer,简单方便,引入my97插件，设置input时间框的格式，这里设置的时间最大是当前时间，开始时间框不能比结束时间框的时间大 1234567891011121314&amp;lt;script src=&amp;quot;lib/date/Wd">
+<meta name="twitter:image" content="http://yoursite.com/image/time1.png">
   
     <link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -86,7 +88,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>做页面需要两个时间输入框一个显示当前时间，一个显示之前的时间，并且需要一个select下拉框控制两个时间输入框之间的差,效果如下图：</p>
-<p>！<a href="/image/time1.png">“时间”</a></p>
+<p><img src="/image/time1.png" alt="&quot;时间&quot;"></p>
 <p>这里使用的是My97DatePicer,简单方便,引入my97插件，设置input时间框的格式，这里设置的时间最大是当前时间，开始时间框不能比结束时间框的时间大</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;lib/date/WdatePicker.js&quot;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">选择时间范围：&lt;select name=&quot;selectDate&quot; id=&quot;sDate&quot;&gt;</div><div class="line">				&lt;option value=&quot;1&quot;&gt;一天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;2&quot;&gt;两天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;3&quot;&gt;三天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;7&quot;&gt;一周&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;14&quot;&gt;二周&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;21&quot;&gt;三周&lt;/option&gt;</div><div class="line">			&lt;/select&gt;</div><div class="line">			&lt;br/&gt;</div><div class="line">			开始时间：&lt;input type=&quot;text&quot; id=&quot;startTime&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;lang:&apos;zh-cn&apos;,dateFmt:&apos;yyyy-MM-dd HH:mm:ss&apos;,maxDate:&apos;#F&#123;$dp.$D(\&apos;endTime\&apos;)&#125;&apos;&amp;&amp;&apos;%y-%M-%d&apos;&#125;)&quot;&gt;</div><div class="line">			&lt;br/&gt;</div><div class="line">			结束时间：&lt;input type=&quot;text&quot; id=&quot;endTime&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;lang:&apos;zh-cn&apos;,dateFmt:&apos;yyyy-MM-dd HH:mm:ss&apos;,minDate:&apos;#F&#123;$dp.$D(\&apos;startTime\&apos;)&#125;&apos;,maxDate:&apos;%y-%M-%d&apos;&#125;)&quot;&gt;</div></pre></td></tr></table></figure>
 <p>弄完这些，就可以点出时间了，但需要的是进入页面就显示当时时间，原理就是获取当前时间值再输入到时间框里</p>
@@ -109,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/17/my97DatePicker显示当时时间/" data-id="cj4114p6m0001swsrv1ok1ycg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/17/my97DatePicker显示当时时间/" data-id="cj411m0ft00073gsra1pcp2hs" class="article-share-link">Share</a>
       
       
     </footer>

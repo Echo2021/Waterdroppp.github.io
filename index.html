@@ -84,7 +84,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>做页面需要两个时间输入框一个显示当前时间，一个显示之前的时间，并且需要一个select下拉框控制两个时间输入框之间的差,效果如下图：</p>
-<p>！<a href="/image/time1.png">“时间”</a></p>
+<p><img src="/image/time1.png" alt="&quot;时间&quot;"></p>
 <p>这里使用的是My97DatePicer,简单方便,引入my97插件，设置input时间框的格式，这里设置的时间最大是当前时间，开始时间框不能比结束时间框的时间大</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;lib/date/WdatePicker.js&quot;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">选择时间范围：&lt;select name=&quot;selectDate&quot; id=&quot;sDate&quot;&gt;</div><div class="line">				&lt;option value=&quot;1&quot;&gt;一天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;2&quot;&gt;两天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;3&quot;&gt;三天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;7&quot;&gt;一周&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;14&quot;&gt;二周&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;21&quot;&gt;三周&lt;/option&gt;</div><div class="line">			&lt;/select&gt;</div><div class="line">			&lt;br/&gt;</div><div class="line">			开始时间：&lt;input type=&quot;text&quot; id=&quot;startTime&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;lang:&apos;zh-cn&apos;,dateFmt:&apos;yyyy-MM-dd HH:mm:ss&apos;,maxDate:&apos;#F&#123;$dp.$D(\&apos;endTime\&apos;)&#125;&apos;&amp;&amp;&apos;%y-%M-%d&apos;&#125;)&quot;&gt;</div><div class="line">			&lt;br/&gt;</div><div class="line">			结束时间：&lt;input type=&quot;text&quot; id=&quot;endTime&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;lang:&apos;zh-cn&apos;,dateFmt:&apos;yyyy-MM-dd HH:mm:ss&apos;,minDate:&apos;#F&#123;$dp.$D(\&apos;startTime\&apos;)&#125;&apos;,maxDate:&apos;%y-%M-%d&apos;&#125;)&quot;&gt;</div></pre></td></tr></table></figure>
 <p>弄完这些，就可以点出时间了，但需要的是进入页面就显示当时时间，原理就是获取当前时间值再输入到时间框里</p>
@@ -107,7 +107,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/17/my97DatePicker显示当时时间/" data-id="cj4114p6m0001swsrv1ok1ycg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/17/my97DatePicker显示当时时间/" data-id="cj411m0ft00073gsra1pcp2hs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/14/line-height为百分数垂直方向不居中/" data-id="cj4114p7q0009swsr8g2zu4nx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/14/line-height为百分数垂直方向不居中/" data-id="cj411m0fr00063gsr2rlhhwna" class="article-share-link">Share</a>
       
       
     </footer>
@@ -199,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/13/高德地图--插件使用/" data-id="cj4114p8o000bswsrjemcu9py" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/13/高德地图--插件使用/" data-id="cj411m0gd000c3gsrc2i5mxat" class="article-share-link">Share</a>
       
       
     </footer>
@@ -233,7 +233,7 @@
       
         <p>当你想要页面占满整个页面时，一定会设置width：100%，height：100%<br>但是当height:100%时，并没有撑起高度，W3C的规范，百分比的高度在设定时需要根据这个元素的父元素容器的高度</p>
 <h4 id="height无效"><a href="#height无效" class="headerlink" title="height无效"></a>height无效</h4><p>Web浏览器在计算有效宽度时会考虑浏览器窗口的打开宽度。如果你不给宽度设定任何缺省值，那浏览器会自动将页面内容平铺填满整个横向宽度。<br>但是高度的计算方式完全不一样。事实上，浏览器根本就不计算内容的高度，除非内容超出了视窗范围(导致滚动条出现)。或者你给整个页面设置一个绝对高度。否则，浏览器就会简单的让内容往下堆砌，页面的高度根本就无需考虑。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">	div &#123;</div><div class="line">		width:100%;</div><div class="line">		height:100%;</div><div class="line">		background:#eee;</div><div class="line">	&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">	<span class="selector-tag">div</span> &#123;</div><div class="line">		<span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">		<span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">		<span class="attribute">background</span>:<span class="number">#eee</span>;</div><div class="line">	&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
 <p><img src="/image/h.png" alt="&quot;height失效&quot;"></p>
 <p>从以上可以看出height失效</p>
 <h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>给此元素所有父级加上height：100%；</p>
@@ -244,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/07/height100%失效/" data-id="cj4114p6x0004swsrlafdh2n1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/07/height100%失效/" data-id="cj411m0f400013gsrivenltec" class="article-share-link">Share</a>
       
       
     </footer>
@@ -299,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/border-sizing的那点小玩意/" data-id="cj4114p790007swsrvdq9gjai" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/border-sizing的那点小玩意/" data-id="cj411m0et00003gsr2bxt05dp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -336,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/01/字符串中重复的字符及个数/" data-id="cj4114p750006swsrke8n60n7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/01/字符串中重复的字符及个数/" data-id="cj411m0ga000b3gsrzt0lv2fc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -377,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/24/sticky foot 布局/" data-id="cj4114p7l0008swsrc1thgjbg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/24/sticky foot 布局/" data-id="cj411m0g100083gsr73xglzmm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -448,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cj4114p6r0002swsr7wggzees" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cj411m0fn00053gsrm2igiq3z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -491,7 +491,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/vue router-link及router-view不渲染问题/" data-id="cj4114p8m000aswsrfhzfcptz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/17/vue router-link及router-view不渲染问题/" data-id="cj411m0g500093gsr1f45d8rx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -530,7 +530,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/vuejs调试错误更改/" data-id="cj4114p8s000cswsrjhtz1yxh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/vuejs调试错误更改/" data-id="cj411m0g8000a3gsrd5ekscmz" class="article-share-link">Share</a>
       
       
     </footer>
