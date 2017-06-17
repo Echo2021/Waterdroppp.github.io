@@ -61,6 +61,62 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-my97DatePicker显示当时时间" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/17/my97DatePicker显示当时时间/" class="article-date">
+  <time datetime="2017-06-17T07:45:28.736Z" itemprop="datePublished">2017-06-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/17/my97DatePicker显示当时时间/">js使用my97插件显示当前时间，且计算时间差</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>做页面需要两个时间输入框一个显示当前时间，一个显示之前的时间，并且需要一个select下拉框控制两个时间输入框之间的差,效果如下图：</p>
+<p>！<a href="/image/time1.png">“时间”</a></p>
+<p>这里使用的是My97DatePicer,简单方便,引入my97插件，设置input时间框的格式，这里设置的时间最大是当前时间，开始时间框不能比结束时间框的时间大</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;lib/date/WdatePicker.js&quot;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">选择时间范围：&lt;select name=&quot;selectDate&quot; id=&quot;sDate&quot;&gt;</div><div class="line">				&lt;option value=&quot;1&quot;&gt;一天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;2&quot;&gt;两天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;3&quot;&gt;三天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;7&quot;&gt;一周&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;14&quot;&gt;二周&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;21&quot;&gt;三周&lt;/option&gt;</div><div class="line">			&lt;/select&gt;</div><div class="line">			&lt;br/&gt;</div><div class="line">			开始时间：&lt;input type=&quot;text&quot; id=&quot;startTime&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;lang:&apos;zh-cn&apos;,dateFmt:&apos;yyyy-MM-dd HH:mm:ss&apos;,maxDate:&apos;#F&#123;$dp.$D(\&apos;endTime\&apos;)&#125;&apos;&amp;&amp;&apos;%y-%M-%d&apos;&#125;)&quot;&gt;</div><div class="line">			&lt;br/&gt;</div><div class="line">			结束时间：&lt;input type=&quot;text&quot; id=&quot;endTime&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;lang:&apos;zh-cn&apos;,dateFmt:&apos;yyyy-MM-dd HH:mm:ss&apos;,minDate:&apos;#F&#123;$dp.$D(\&apos;startTime\&apos;)&#125;&apos;,maxDate:&apos;%y-%M-%d&apos;&#125;)&quot;&gt;</div></pre></td></tr></table></figure>
+<p>弄完这些，就可以点出时间了，但需要的是进入页面就显示当时时间，原理就是获取当前时间值再输入到时间框里</p>
+<p>获取当时时间,因为获得的月份是从0-11，所以获得月份加一，才是真实月份</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"><span class="keyword">var</span> year = date.getFullYear();</div><div class="line"><span class="keyword">var</span> month = date.getMonth()+<span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> day = date.getDate();</div><div class="line"><span class="keyword">var</span> hour = date.getHours();</div><div class="line"><span class="keyword">var</span> minutes = date.getMinutes();</div><div class="line"><span class="keyword">var</span> seconds = date.getSeconds();</div></pre></td></tr></table></figure>
+<p>将获得的时间拼成字符串，因为考虑到获取的时间数字小于10时，格式是这样的2017-9-1 10:1:8,所以小于10时拼接一下，更符合习惯</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">var endTimeStr,startTimeStr;</div><div class="line">		var str1,str2,str3,str4,str5;</div><div class="line">		if(month&lt;10)&#123;</div><div class="line">			str1=&apos;-0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str1=&apos;-&apos;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(day&lt;10)&#123;</div><div class="line">			str2=&apos;-0&apos;;</div><div class="line">		&#125;else&#123;</div><div class="line">			str2=&apos;-&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(hour&lt;10)&#123;</div><div class="line">			str3=&apos; 0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str3=&apos; &apos;;</div><div class="line">		&#125;</div><div class="line">		if(minutes&lt;10)&#123;</div><div class="line">			str4=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str4=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line">		if(seconds&lt;10)&#123;</div><div class="line">			str5=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str5=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line"></div><div class="line">	endTimeStr = year+str1+month+str2+day+str3 +hour+str4+minutes+str5+seconds;</div></pre></td></tr></table></figure>
+<p>这得到的是结束时间的，因为select下拉框控制的范围是到当前时间的，开始时间受下拉框限制，我们需要找出时间差</p>
+<p>这是当前时间的毫秒数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var time = date.getTime();</div></pre></td></tr></table></figure>
+<p>这是下拉框控制的时间范围，转化为毫秒数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var cTime = $(&apos;#sDate&apos;).val()*24*3600*1000;</div></pre></td></tr></table></figure>
+<p>当前时间-下拉框时间=开始时间，再将开始时间转化为标准的格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">var dif = time-cTime;</div><div class="line">var nTime = new Date(dif);</div><div class="line"></div><div class="line">var year1 = nTime.getFullYear();</div><div class="line">var month1 = nTime.getMonth()+1;</div><div class="line"></div><div class="line">var day1 = nTime.getDate();</div><div class="line"></div><div class="line">var hour1 = nTime.getHours();</div><div class="line">var minutes1 = nTime.getMinutes();</div><div class="line">var seconds1 = nTime.getSeconds();</div><div class="line">var str11.str12,str13,str14,str15;</div><div class="line"></div><div class="line">		if(month1&lt;10)&#123;</div><div class="line">			str11=&apos;-0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str11=&apos;-&apos;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(day1&lt;10)&#123;</div><div class="line">			str12=&apos;-0&apos;;</div><div class="line">		&#125;else&#123;</div><div class="line">			str12=&apos;-&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(hour1&lt;10)&#123;</div><div class="line">			str13=&apos; 0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str13=&apos; &apos;;</div><div class="line">		&#125;</div><div class="line">		if(minutes1&lt;10)&#123;</div><div class="line">			str14=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str14=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line">		if(seconds1&lt;10)&#123;</div><div class="line">			str15=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str15=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	startTimeStr = year1+str11+month1+str12+day1+str13 +hour1+str14+minutes1+str15+seconds1;</div></pre></td></tr></table></figure>
+<p>得到开始时间和结束时间将它们输入到时间输入框即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(&apos;#endTime&apos;).val(endTimeStr);</div><div class="line">$(&apos;#startTime&apos;).val(startTimeStr);</div></pre></td></tr></table></figure>
+<p>可将以上js写成一个函数，select控制函数执行控制时间,完整如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line">function timeSet()&#123;</div><div class="line">  </div><div class="line">		 var date = new Date();</div><div class="line">		 var time = date.getTime();</div><div class="line"></div><div class="line">		 var year = date.getFullYear();</div><div class="line">		 var month = date.getMonth()+1;</div><div class="line">		</div><div class="line">		 var day = date.getDate();</div><div class="line"></div><div class="line">		 </div><div class="line">		</div><div class="line"></div><div class="line">		var hour = date.getHours();</div><div class="line">		var minutes = date.getMinutes();</div><div class="line">		var seconds = date.getSeconds();</div><div class="line">		var endTimeStr,startTimeStr;</div><div class="line">		var str1,str2,str3,str4,str5;</div><div class="line">		if(month&lt;10)&#123;</div><div class="line">			str1=&apos;-0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str1=&apos;-&apos;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(day&lt;10)&#123;</div><div class="line">			str2=&apos;-0&apos;;</div><div class="line">		&#125;else&#123;</div><div class="line">			str2=&apos;-&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(hour&lt;10)&#123;</div><div class="line">			str3=&apos; 0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str3=&apos; &apos;;</div><div class="line">		&#125;</div><div class="line">		if(minutes&lt;10)&#123;</div><div class="line">			str4=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str4=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line">		if(seconds&lt;10)&#123;</div><div class="line">			str5=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str5=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line"></div><div class="line">	endTimeStr = year+str1+month+str2+day+str3 +hour+str4+minutes+str5+seconds;</div><div class="line"> //求时间差，</div><div class="line"> var cTime = $(&apos;#sDate&apos;).val()*24*3600*1000;</div><div class="line">	</div><div class="line">	var dif = time-cTime;</div><div class="line">	</div><div class="line">	var nTime = new Date(dif);</div><div class="line"></div><div class="line">	var year1 = nTime.getFullYear();</div><div class="line"> 	var month1 = nTime.getMonth()+1;</div><div class="line"></div><div class="line">	 var day1 = nTime.getDate();</div><div class="line"></div><div class="line">	var hour1 = nTime.getHours();</div><div class="line">	var minutes1 = nTime.getMinutes();</div><div class="line">	var seconds1 = nTime.getSeconds();</div><div class="line"></div><div class="line">	var str11.str12,str13,str14,str15;</div><div class="line"></div><div class="line">		if(month1&lt;10)&#123;</div><div class="line">			str11=&apos;-0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str11=&apos;-&apos;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(day1&lt;10)&#123;</div><div class="line">			str12=&apos;-0&apos;;</div><div class="line">		&#125;else&#123;</div><div class="line">			str12=&apos;-&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(hour1&lt;10)&#123;</div><div class="line">			str13=&apos; 0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str13=&apos; &apos;;</div><div class="line">		&#125;</div><div class="line">		if(minutes1&lt;10)&#123;</div><div class="line">			str14=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str14=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line">		if(seconds1&lt;10)&#123;</div><div class="line">			str15=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str15=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	startTimeStr = year1+str11+month1+str12+day1+str13 +hour1+str14+minutes1+str15+seconds1;</div><div class="line"></div><div class="line">	$(&apos;#endTime&apos;).val(endTimeStr);</div><div class="line">	$(&apos;#startTime&apos;).val(startTimeStr);</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">	timeSet();</div><div class="line"></div><div class="line">	$(&apos;#sDate&apos;).on(&apos;change&apos;,function()&#123;</div><div class="line"></div><div class="line">		timeSet();</div><div class="line">	</div><div class="line">	&#125;);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/17/my97DatePicker显示当时时间/" data-id="cj4114p6m0001swsrv1ok1ycg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-line-height为百分数垂直方向不居中" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/14/line-height为百分数垂直方向不居中/" class="article-date">
@@ -96,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/14/line-height为百分数垂直方向不居中/" data-id="cj3wshf510000b8sr9uftelqo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/14/line-height为百分数垂直方向不居中/" data-id="cj4114p7q0009swsr8g2zu4nx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -143,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/13/高德地图--插件使用/" data-id="cj3wsdeol000bkgsrfxg5g5op" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/13/高德地图--插件使用/" data-id="cj4114p8o000bswsrjemcu9py" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,7 +233,7 @@
       
         <p>当你想要页面占满整个页面时，一定会设置width：100%，height：100%<br>但是当height:100%时，并没有撑起高度，W3C的规范，百分比的高度在设定时需要根据这个元素的父元素容器的高度</p>
 <h4 id="height无效"><a href="#height无效" class="headerlink" title="height无效"></a>height无效</h4><p>Web浏览器在计算有效宽度时会考虑浏览器窗口的打开宽度。如果你不给宽度设定任何缺省值，那浏览器会自动将页面内容平铺填满整个横向宽度。<br>但是高度的计算方式完全不一样。事实上，浏览器根本就不计算内容的高度，除非内容超出了视窗范围(导致滚动条出现)。或者你给整个页面设置一个绝对高度。否则，浏览器就会简单的让内容往下堆砌，页面的高度根本就无需考虑。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">	<span class="selector-tag">div</span> &#123;</div><div class="line">		<span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">		<span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">		<span class="attribute">background</span>:<span class="number">#eee</span>;</div><div class="line">	&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">	div &#123;</div><div class="line">		width:100%;</div><div class="line">		height:100%;</div><div class="line">		background:#eee;</div><div class="line">	&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
 <p><img src="/image/h.png" alt="&quot;height失效&quot;"></p>
 <p>从以上可以看出height失效</p>
 <h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>给此元素所有父级加上height：100%；</p>
@@ -188,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/07/height100%失效/" data-id="cj3wsdena0002kgsr5quaxxhq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/07/height100%失效/" data-id="cj4114p6x0004swsrlafdh2n1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -243,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/border-sizing的那点小玩意/" data-id="cj3wsdena0001kgsr63hslwfz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/border-sizing的那点小玩意/" data-id="cj4114p790007swsrvdq9gjai" class="article-share-link">Share</a>
       
       
     </footer>
@@ -280,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/01/字符串中重复的字符及个数/" data-id="cj3wsdeo60009kgsr6xbqw71j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/01/字符串中重复的字符及个数/" data-id="cj4114p750006swsrke8n60n7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -321,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/24/sticky foot 布局/" data-id="cj3wsdenq0006kgsroo33aoz5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/24/sticky foot 布局/" data-id="cj4114p7l0008swsrc1thgjbg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -392,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cj3wsdenq0007kgsrwotgk75k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cj4114p6r0002swsr7wggzees" class="article-share-link">Share</a>
       
       
     </footer>
@@ -435,7 +491,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/vue router-link及router-view不渲染问题/" data-id="cj3wsdeo60008kgsr7bevfbte" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/17/vue router-link及router-view不渲染问题/" data-id="cj4114p8m000aswsrfhzfcptz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -474,44 +530,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/vuejs调试错误更改/" data-id="cj3wsdeo6000akgsr4xpl2ym0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/13/hello/" class="article-date">
-  <time datetime="2017-05-13T03:30:59.000Z" itemprop="datePublished">2017-05-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/13/hello/">hello</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>hello world ! my first blog</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello/" data-id="cj3wsdenq0003kgsrjx2xhvt5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/vuejs调试错误更改/" data-id="cj4114p8s000cswsrjhtz1yxh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -555,6 +574,10 @@
       <ul>
         
           <li>
+            <a href="/2017/06/17/my97DatePicker显示当时时间/">js使用my97插件显示当前时间，且计算时间差</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/14/line-height为百分数垂直方向不居中/">line-height为百分数时，垂直方向不能居中</a>
           </li>
         
@@ -568,10 +591,6 @@
         
           <li>
             <a href="/2017/06/05/border-sizing的那点小玩意/">border-sizing 的那些小玩意</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/01/字符串中重复的字符及个数/">字符串中重复字符及重复字符个数</a>
           </li>
         
       </ul>
