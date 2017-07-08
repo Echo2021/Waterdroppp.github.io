@@ -61,6 +61,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-html5shiv,respond引入不起作用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/08/html5shiv,respond引入不起作用/" class="article-date">
+  <time datetime="2017-07-08T13:39:48.877Z" itemprop="datePublished">2017-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/08/html5shiv,respond引入不起作用/">html5shiv.js和respond.js引入不起作用解决</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当项目需求需要兼容ie7，8这些奇葩浏览器时，考虑到h5的便捷性及响应式，我们往往引入html5shiv.js和respond.js来让ie7，8兼容h5及一些响应式变化，引入时就需要用到条件注释，原来写条件注释要么copy其他项目上的，要么随便写写，从没当回事，也没注意格式上有什么要求，下面来看看因为条件注释引起的大麻烦。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//css</div><div class="line">&lt;style&gt;</div><div class="line">	header &#123;</div><div class="line">		width:100px;</div><div class="line">		height:100px;</div><div class="line">		color:red;</div><div class="line">		background:#ccc;</div><div class="line">	&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">//html</div><div class="line">&lt;header&gt;</div><div class="line">    	hello world!</div><div class="line">&lt;/header&gt;</div></pre></td></tr></table></figure>
+<p>看上面的代码，我们可以想象出来如果引入正确ie8下，应该是灰色背景下小红字,先来看下正确的效果</p>
+<p><img src="/image/h5a.png" alt="&#39;正确引入&#39;"></p>
+<p>下面来看下各种错误引入html5shiv.js的条件注释语句及带来的后果（ie8下测试）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!-- [if lt ie 9]&gt;</div><div class="line">&lt;script src=&quot;lib/html5shiv/html5shiv.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
+<p>看条件注释语句似乎没什么不妥，看效果<br><img src="/image/h5b.png" alt="&#39;错误引入1&#39;"></p>
+<p>怎么没效果？？？F12看控制台<br><img src="/image/h5b1.png" alt="&#39;控制台&#39;"></p>
+<p>header标签未识别，坑爹啊，看起来没错啊，换html5shiv.js版本，换cdn统统没用,再仔细检查发现在中括号前多了个空格，把空格去掉，效果变正常。还有在中括号之后加空格也会引起异常，上面ie和9之间也一定要有空格不然也会异常。看似漫不经心的一个小空格也会引起大错误,用条件注释时一定要严格地按照格式来写如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if lt ie 9]&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/08/html5shiv,respond引入不起作用/" data-id="cj4veb4v50000posr84ue2hls" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-width100%和绝对定位同时存在时 偏移" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/07/04/width100%和绝对定位同时存在时 偏移/" class="article-date">
@@ -71,10 +117,19 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/04/width100%和绝对定位同时存在时 偏移/">width100%与绝对定位同时存在，偏移出父级容器</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="title-width-100-与绝对定位同时存在，偏移出父级容器"><a href="#title-width-100-与绝对定位同时存在，偏移出父级容器" class="headerlink" title="title:width:100%与绝对定位同时存在，偏移出父级容器"></a>title:width:100%与绝对定位同时存在，偏移出父级容器</h2><p>当父级容器内的子元素width设为100%，而子元素又有绝对定位时，子元素伸展超出父级容器，像下面</p>
+        <p>当父级容器内的子元素width设为100%，而子元素又有绝对定位时，子元素伸展超出父级容器，像下面</p>
 <p><img src="/image/position.png" alt="&quot;position&quot;"></p>
 <p>出现这种情况的原因，width：100%，这个百分之百是相对其定位父级而言的，其定位父级有多宽，这个子元素就有多宽，所以子元素跑到了父级容器外</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span>好的<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -86,7 +141,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/04/width100%和绝对定位同时存在时 偏移/" data-id="cj4r3vm8z0007scsrzs20i9y5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/04/width100%和绝对定位同时存在时 偏移/" data-id="cj4ve7uyn00087ssrss30ox8j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -142,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/17/my97DatePicker显示当时时间/" data-id="cj4r3vm9f0009scsr18t1nbu3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/17/my97DatePicker显示当时时间/" data-id="cj4ve7uyd00077ssrqssu62zj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -187,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/14/line-height为百分数垂直方向不居中/" data-id="cj4r3vm840005scsr5u6wegmi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/14/line-height为百分数垂直方向不居中/" data-id="cj4ve7uxy00047ssrutyi0rvi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,7 +289,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/13/高德地图--插件使用/" data-id="cj4r3vm9f000cscsron8fdu9r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/13/高德地图--插件使用/" data-id="cj4ve7uz1000c7ssri1ocymrr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -279,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/07/height100%失效/" data-id="cj4r3vm8z0006scsrv2yi7ve4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/07/height100%失效/" data-id="cj4ve7uz5000d7ssrsq71di9n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -334,7 +389,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/border-sizing的那点小玩意/" data-id="cj4r3vm840003scsra6ubr3e3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/border-sizing的那点小玩意/" data-id="cj4ve7uy700067ssripzh1d8a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -371,7 +426,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/01/字符串中重复的字符及个数/" data-id="cj4r3vm8z0008scsr2l87i64s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/01/字符串中重复的字符及个数/" data-id="cj4ve7uz8000e7ssr1cv34qgz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -412,7 +467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/24/sticky foot 布局/" data-id="cj4r3vm9f000ascsrvc4aqpxd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/24/sticky foot 布局/" data-id="cj4ve7uyr00097ssrpk9eaq7r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -483,50 +538,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cj4r3vm840004scsrdbem4c6h" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue router-link及router-view不渲染问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/17/vue router-link及router-view不渲染问题/" class="article-date">
-  <time datetime="2017-05-17T14:45:51.359Z" itemprop="datePublished">2017-05-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/17/vue router-link及router-view不渲染问题/">router-link及router-view不渲染</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在vue设置路由时，出现router-link及router-view不渲染，或者只能出现router-link,而不出现router-view</p>
-<h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><p>[TOC]</p>
-<h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><h4 id="components"><a href="#components" class="headerlink" title="components"></a>components</h4><h5 id="goods"><a href="#goods" class="headerlink" title="goods"></a>goods</h5><h6 id="goods-vue"><a href="#goods-vue" class="headerlink" title="goods.vue"></a>goods.vue</h6><h4 id="App-vue"><a href="#App-vue" class="headerlink" title="App.vue"></a>App.vue</h4><h4 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h4><h3 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h3><h3 id="index-js-1"><a href="#index-js-1" class="headerlink" title="index.js"></a>index.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">   &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</div><div class="line">   &lt;!-- built files will be auto injected --&gt;</div><div class="line"> &lt;/body&gt;</div></pre></td></tr></table></figure>
-<h3 id="App-vue-1"><a href="#App-vue-1" class="headerlink" title="App.vue"></a>App.vue</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;v-header&gt;&lt;/v-header&gt;</div><div class="line">    &lt;div class=&quot;tab&quot;&gt;</div><div class="line">      &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">        &lt;router-link to=&quot;/goods&quot;&gt;商品&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt; </div><div class="line">     &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">       &lt;router-link to=&quot;/ratings&quot;&gt;评价&lt;/router-link&gt;</div><div class="line">     &lt;/div&gt; </div><div class="line">     &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">      &lt;router-link to=&quot;/seller&quot;&gt;商家&lt;/router-link&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  </div><div class="line">   &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
-<h3 id="main-js-1"><a href="#main-js-1" class="headerlink" title="main.js"></a>main.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;</div><div class="line">import VueRouter from &apos;vue-router&apos;</div><div class="line">import App from &apos;./App&apos;</div><div class="line">import goods from &apos;./components/goods/goods&apos;</div><div class="line">import ratings from &apos;./components/ratings/ratings&apos;</div><div class="line">import seller from &apos;./components/seller/seller&apos;</div><div class="line"></div><div class="line"> Vue.use(VueRouter);</div><div class="line"></div><div class="line">const routes = [</div><div class="line">	&#123;path:&apos;/goods&apos;,component:goods&#125;,</div><div class="line">	&#123;path:&apos;/ratings&apos;,component:ratings&#125;,</div><div class="line">	&#123;path:&apos;/seller&apos;,component:seller&#125;</div><div class="line"></div><div class="line">];</div><div class="line"></div><div class="line">const router = new VueRouter(&#123;</div><div class="line">	routes</div><div class="line">&#125;);</div><div class="line">const app = new Vue(&#123;	</div><div class="line">	router,</div><div class="line">	**render:h=&gt;h(App)**</div><div class="line">&#125;).$mount(&apos;#app&apos;);</div><div class="line"></div><div class="line">router.push(&apos;/goods&apos;);</div></pre></td></tr></table></figure>
-<p>根据官方文档，以下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const app = new Vue(&#123;	</div><div class="line">	router,</div><div class="line">	**render:h=&gt;h(App)**</div><div class="line">&#125;).$mount(&apos;#app&apos;);</div></pre></td></tr></table></figure></p>
-<p>没有render：h=&gt;h(App) (讲文档迁移时有)此时router-link,无法渲染成a标签，添上render:h=&gt;h(App)则全部渲染出来了，注意接口h(App)<br><a href="https://cn.vuejs.org/v2/guide/migration-vue-router.html#main" target="_blank" rel="external">文档迁移地址</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/vue router-link及router-view不渲染问题/" data-id="cj4r3vm9f000bscsrg23jpux4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cj4ve7uxs00027ssr9acffuws" class="article-share-link">Share</a>
       
       
     </footer>
@@ -570,7 +582,11 @@
       <ul>
         
           <li>
-            <a href="/2017/07/04/width100%和绝对定位同时存在时 偏移/">(no title)</a>
+            <a href="/2017/07/08/html5shiv,respond引入不起作用/">html5shiv.js和respond.js引入不起作用解决</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/04/width100%和绝对定位同时存在时 偏移/">width100%与绝对定位同时存在，偏移出父级容器</a>
           </li>
         
           <li>
@@ -583,10 +599,6 @@
         
           <li>
             <a href="/2017/06/13/高德地图--插件使用/">高德地图--插件的引用</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/07/height100%失效/">height 100%失效</a>
           </li>
         
       </ul>

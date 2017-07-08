@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>html5shiv.js和respond.js引入不起作用解决 | 我的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="当项目需求需要兼容ie7，8这些奇葩浏览器时，考虑到h5的便捷性及响应式，我们往往引入html5shiv.js和respond.js来让ie7，8兼容h5及一些响应式变化，引入时就需要用到条件注释，原来写条件注释要么copy其他项目上的，要么随便写写，从没当回事，也没注意格式上有什么要求，下面来看看因为条件注释引起的大麻烦。 12345678910111213//css&amp;lt;style&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html5shiv.js和respond.js引入不起作用解决">
+<meta property="og:url" content="http://yoursite.com/2017/07/08/html5shiv,respond引入不起作用/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="当项目需求需要兼容ie7，8这些奇葩浏览器时，考虑到h5的便捷性及响应式，我们往往引入html5shiv.js和respond.js来让ie7，8兼容h5及一些响应式变化，引入时就需要用到条件注释，原来写条件注释要么copy其他项目上的，要么随便写写，从没当回事，也没注意格式上有什么要求，下面来看看因为条件注释引起的大麻烦。 12345678910111213//css&amp;lt;style&amp;gt;">
+<meta property="og:image" content="http://yoursite.com/image/h5a.png">
+<meta property="og:image" content="http://yoursite.com/image/h5b.png">
+<meta property="og:image" content="http://yoursite.com/image/h5b1.png">
+<meta property="og:updated_time" content="2017-07-08T14:40:25.871Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html5shiv.js和respond.js引入不起作用解决">
+<meta name="twitter:description" content="当项目需求需要兼容ie7，8这些奇葩浏览器时，考虑到h5的便捷性及响应式，我们往往引入html5shiv.js和respond.js来让ie7，8兼容h5及一些响应式变化，引入时就需要用到条件注释，原来写条件注释要么copy其他项目上的，要么随便写写，从没当回事，也没注意格式上有什么要求，下面来看看因为条件注释引起的大麻烦。 12345678910111213//css&amp;lt;style&amp;gt;">
+<meta name="twitter:image" content="http://yoursite.com/image/h5a.png">
+  
+    <link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">我的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-html5shiv,respond引入不起作用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/08/html5shiv,respond引入不起作用/" class="article-date">
+  <time datetime="2017-07-08T13:39:48.877Z" itemprop="datePublished">2017-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      html5shiv.js和respond.js引入不起作用解决
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当项目需求需要兼容ie7，8这些奇葩浏览器时，考虑到h5的便捷性及响应式，我们往往引入html5shiv.js和respond.js来让ie7，8兼容h5及一些响应式变化，引入时就需要用到条件注释，原来写条件注释要么copy其他项目上的，要么随便写写，从没当回事，也没注意格式上有什么要求，下面来看看因为条件注释引起的大麻烦。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//css</div><div class="line">&lt;style&gt;</div><div class="line">	header &#123;</div><div class="line">		width:100px;</div><div class="line">		height:100px;</div><div class="line">		color:red;</div><div class="line">		background:#ccc;</div><div class="line">	&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">//html</div><div class="line">&lt;header&gt;</div><div class="line">    	hello world!</div><div class="line">&lt;/header&gt;</div></pre></td></tr></table></figure>
+<p>看上面的代码，我们可以想象出来如果引入正确ie8下，应该是灰色背景下小红字,先来看下正确的效果</p>
+<p><img src="/image/h5a.png" alt="&#39;正确引入&#39;"></p>
+<p>下面来看下各种错误引入html5shiv.js的条件注释语句及带来的后果（ie8下测试）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!-- [if lt ie 9]&gt;</div><div class="line">&lt;script src=&quot;lib/html5shiv/html5shiv.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
+<p>看条件注释语句似乎没什么不妥，看效果<br><img src="/image/h5b.png" alt="&#39;错误引入1&#39;"></p>
+<p>怎么没效果？？？F12看控制台<br><img src="/image/h5b1.png" alt="&#39;控制台&#39;"></p>
+<p>header标签未识别，坑爹啊，看起来没错啊，换html5shiv.js版本，换cdn统统没用,再仔细检查发现在中括号前多了个空格，把空格去掉，效果变正常。还有在中括号之后加空格也会引起异常，上面ie和9之间也一定要有空格不然也会异常。看似漫不经心的一个小空格也会引起大错误,用条件注释时一定要严格地按照格式来写如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if lt ie 9]&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/08/html5shiv,respond引入不起作用/" data-id="cj4veb4v50000posr84ue2hls" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/04/width100%和绝对定位同时存在时 偏移/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">width100%与绝对定位同时存在，偏移出父级容器</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/08/html5shiv,respond引入不起作用/">html5shiv.js和respond.js引入不起作用解决</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/04/width100%和绝对定位同时存在时 偏移/">width100%与绝对定位同时存在，偏移出父级容器</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/17/my97DatePicker显示当时时间/">js使用my97插件显示当前时间，且计算时间差</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/14/line-height为百分数垂直方向不居中/">line-height为百分数时，垂直方向不能居中</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/高德地图--插件使用/">高德地图--插件的引用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Waterdroppp<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

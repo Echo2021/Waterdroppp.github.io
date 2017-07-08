@@ -61,6 +61,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-vue router-link及router-view不渲染问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/17/vue router-link及router-view不渲染问题/" class="article-date">
+  <time datetime="2017-05-17T14:45:51.359Z" itemprop="datePublished">2017-05-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/17/vue router-link及router-view不渲染问题/">router-link及router-view不渲染</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在vue设置路由时，出现router-link及router-view不渲染，或者只能出现router-link,而不出现router-view</p>
+<h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><p>[TOC]</p>
+<h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><h4 id="components"><a href="#components" class="headerlink" title="components"></a>components</h4><h5 id="goods"><a href="#goods" class="headerlink" title="goods"></a>goods</h5><h6 id="goods-vue"><a href="#goods-vue" class="headerlink" title="goods.vue"></a>goods.vue</h6><h4 id="App-vue"><a href="#App-vue" class="headerlink" title="App.vue"></a>App.vue</h4><h4 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h4><h3 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h3><h3 id="index-js-1"><a href="#index-js-1" class="headerlink" title="index.js"></a>index.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">   &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</div><div class="line">   &lt;!-- built files will be auto injected --&gt;</div><div class="line"> &lt;/body&gt;</div></pre></td></tr></table></figure>
+<h3 id="App-vue-1"><a href="#App-vue-1" class="headerlink" title="App.vue"></a>App.vue</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;v-header&gt;&lt;/v-header&gt;</div><div class="line">    &lt;div class=&quot;tab&quot;&gt;</div><div class="line">      &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">        &lt;router-link to=&quot;/goods&quot;&gt;商品&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt; </div><div class="line">     &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">       &lt;router-link to=&quot;/ratings&quot;&gt;评价&lt;/router-link&gt;</div><div class="line">     &lt;/div&gt; </div><div class="line">     &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">      &lt;router-link to=&quot;/seller&quot;&gt;商家&lt;/router-link&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  </div><div class="line">   &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
+<h3 id="main-js-1"><a href="#main-js-1" class="headerlink" title="main.js"></a>main.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;</div><div class="line">import VueRouter from &apos;vue-router&apos;</div><div class="line">import App from &apos;./App&apos;</div><div class="line">import goods from &apos;./components/goods/goods&apos;</div><div class="line">import ratings from &apos;./components/ratings/ratings&apos;</div><div class="line">import seller from &apos;./components/seller/seller&apos;</div><div class="line"></div><div class="line"> Vue.use(VueRouter);</div><div class="line"></div><div class="line">const routes = [</div><div class="line">	&#123;path:&apos;/goods&apos;,component:goods&#125;,</div><div class="line">	&#123;path:&apos;/ratings&apos;,component:ratings&#125;,</div><div class="line">	&#123;path:&apos;/seller&apos;,component:seller&#125;</div><div class="line"></div><div class="line">];</div><div class="line"></div><div class="line">const router = new VueRouter(&#123;</div><div class="line">	routes</div><div class="line">&#125;);</div><div class="line">const app = new Vue(&#123;	</div><div class="line">	router,</div><div class="line">	**render:h=&gt;h(App)**</div><div class="line">&#125;).$mount(&apos;#app&apos;);</div><div class="line"></div><div class="line">router.push(&apos;/goods&apos;);</div></pre></td></tr></table></figure>
+<p>根据官方文档，以下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const app = new Vue(&#123;	</div><div class="line">	router,</div><div class="line">	**render:h=&gt;h(App)**</div><div class="line">&#125;).$mount(&apos;#app&apos;);</div></pre></td></tr></table></figure></p>
+<p>没有render：h=&gt;h(App) (讲文档迁移时有)此时router-link,无法渲染成a标签，添上render:h=&gt;h(App)则全部渲染出来了，注意接口h(App)<br><a href="https://cn.vuejs.org/v2/guide/migration-vue-router.html#main" target="_blank" rel="external">文档迁移地址</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/17/vue router-link及router-view不渲染问题/" data-id="cj4ve7uyv000a7ssrl26uwu9b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-vuejs调试错误更改" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/16/vuejs调试错误更改/" class="article-date">
@@ -90,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/vuejs调试错误更改/" data-id="cj4r3vm9f000dscsr8dkr4p04" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/vuejs调试错误更改/" data-id="cj4ve7uyx000b7ssrvuf1fbgr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -127,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello/" data-id="cj4r3vm840002scsr4jbxrwes" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/hello/" data-id="cj4ve7uvr00007ssr0gv6p6ax" class="article-share-link">Share</a>
       
       
     </footer>
@@ -173,7 +216,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello-world2/" data-id="cj4r3vm0b0001scsrdlnlzjtv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/hello-world2/" data-id="cj4ve7uy200057ssrgr3l9cx7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -218,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello-world/" data-id="cj4r3vlzg0000scsr8enysaah" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/hello-world/" data-id="cj4ve7uxv00037ssrr1czbfe3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -262,7 +305,11 @@
       <ul>
         
           <li>
-            <a href="/2017/07/04/width100%和绝对定位同时存在时 偏移/">(no title)</a>
+            <a href="/2017/07/08/html5shiv,respond引入不起作用/">html5shiv.js和respond.js引入不起作用解决</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/04/width100%和绝对定位同时存在时 偏移/">width100%与绝对定位同时存在，偏移出父级容器</a>
           </li>
         
           <li>
@@ -275,10 +322,6 @@
         
           <li>
             <a href="/2017/06/13/高德地图--插件使用/">高德地图--插件的引用</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/07/height100%失效/">height 100%失效</a>
           </li>
         
       </ul>
