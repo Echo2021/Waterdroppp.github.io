@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>我的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="title:高德地图–轨迹回放(一)高德地图实现轨迹回放的方式之一：使用高德地图官方api中UI组件库中的轨迹展示。通过轨迹展示创建巡航器，实现轨迹回放。创建巡航器实现轨迹回放的好处就是回放速度随时控制随时变化，不好的浏览器必须支持canvas（IE8及以下不支持）。效果图如下： 看主要的代码 123456789101112131415161718192021222324252627282930">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的博客">
+<meta property="og:url" content="http://yoursite.com/2017/09/11/高德地图（一）--轨迹回放/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="title:高德地图–轨迹回放(一)高德地图实现轨迹回放的方式之一：使用高德地图官方api中UI组件库中的轨迹展示。通过轨迹展示创建巡航器，实现轨迹回放。创建巡航器实现轨迹回放的好处就是回放速度随时控制随时变化，不好的浏览器必须支持canvas（IE8及以下不支持）。效果图如下： 看主要的代码 123456789101112131415161718192021222324252627282930">
+<meta property="og:image" content="http://yoursite.com/image/mapplayback.png">
+<meta property="og:updated_time" content="2017-09-18T14:54:38.213Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我的博客">
+<meta name="twitter:description" content="title:高德地图–轨迹回放(一)高德地图实现轨迹回放的方式之一：使用高德地图官方api中UI组件库中的轨迹展示。通过轨迹展示创建巡航器，实现轨迹回放。创建巡航器实现轨迹回放的好处就是回放速度随时控制随时变化，不好的浏览器必须支持canvas（IE8及以下不支持）。效果图如下： 看主要的代码 123456789101112131415161718192021222324252627282930">
+<meta name="twitter:image" content="http://yoursite.com/image/mapplayback.png">
+  
+    <link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">我的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-高德地图（一）--轨迹回放" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/11/高德地图（一）--轨迹回放/" class="article-date">
+  <time datetime="2017-09-11T13:22:39.939Z" itemprop="datePublished">2017-09-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="title-高德地图–轨迹回放-一"><a href="#title-高德地图–轨迹回放-一" class="headerlink" title="title:高德地图–轨迹回放(一)"></a>title:高德地图–轨迹回放(一)</h2><p>高德地图实现轨迹回放的方式之一：使用高德地图官方api中UI组件库中的轨迹展示。通过轨迹展示创建巡航器，实现轨迹回放。创建巡航器实现轨迹回放的好处就是回放速度随时控制随时变化，不好的浏览器必须支持canvas（IE8及以下不支持）。效果图如下：<br><img src="/image/mapplayback.png" alt="&quot;map&quot;"></p>
+<p>看主要的代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">	AMapUI.load([<span class="string">'ui/misc/PathSimplifier'</span>], <span class="function"><span class="keyword">function</span>	(<span class="params">PathSimplifier</span>) </span>&#123;</div><div class="line"></div><div class="line">  	  <span class="keyword">if</span> (!PathSimplifier.supportCanvas) &#123;</div><div class="line">         alert(<span class="string">'当前环境不支持 Canvas！'</span>);</div><div class="line">         <span class="keyword">return</span>;</div><div class="line">     &#125;</div><div class="line">	<span class="comment">//回放路径等配置项，参考官方api</span></div><div class="line">	<span class="keyword">var</span> defaultRenderOptions = &#123;</div><div class="line">			<span class="attr">pathNavigatorStyle</span>: &#123;</div><div class="line">				<span class="attr">width</span>:<span class="number">16</span>,</div><div class="line">				<span class="attr">height</span>:<span class="number">16</span>,</div><div class="line">				<span class="attr">autoRotate</span>:<span class="literal">true</span>,</div><div class="line">				<span class="attr">lineJoin</span>:<span class="string">'round'</span>,</div><div class="line">				<span class="attr">content</span>:<span class="string">'defaultPathNavigtor'</span>,</div><div class="line">				<span class="attr">fillStyle</span>:<span class="string">'#087EC4'</span>,</div><div class="line">				<span class="attr">strokeStyle</span>:<span class="string">'#116394'</span>,</div><div class="line">				<span class="attr">lineWidth</span>:<span class="number">1</span>,</div><div class="line">				<span class="attr">pathLinePassedStyle</span>: &#123;</div><div class="line">					<span class="attr">lineWidth</span>:<span class="number">2</span>,</div><div class="line">					<span class="attr">strokeStyle</span>:<span class="string">'rgba(0, 160, 220, 0.8)'</span>,</div><div class="line">					<span class="attr">borderWidth</span>:<span class="number">1</span>,</div><div class="line">					<span class="attr">borderStyle</span>:<span class="string">'#eee'</span>,</div><div class="line">					<span class="attr">dirArrowStyle</span>:<span class="literal">false</span></div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> pathSimplifierIns = <span class="keyword">new</span> PathSimplifier(&#123;</div><div class="line">        <span class="attr">zIndex</span>: <span class="number">100</span>,</div><div class="line">        <span class="attr">map</span>: map, </div><div class="line">        <span class="attr">getPath</span>: <span class="function"><span class="keyword">function</span>(<span class="params">pathData, pathIndex</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> pathData.path;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">getHoverTitle</span>: <span class="function"><span class="keyword">function</span>(<span class="params">pathData, pathIndex, pointIndex</span>) </span>&#123;</div><div class="line">            <span class="comment">//返回鼠标悬停时显示的信息</span></div><div class="line">            <span class="keyword">if</span> (pointIndex &gt;= <span class="number">0</span>) &#123;</div><div class="line">                <span class="comment">//鼠标悬停在某个轨迹节点上</span></div><div class="line">                <span class="keyword">return</span> pathData.name + <span class="string">'，点:'</span> + pointIndex + <span class="string">'/'</span> + pathData.path.length;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">//鼠标悬停在节点之间的连线上</span></div><div class="line">            <span class="keyword">return</span> pathData.name + <span class="string">'，点数量'</span> + pathData.path.length;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">renderOptions</span>: defaultRenderOptions</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="built_in">window</span>.pathSimplifierIns = pathSimplifierIns;</div><div class="line">	<span class="comment">//根据数据来绘制路线</span></div><div class="line">    pathSimplifierIns.setData([&#123;</div><div class="line">        <span class="attr">name</span>: <span class="string">'轨迹'</span>,</div><div class="line">        <span class="attr">path</span>: lineArr</div><div class="line">    &#125;]);</div><div class="line">	<span class="comment">//创建巡航器</span></div><div class="line">    <span class="keyword">var</span> navg = pathSimplifierIns.createPathNavigator(<span class="number">0</span>,&#123;</div><div class="line">			<span class="attr">loop</span>: <span class="literal">true</span>,<span class="comment">//是否循环播放</span></div><div class="line">			speed: <span class="built_in">parseInt</span>(speed.value),<span class="comment">//回放速度控制，这里使用的是select下拉列表value值控制</span></div><div class="line">			pathNavigatorStyle: &#123;</div><div class="line">				<span class="attr">width</span>:<span class="number">24</span>,</div><div class="line">				<span class="attr">height</span>:<span class="number">24</span>,</div><div class="line">				<span class="attr">content</span>: PathSimplifier.Render.Canvas.getImageContent(<span class="string">'image/plane.png'</span>),<span class="comment">//自定义巡航器样式</span></div><div class="line">				strokeStyle:<span class="literal">null</span>,</div><div class="line">				<span class="attr">fillStyle</span>:<span class="literal">null</span></div><div class="line">			&#125;</div><div class="line">		&#125;);</div><div class="line">	<span class="comment">//控制播放按钮</span></div><div class="line">   	start.onclick =	<span class="function"><span class="keyword">function</span>  (<span class="params"></span>)</span>&#123;</div><div class="line">    		navg.start();</div><div class="line">    	&#125;</div><div class="line">		</div><div class="line">	pause.onclick =	<span class="function"><span class="keyword">function</span>  (<span class="params"></span>)</span>&#123;</div><div class="line">			navg.pause();</div><div class="line">			</div><div class="line">			alert(<span class="string">'当前为止走过的距离'</span>+<span class="built_in">parseInt</span>(navg.getMovedDistance()/<span class="number">1000</span>)+<span class="string">'KM,回放速度为:'</span>+<span class="built_in">parseInt</span>(navg.getSpeed())+<span class="string">'Km/h'</span>);</div><div class="line">			</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	resume.onclick =	<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">			navg.resume();</div><div class="line"></div><div class="line">		&#125;</div><div class="line">	stop.onclick =	<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">			navg.stop();</div><div class="line">		</div><div class="line">		&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">		<span class="comment">//下拉列表value值改变速度改变</span></div><div class="line">		speed.onchange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="keyword">var</span> spe = speed.value;</div><div class="line">			navg.setSpeed(spe);</div><div class="line">			</div><div class="line">		&#125;;</div><div class="line"></div><div class="line">	<span class="comment">//起点终点标记</span></div><div class="line">	<span class="keyword">var</span> startPot = lineArr[<span class="number">0</span>];</div><div class="line">		</div><div class="line">  	<span class="keyword">var</span> endPot = lineArr[lineArr.length<span class="number">-1</span>];</div><div class="line">  		</div><div class="line">	  <span class="keyword">var</span> stmarker = <span class="keyword">new</span> AMap.Marker(&#123;</div><div class="line">            <span class="attr">map</span>: map,</div><div class="line">            <span class="attr">position</span>: [startPot[<span class="number">0</span>], startPot[<span class="number">1</span>]], <span class="comment">//基点位置</span></div><div class="line">            icon: <span class="string">"https://webapi.amap.com/theme/v1.3/markers/n/start.png"</span>,</div><div class="line">            <span class="attr">zIndex</span>: <span class="number">10</span></div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">var</span> endmarker = <span class="keyword">new</span> AMap.Marker(&#123;</div><div class="line">            <span class="attr">map</span>: map,</div><div class="line">            <span class="attr">position</span>: [endPot[<span class="number">0</span>], endPot[<span class="number">1</span>]], <span class="comment">//基点位置</span></div><div class="line">            icon: <span class="string">"https://webapi.amap.com/theme/v1.3/markers/n/end.png"</span>,</div><div class="line">            <span class="attr">zIndex</span>: <span class="number">10</span></div><div class="line">        &#125;);</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>此高德地图UI组件需要在服务器环境下运行，详细代码地址<a href="https://github.com/Waterdroppp/mapplayback" target="_blank" rel="external">github</a>,仅作学习总结只用！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/11/高德地图（一）--轨迹回放/" data-id="cj7qag5d8000dpksrarsf9lu1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/17/push/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">for循环push进数组及对象</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/11/高德地图（一）--轨迹回放/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/17/push/">for循环push进数组及对象</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/13/iframe 下使用niceScroll报错/">iframe 下使用niceScroll报错</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/08/html5shiv,respond引入不起作用/">html5shiv.js和respond.js引入不起作用解决</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/04/width100%和绝对定位同时存在时 偏移/">width100%与绝对定位同时存在，偏移出父级容器</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Waterdroppp<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
