@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -61,10 +61,110 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-height100%失效" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/07/height100%失效/" class="article-date">
+  <time datetime="2017-06-07T03:11:45.073Z" itemprop="datePublished">2017-06-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/07/height100%失效/">height 100%失效</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当你想要页面占满整个页面时，一定会设置width：100%，height：100%<br>但是当height:100%时，并没有撑起高度，W3C的规范，百分比的高度在设定时需要根据这个元素的父元素容器的高度</p>
+<h4 id="height无效"><a href="#height无效" class="headerlink" title="height无效"></a>height无效</h4><p>Web浏览器在计算有效宽度时会考虑浏览器窗口的打开宽度。如果你不给宽度设定任何缺省值，那浏览器会自动将页面内容平铺填满整个横向宽度。<br>但是高度的计算方式完全不一样。事实上，浏览器根本就不计算内容的高度，除非内容超出了视窗范围(导致滚动条出现)。或者你给整个页面设置一个绝对高度。否则，浏览器就会简单的让内容往下堆砌，页面的高度根本就无需考虑。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">	div &#123;</div><div class="line">		width:100%;</div><div class="line">		height:100%;</div><div class="line">		background:#eee;</div><div class="line">	&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><img src="/image/h.png" alt="&quot;height失效&quot;"></p>
+<p>从以上可以看出height失效</p>
+<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>给此元素所有父级加上height：100%；</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span> &#123;</div><div class="line">	<span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/h2.png" alt="&quot;height&quot;"></p>
+<p>height失效问题已经解决</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/07/height100%失效/" data-id="cj8lf5us40002gwsrd2uaxj8d" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-box-sizing的那点小玩意" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/05/box-sizing的那点小玩意/" class="article-date">
+  <time datetime="2017-06-05T03:57:13.731Z" itemprop="datePublished">2017-06-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/05/box-sizing的那点小玩意/">box-sizing 的那些小玩意</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="w3c标准盒模型"><a href="#w3c标准盒模型" class="headerlink" title="w3c标准盒模型"></a>w3c标准盒模型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/*外盒尺寸计算（元素空间尺寸）*/</div><div class="line">Element空间高度 = content height + padding + border + margin</div><div class="line">Element 空间宽度 = content width + padding + border + margin</div><div class="line">/*内盒尺寸计算（元素大小）*/</div><div class="line">Element Height = content height + padding + border （Height为内容高度）</div><div class="line">Element Width = content width + padding + border （Width为内容宽度）</div></pre></td></tr></table></figure>
+<h3 id="IE传统下的盒模型-怪异模式"><a href="#IE传统下的盒模型-怪异模式" class="headerlink" title="IE传统下的盒模型(怪异模式)"></a>IE传统下的盒模型(怪异模式)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/*外盒尺寸计算（元素空间尺寸）*/</div><div class="line">Element空间高度 = content Height + margin (Height包含了元素内容宽度，边框宽度，内距宽度)</div><div class="line">Element空间宽度 = content Width + margin (Width包含了元素内容宽度、边框宽度、内距宽度)</div><div class="line">/*内盒尺寸计算（元素大小）*/</div><div class="line">Element Height = content Height(Height包含了元素内容宽度，边框宽度，内距宽度)</div><div class="line">Element Width = content Width(Width包含了元素内容宽度、边框宽度、内距宽度)</div></pre></td></tr></table></figure>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例-"></a>实例-</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content-box"</span> <span class="attr">class</span>=<span class="string">"imgbox"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"1.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"border-box"</span> <span class="attr">class</span>=<span class="string">"imgbox"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"1.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.imgbox</span> <span class="selector-tag">img</span> &#123;                       </div><div class="line">    <span class="attribute">width</span>: <span class="number">680px</span>;                   </div><div class="line">    <span class="attribute">height</span>: <span class="number">344px</span>;                  </div><div class="line">    <span class="attribute">border</span>: <span class="number">5px</span> solid <span class="number">#000</span>;         </div><div class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;                  </div><div class="line">    <span class="attribute">margin</span>: <span class="number">20px</span>;                   </div><div class="line">&#125;                                   </div><div class="line">                                    </div><div class="line"><span class="selector-id">#content-box</span> <span class="selector-tag">img</span> &#123;                  </div><div class="line">    <span class="attribute">-moz-box-sizing</span>: content-box;   </div><div class="line">    <span class="attribute">-webkit-box-sizing</span>: content-box;</div><div class="line">    <span class="attribute">-o-box-sizing</span>: content-box;     </div><div class="line">    <span class="attribute">-ms-box-sizing</span>: content-box;    </div><div class="line">    <span class="attribute">box-sizing</span>: content-box;        </div><div class="line">                                    </div><div class="line">&#125;                                   </div><div class="line">                                    </div><div class="line"><span class="selector-id">#border-box</span> <span class="selector-tag">img</span> &#123;                   </div><div class="line">    <span class="attribute">-moz-box-sizing</span>: border-box;    </div><div class="line">    <span class="attribute">-webkit-box-sizing</span>: border-box; </div><div class="line">    <span class="attribute">-o-box-sizing</span>: border-box;      </div><div class="line">    <span class="attribute">-ms-box-sizing</span>: border-box;     </div><div class="line">    <span class="attribute">box-sizing</span>: border-box;         </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="效果对比"><a href="#效果对比" class="headerlink" title="效果对比"></a>效果对比</h4><p><img src="/image/diff.png" alt="&quot;对比&quot;"></p>
+<p>从以上的对比图中可以看出来，w3c标准的盒模型，图片大小不变，但外层盒子变大，ie标准的盒模型，图片变小，外层的盒子等于刚开始设定的，应用border-box可以避免盒子引用padding和border值时，改变其width<br>和height</p>
+<h4 id="应用例子"><a href="#应用例子" class="headerlink" title="应用例子"></a>应用例子</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span>                                      </div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"header"</span> <span class="attr">class</span>=<span class="string">"Padding"</span>&gt;</span>I am header<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span> <span class="attr">class</span>=<span class="string">"clearfix "</span>&gt;</span>                </div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left Padding"</span>&gt;</span>i am left<span class="tag">&lt;/<span class="name">div</span>&gt;</span>       </div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right Padding"</span>&gt;</span>i am right<span class="tag">&lt;/<span class="name">div</span>&gt;</span>     </div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>                                              </div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer"</span> <span class="attr">class</span>=<span class="string">"Padding"</span>&gt;</span>i am footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.demo</span> &#123;                  </div><div class="line">    <span class="attribute">width</span>: <span class="number">960px</span>;        </div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;      </div><div class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;          </div><div class="line">    <span class="attribute">background</span>:<span class="number">#000</span>;     </div><div class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;         </div><div class="line">&#125;                        </div><div class="line"><span class="selector-id">#header</span> &#123;                </div><div class="line">    <span class="attribute">background</span>:<span class="number">#ccc</span>;     </div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>          </div><div class="line">&#125;                        </div><div class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;        </div><div class="line">    <span class="attribute">content</span>:<span class="string">""</span>;          </div><div class="line">    <span class="attribute">display</span>: block;      </div><div class="line">    <span class="attribute">clear</span>: both;         </div><div class="line">&#125;                        </div><div class="line"><span class="selector-class">.clearfix</span>  &#123;             </div><div class="line">    <span class="attribute">zoom</span>:<span class="number">1</span>;              </div><div class="line">&#125;                        </div><div class="line"><span class="selector-id">#content</span> <span class="selector-class">.left</span> &#123;         </div><div class="line">    <span class="attribute">width</span>: <span class="number">220px</span>;        </div><div class="line">    <span class="attribute">float</span>: left;         </div><div class="line">    <span class="attribute">margin-right</span>: <span class="number">20px</span>;  </div><div class="line">    <span class="attribute">background</span>: orange;  </div><div class="line">&#125;                        </div><div class="line"><span class="selector-id">#content</span> <span class="selector-class">.right</span> &#123;        </div><div class="line">    <span class="attribute">width</span>: <span class="number">720px</span>;        </div><div class="line">    <span class="attribute">float</span>: left;         </div><div class="line">    <span class="attribute">background</span>: pink;    </div><div class="line">&#125;                        </div><div class="line"><span class="selector-id">#footer</span> &#123;                </div><div class="line">    <span class="attribute">background</span>:green;    </div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;         </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/diff1.png" alt="&quot;对比2&quot;"></p>
+<p>从上面对比可以看出布局完好</p>
+<p>当加入下面代码时</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.Padding</span> &#123;                      </div><div class="line">     <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;    </div><div class="line">     <span class="attribute">padding</span>: <span class="number">10px</span>; </div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>布局错位</p>
+<p><img src="/image/diff2.png" alt="&quot;对比3&quot;"></p>
+<p>当有padding值时，而又不改其width，height值，布局错位</p>
+<p>使用border-box<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> <span class="selector-class">.Padding</span> &#123;                      </div><div class="line">      <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;    </div><div class="line">      <span class="attribute">padding</span>: <span class="number">10px</span>;             </div><div class="line">      <span class="attribute">box-sizing</span>: border-box;    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="/image/diff3.png" alt="&quot;对比3&quot;"></p>
+<p>布局恢复，但高变大，这是没有设高度的缘故</p>
+<p><a href="http://www.w3cplus.com/content/css3-box-sizing" target="_blank" rel="external">参考</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/05/box-sizing的那点小玩意/" data-id="cj8lf5utg000bgwsr7u5tw74r" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-字符串中重复的字符及个数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/01/字符串中重复的字符及个数/" class="article-date">
-  <time datetime="2017-06-01T14:44:55.743Z" itemprop="datePublished">2017-06-01</time>
+  <time datetime="2017-06-01T14:44:55.744Z" itemprop="datePublished">2017-06-01</time>
 </a>
     
   </div>
@@ -88,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/01/字符串中重复的字符及个数/" data-id="cj7qag5cs000bpksrpncaqaat" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/01/字符串中重复的字符及个数/" data-id="cj8lf5utp000dgwsrgvnhf8da" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -101,7 +201,7 @@
     <article id="post-sticky foot 布局" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/24/sticky foot 布局/" class="article-date">
-  <time datetime="2017-05-24T13:54:35.347Z" itemprop="datePublished">2017-05-24</time>
+  <time datetime="2017-05-24T13:54:35.348Z" itemprop="datePublished">2017-05-24</time>
 </a>
     
   </div>
@@ -129,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/24/sticky foot 布局/" data-id="cj7qag5da000epksr51krr1ok" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/24/sticky foot 布局/" data-id="cj8lf5ut90009gwsrl1e9m86b" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -200,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cj7qag5c40005pksrcn2qhf64" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cj8lf5usu0007gwsr3mujlbiw" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -213,7 +313,7 @@
     <article id="post-vue router-link及router-view不渲染问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/17/vue router-link及router-view不渲染问题/" class="article-date">
-  <time datetime="2017-05-17T14:45:51.359Z" itemprop="datePublished">2017-05-17</time>
+  <time datetime="2017-05-17T14:45:51.360Z" itemprop="datePublished">2017-05-17</time>
 </a>
     
   </div>
@@ -243,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/vue router-link及router-view不渲染问题/" data-id="cj7qag5cn0009pksrg6epl2a2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/17/vue router-link及router-view不渲染问题/" data-id="cj8lf5utn000cgwsr77anzbe9" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -256,7 +356,7 @@
     <article id="post-vuejs调试错误更改" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/16/vuejs调试错误更改/" class="article-date">
-  <time datetime="2017-05-16T13:58:59.431Z" itemprop="datePublished">2017-05-16</time>
+  <time datetime="2017-05-16T13:58:59.432Z" itemprop="datePublished">2017-05-16</time>
 </a>
     
   </div>
@@ -282,7 +382,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/vuejs调试错误更改/" data-id="cj7qag5cu000cpksr05v365k5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/16/vuejs调试错误更改/" data-id="cj8lf5uua000igwsr84n9ihbe" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -319,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello/" data-id="cj7qag5ba0000pksrbwlu65yb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/hello/" data-id="cj8lf5urx0001gwsrcz1w6pb6" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -365,7 +465,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello-world2/" data-id="cj7qag5bo0001pksr9l2c2fxt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/hello-world2/" data-id="cj8lf5upw0000gwsrp10fknkd" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -410,7 +510,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello-world/" data-id="cj7qag5dc000fpksrqbjnuuk4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/hello-world/" data-id="cj8lf5us90003gwsry58y0id4" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -441,7 +541,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
     </div>
   </div>
 
@@ -449,9 +549,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/10/10/jquery datatable获取当前分页数据/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/19/高德地图-轨迹回放（二）/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2017/09/11/高德地图（一）--轨迹回放/">(no title)</a>
@@ -463,14 +571,6 @@
         
           <li>
             <a href="/2017/07/13/iframe 下使用niceScroll报错/">iframe 下使用niceScroll报错</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/08/html5shiv,respond引入不起作用/">html5shiv.js和respond.js引入不起作用解决</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/04/width100%和绝对定位同时存在时 偏移/">width100%与绝对定位同时存在，偏移出父级容器</a>
           </li>
         
       </ul>
@@ -486,7 +586,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Waterdroppp<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
