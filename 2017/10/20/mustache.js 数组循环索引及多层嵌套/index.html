@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | 我的博客</title>
+  <title>我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="title:mustache.js 数组循环的索引在使用mustache作为模板引擎时，想要利用数组中的对象的索引排序，却发现mustache中无法获得数组索引，在一番搜索之后，发现在数组的对象中加入索引，就可以了,示例如下 12345678910111213141516//html&amp;#123;&amp;#123;#data&amp;#125;&amp;#125;	&amp;lt;span&amp;gt;&amp;#123;&amp;#123;ind">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/05/13/hello-world/index.html">
+<meta property="og:title" content="我的博客">
+<meta property="og:url" content="http://yoursite.com/2017/10/20/mustache.js 数组循环索引及多层嵌套/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-05-13T02:01:13.610Z">
+<meta property="og:description" content="title:mustache.js 数组循环的索引在使用mustache作为模板引擎时，想要利用数组中的对象的索引排序，却发现mustache中无法获得数组索引，在一番搜索之后，发现在数组的对象中加入索引，就可以了,示例如下 12345678910111213141516//html&amp;#123;&amp;#123;#data&amp;#125;&amp;#125;	&amp;lt;span&amp;gt;&amp;#123;&amp;#123;ind">
+<meta property="og:updated_time" content="2017-10-23T10:33:55.787Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="我的博客">
+<meta name="twitter:description" content="title:mustache.js 数组循环的索引在使用mustache作为模板引擎时，想要利用数组中的对象的索引排序，却发现mustache中无法获得数组索引，在一番搜索之后，发现在数组的对象中加入索引，就可以了,示例如下 12345678910111213141516//html&amp;#123;&amp;#123;#data&amp;#125;&amp;#125;	&amp;lt;span&amp;gt;&amp;#123;&amp;#123;ind">
   
     <link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -63,42 +63,27 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-mustache.js 数组循环索引及多层嵌套" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/13/hello-world/" class="article-date">
-  <time datetime="2017-05-13T02:01:13.610Z" itemprop="datePublished">2017-05-13</time>
+    <a href="/2017/10/20/mustache.js 数组循环索引及多层嵌套/" class="article-date">
+  <time datetime="2017-10-20T10:04:42.633Z" itemprop="datePublished">2017-10-20</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Hello World
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <hr>
+<h2 id="title-mustache-js-数组循环的索引"><a href="#title-mustache-js-数组循环的索引" class="headerlink" title="title:mustache.js 数组循环的索引"></a>title:mustache.js 数组循环的索引</h2><p>在使用mustache作为模板引擎时，想要利用数组中的对象的索引排序，却发现mustache中无法获得数组索引，在一番搜索之后，发现在数组的对象中加入索引，就可以了,示例如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//html</div><div class="line">&#123;&#123;#data&#125;&#125;</div><div class="line">	&lt;span&gt;&#123;&#123;index&#125;&#125;&lt;/span&gt;//想要index随着循环进行而进行递增，第一个想到的当然是数组的索引，但mustache无法获得</div><div class="line">&#123;&#123;/data&#125;&#125;</div><div class="line">//js</div><div class="line">var data = [</div><div class="line">	&#123;&quot;name&quot;:&quot;a&quot;,</div><div class="line">	&quot;age&quot;:12&#125;,</div><div class="line">	&#123;&quot;name&quot;:&quot;b&quot;,</div><div class="line">	&quot;age&quot;:&quot;13&quot;&#125;</div><div class="line">];</div><div class="line"></div><div class="line">//可以将索引在所要使用的json对象里</div><div class="line">for(var i=0;i&lt;data.length;i++)&#123;</div><div class="line">		data[i].index = i;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>这样就可以实现index累加了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello-world/" data-id="cj9ffq2wu0003dosrdg710ny8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/20/mustache.js 数组循环索引及多层嵌套/" data-id="cj9ffq2xf0008dosrydzdpot4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -107,15 +92,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/05/13/hello-world2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/10/31/高德地图--编辑矩形/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Hello World
+          (no title)
         
       </div>
     </a>
   
+  
+    <a href="/2017/10/10/jquery datatable获取当前分页数据/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
   
 </nav>
 

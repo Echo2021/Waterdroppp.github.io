@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,65 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-高德地图--编辑矩形" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/31/高德地图--编辑矩形/" class="article-date">
+  <time datetime="2017-10-31T09:51:32.188Z" itemprop="datePublished">2017-10-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="title-高德地图–矩形的编辑"><a href="#title-高德地图–矩形的编辑" class="headerlink" title="title:高德地图–矩形的编辑"></a>title:高德地图–矩形的编辑</h2><p>在高德地图的多边形编辑中，可以通过拖拽在地图上生成圆，多边形，折线等，并且可以得出圆心、多边形顶点坐标等信息，但不能编辑矩形。我们利用高德地图api中的折线（AMap.Polyline）来编辑矩形。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//首先定义矩形的初始位置坐标</span></div><div class="line"> <span class="keyword">var</span> arr = [</div><div class="line">      [<span class="number">115.724036</span>,<span class="number">36.786033</span>],</div><div class="line">      [<span class="number">115.775203</span>,<span class="number">36.786033</span>], </div><div class="line">      [<span class="number">115.775203</span>,<span class="number">36.714376</span>],</div><div class="line">      [<span class="number">115.724036</span>,<span class="number">36.714376</span>],</div><div class="line">      [<span class="number">115.724036</span>,<span class="number">36.786033</span>]</div><div class="line"></div><div class="line">   ];</div><div class="line">   </div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">squdrag</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="comment">//利用AMap.Polyline绘制矩形</span></div><div class="line">     <span class="keyword">var</span> polyline = <span class="keyword">new</span> AMap.Polyline(&#123;</div><div class="line">        <span class="attr">map</span>:map,</div><div class="line">        <span class="attr">path</span>:arr,</div><div class="line">        <span class="attr">strokeColor</span>: <span class="string">"#0000ff"</span>,</div><div class="line">        <span class="attr">strokeWeight</span>:<span class="number">3</span>,</div><div class="line">        <span class="attr">lineJoin</span>:<span class="string">"round"</span></div><div class="line">     &#125;);</div><div class="line"><span class="comment">//矩形左上角</span></div><div class="line">     <span class="keyword">var</span> marker1 =<span class="keyword">new</span> AMap.Marker(&#123;</div><div class="line">          <span class="attr">map</span>:map,</div><div class="line">          <span class="attr">icon</span>:<span class="string">"http://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png"</span>,</div><div class="line">          <span class="attr">position</span>:arr[<span class="number">0</span>],</div><div class="line">          <span class="attr">draggable</span>:<span class="literal">true</span></div><div class="line">        &#125;);</div><div class="line"><span class="comment">//矩形右下角</span></div><div class="line">        <span class="keyword">var</span> marker2 = <span class="keyword">new</span> AMap.Marker(&#123;</div><div class="line">          <span class="attr">map</span>:map,</div><div class="line">          <span class="attr">icon</span>:<span class="string">"http://webapi.amap.com/theme/v1.3/markers/n/mark_b2.png"</span>,</div><div class="line">          <span class="attr">position</span>:arr[<span class="number">2</span>],</div><div class="line">          <span class="attr">draggable</span>:<span class="literal">true</span></div><div class="line">        &#125;);</div><div class="line"><span class="comment">//矩形顶点可拖拽，随意变大变小</span></div><div class="line">      AMap.event.addListener(marker1,<span class="string">'dragend'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> lng = data.lnglat.lng;</div><div class="line">            <span class="keyword">var</span> lat = data.lnglat.lat;</div><div class="line"></div><div class="line">            marker1.setPosition(<span class="keyword">new</span> AMap.LngLat(lng,lat));</div><div class="line">             $(<span class="string">'.posmsg_squ .pos .ltlng'</span>).html(lng);</div><div class="line">           $(<span class="string">'.posmsg_squ .pos .ltlat'</span>).html(lat);        </div><div class="line">              polyline.setMap(<span class="literal">null</span>);</div><div class="line">              arr.splice(<span class="number">0</span>,<span class="number">1</span>,[data.lnglat.lng,data.lnglat.lat]);  </div><div class="line">              arr.splice(<span class="number">1</span>,<span class="number">1</span>,[arr[<span class="number">2</span>].lng,data.lnglat.lat]);</div><div class="line">              arr.splice(<span class="number">3</span>,<span class="number">1</span>,[data.lnglat.lng,arr[<span class="number">2</span>].lat]);</div><div class="line">              arr.splice(<span class="number">4</span>,<span class="number">1</span>,[data.lnglat.lng,data.lnglat.lat]);</div><div class="line">           </div><div class="line">          <span class="keyword">try</span>&#123;</div><div class="line">            polyline = <span class="keyword">new</span> AMap.Polyline(&#123;</div><div class="line">              <span class="attr">map</span>:map,</div><div class="line">              <span class="attr">path</span>:arr,</div><div class="line">              <span class="attr">strokeColor</span>: <span class="string">"#0000ff"</span>,</div><div class="line">                <span class="attr">strokeWeight</span>:<span class="number">3</span>,</div><div class="line">                <span class="attr">lineJoin</span>:<span class="string">"round"</span></div><div class="line">            &#125;);</div><div class="line">       </div><div class="line">          &#125;<span class="keyword">catch</span>(e)&#123;</div><div class="line">            <span class="keyword">if</span>(e.message==<span class="literal">undefined</span>)&#123;</div><div class="line">              arr.splice(<span class="number">1</span>,<span class="number">1</span>,[arr[<span class="number">2</span>].lng,data.lnglat.lat]);</div><div class="line">              arr.splice(<span class="number">3</span>,<span class="number">1</span>,[data.lnglat.lng,arr[<span class="number">2</span>].lat]);</div><div class="line"></div><div class="line">               polyline = <span class="keyword">new</span> AMap.Polyline(&#123;</div><div class="line">                  <span class="attr">map</span>:map,</div><div class="line">                  <span class="attr">path</span>:arr,</div><div class="line">                  <span class="attr">strokeColor</span>: <span class="string">"#0000ff"</span>,</div><div class="line">                  <span class="attr">strokeWeight</span>:<span class="number">3</span>,</div><div class="line">                  <span class="attr">lineJoin</span>:<span class="string">"round"</span></div><div class="line">              &#125;);</div><div class="line">            &#125;</div><div class="line">          &#125;</div><div class="line">          </div><div class="line">  </div><div class="line">        &#125;);</div><div class="line"><span class="comment">//矩形顶点可拖拽，随意变大变小</span></div><div class="line">        AMap.event.addListener(marker2,<span class="string">'dragend'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">          <span class="keyword">var</span> lng = data.lnglat.lng;</div><div class="line">          <span class="keyword">var</span> lat = data.lnglat.lat;</div><div class="line">          marker2.setPosition(<span class="keyword">new</span> AMap.LngLat(lng,lat));</div><div class="line">       </div><div class="line">          $(<span class="string">'.posmsg_squ .pos .rblng'</span>).html(lng);</div><div class="line">          $(<span class="string">'.posmsg_squ .pos .rblat'</span>).html(lat);</div><div class="line">		<span class="comment">//每次拖拽清空地图</span></div><div class="line">          polyline.setMap(<span class="literal">null</span>);</div><div class="line">          arr.splice(<span class="number">2</span>,<span class="number">1</span>,[data.lnglat.lng,data.lnglat.lat]);</div><div class="line">          arr.splice(<span class="number">1</span>,<span class="number">1</span>,[data.lnglat.lng,arr[<span class="number">0</span>].lat]);</div><div class="line">          arr.splice(<span class="number">3</span>,<span class="number">1</span>,[arr[<span class="number">0</span>].lng,data.lnglat.lat]);</div><div class="line"></div><div class="line">          <span class="keyword">try</span> &#123;</div><div class="line">            polyline = <span class="keyword">new</span> AMap.Polyline(&#123;</div><div class="line">              <span class="attr">map</span>:map,</div><div class="line">              <span class="attr">path</span>:arr,</div><div class="line">              <span class="attr">strokeColor</span>: <span class="string">"#0000ff"</span>,</div><div class="line">              <span class="attr">strokeWeight</span>:<span class="number">3</span>,</div><div class="line">              <span class="attr">lineJoin</span>:<span class="string">"round"</span></div><div class="line">            &#125;);</div><div class="line"></div><div class="line">          &#125;<span class="keyword">catch</span>(e)&#123;</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(e.message==<span class="literal">undefined</span>)&#123;</div><div class="line">              arr.splice(<span class="number">1</span>,<span class="number">1</span>,[data.lnglat.lng,arr[<span class="number">0</span>].lat]);</div><div class="line">              arr.splice(<span class="number">3</span>,<span class="number">1</span>,[arr[<span class="number">0</span>].lng,data.lnglat.lat]);</div><div class="line"></div><div class="line">              polyline = <span class="keyword">new</span> AMap.Polyline(&#123;</div><div class="line">                  <span class="attr">map</span>:map,</div><div class="line">                  <span class="attr">path</span>:arr,</div><div class="line">                  <span class="attr">strokeColor</span>: <span class="string">"#0000ff"</span>,</div><div class="line">                  <span class="attr">strokeWeight</span>:<span class="number">3</span>,</div><div class="line">                  <span class="attr">lineJoin</span>:<span class="string">"round"</span></div><div class="line">              &#125;);</div><div class="line">            &#125;</div><div class="line">          &#125;</div><div class="line"></div><div class="line">        &#125;);</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/31/高德地图--编辑矩形/" data-id="cj9ffq2y8000gdosrz079fuhz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mustache.js 数组循环索引及多层嵌套" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/20/mustache.js 数组循环索引及多层嵌套/" class="article-date">
+  <time datetime="2017-10-20T10:04:42.633Z" itemprop="datePublished">2017-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="title-mustache-js-数组循环的索引"><a href="#title-mustache-js-数组循环的索引" class="headerlink" title="title:mustache.js 数组循环的索引"></a>title:mustache.js 数组循环的索引</h2><p>在使用mustache作为模板引擎时，想要利用数组中的对象的索引排序，却发现mustache中无法获得数组索引，在一番搜索之后，发现在数组的对象中加入索引，就可以了,示例如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//html</div><div class="line">&#123;&#123;#data&#125;&#125;</div><div class="line">	&lt;span&gt;&#123;&#123;index&#125;&#125;&lt;/span&gt;//想要index随着循环进行而进行递增，第一个想到的当然是数组的索引，但mustache无法获得</div><div class="line">&#123;&#123;/data&#125;&#125;</div><div class="line">//js</div><div class="line">var data = [</div><div class="line">	&#123;&quot;name&quot;:&quot;a&quot;,</div><div class="line">	&quot;age&quot;:12&#125;,</div><div class="line">	&#123;&quot;name&quot;:&quot;b&quot;,</div><div class="line">	&quot;age&quot;:&quot;13&quot;&#125;</div><div class="line">];</div><div class="line"></div><div class="line">//可以将索引在所要使用的json对象里</div><div class="line">for(var i=0;i&lt;data.length;i++)&#123;</div><div class="line">		data[i].index = i;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>这样就可以实现index累加了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/20/mustache.js 数组循环索引及多层嵌套/" data-id="cj9ffq2xf0008dosrydzdpot4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-jquery datatable获取当前分页数据" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -80,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/10/jquery datatable获取当前分页数据/" data-id="cj8ybnmku00021csr099mn5k8" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/10/10/jquery datatable获取当前分页数据/" data-id="cj9ffq2x00005dosr8omyuwbh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -109,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/19/高德地图-轨迹回放（二）/" data-id="cj8ybnmm4000d1csrktfubb1l" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/09/19/高德地图-轨迹回放（二）/" data-id="cj9ffq2yc000idosr4f9gzwve" class="article-share-link">Share</a>
       
       
     </footer>
@@ -140,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/11/高德地图（一）--轨迹回放/" data-id="cj8ybnmmk000f1csrxh4c4ju5" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/09/11/高德地图（一）--轨迹回放/" data-id="cj9ffq2ye000jdosrf88bfa90" class="article-share-link">Share</a>
       
       
     </footer>
@@ -176,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/push/" data-id="cj8ybnmlp00071csrcevan15u" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/07/17/push/" data-id="cj9ffq2xh0009dosr9hmg4aev" class="article-share-link">Share</a>
       
       
     </footer>
@@ -217,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/13/iframe 下使用niceScroll报错/" data-id="cj8ybnml900041csro8dgg2sp" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/07/13/iframe 下使用niceScroll报错/" data-id="cj9ffq2ww0004dosrid9kj7hq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -263,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/08/html5shiv,respond引入不起作用/" data-id="cj8ybnmm400091csrk8oh9i3n" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/07/08/html5shiv,respond引入不起作用/" data-id="cj9ffq2x70007dosr9cdfec8v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -307,7 +366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/04/width100%和绝对定位同时存在时 偏移/" data-id="cj8ybnmmk000j1csrspfc40kw" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/07/04/width100%和绝对定位同时存在时 偏移/" data-id="cj9ffq2y1000edosr9kqwvelj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -363,99 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/17/my97DatePicker显示当时时间/" data-id="cj8ybnmm4000a1csr2aehazh0" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-line-height为百分数垂直方向不居中" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/14/line-height为百分数垂直方向不居中/" class="article-date">
-  <time datetime="2017-06-14T08:56:27.851Z" itemprop="datePublished">2017-06-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/14/line-height为百分数垂直方向不居中/">line-height为百分数时，垂直方向不能居中</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在使用line-height和height进行垂直居中过程中，line-height为百分数时，并不能居中，这是因为line-height的百分数是相对当前字体大小的百分比，所以不能使垂直方向上居中</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">span</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;</div><div class="line">		<span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="selector-tag">div</span> &#123;</div><div class="line">		<span class="attribute">width</span>:<span class="number">10%</span>;</div><div class="line">		<span class="attribute">height</span>:<span class="number">10%</span>;</div><div class="line">		<span class="attribute">line-height</span>:<span class="number">10%</span>;</div><div class="line">		<span class="attribute">background-color</span>:<span class="number">#ccc</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<p><img src="/image/line-height.png" alt="&quot;line-height为百分比时&quot;"></p>
-<p>从上可以看出不能垂直方向上居中；</p>
-<h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><p>父级加display:table,要居中的子级加display:table-cell和vertical-align</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">			width:10%;</div><div class="line">			height:10%;</div><div class="line">		</div><div class="line">			display:table;</div><div class="line">			background-color:#ccc;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	span &#123;</div><div class="line">		display:table-cell;</div><div class="line">		vertical-align:middle;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<p><img src="/image/line-height2.png" alt="&quot;对比&quot;"></p>
-<p>加过之后，垂直方向居中</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/14/line-height为百分数垂直方向不居中/" data-id="cj8ybnmmk000g1csrmtokwrqm" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-高德地图--插件使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/13/高德地图--插件使用/" class="article-date">
-  <time datetime="2017-06-13T14:12:17.368Z" itemprop="datePublished">2017-06-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/13/高德地图--插件使用/">高德地图--插件的引用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在使用高德地图api使用中，有两种引用插件的方式：</p>
-<p>1.引入方式(同步方式)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;http://webapi.amap.com/maps?v=1.3&amp;key=您申请的key值&amp;&amp;plugin=AMap.Scale,AMap.OverView,AMap.ToolBar&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>通过这种方式，可以直接在js中以下面这种方式使用插件，而不需要再使用AMap.plugin 这种方式加载插件，相对比较方便</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var scale = new AMap.Scale();</div></pre></td></tr></table></figure>
-<p>2.js中调用（异步方式）</p>
-<p>如果没有在引入时引入插件，在js中使用插件用这种方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">AMap.plugin(&apos;AMap.ToolBar&apos;,function()&#123;</div><div class="line">        var toolbar = new AMap.ToolBar();</div><div class="line">        map.plugin(toolbar);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
-<p>加载几个插件时</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AMap.plugin([&apos;AMap.ToolBar&apos;,&apos;AMap.Geolocation&apos;,&apos;AMap.Scale&apos;],function()&#123;</div><div class="line">    //TODO:几个插件的初始化</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>以上就是两种插件使用方式；</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/13/高德地图--插件使用/" data-id="cj8ybnmm4000e1csreh6swym4" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/06/17/my97DatePicker显示当时时间/" data-id="cj9ffq2xp000bdosrb5ye8a9o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -468,7 +435,7 @@
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -494,9 +461,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/10/31/高德地图--编辑矩形/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/20/mustache.js 数组循环索引及多层嵌套/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2017/10/10/jquery datatable获取当前分页数据/">(no title)</a>
@@ -508,14 +483,6 @@
         
           <li>
             <a href="/2017/09/11/高德地图（一）--轨迹回放/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/17/push/">for循环push进数组及对象</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/13/iframe 下使用niceScroll报错/">iframe 下使用niceScroll报错</a>
           </li>
         
       </ul>
@@ -531,7 +498,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Waterdroppp<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
