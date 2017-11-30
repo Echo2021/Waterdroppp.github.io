@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,152 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-html5shiv,respond引入不起作用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/08/html5shiv,respond引入不起作用/" class="article-date">
+  <time datetime="2017-07-08T13:39:48.878Z" itemprop="datePublished">2017-07-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/08/html5shiv,respond引入不起作用/">html5shiv.js和respond.js引入不起作用解决</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当项目需求需要兼容ie7，8这些奇葩浏览器时，考虑到h5的便捷性及响应式，我们往往引入html5shiv.js和respond.js来让ie7，8兼容h5及一些响应式变化，引入时就需要用到条件注释，原来写条件注释要么copy其他项目上的，要么随便写写，从没当回事，也没注意格式上有什么要求，下面来看看因为条件注释引起的大麻烦。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//css</div><div class="line">&lt;style&gt;</div><div class="line">	header &#123;</div><div class="line">		width:100px;</div><div class="line">		height:100px;</div><div class="line">		color:red;</div><div class="line">		background:#ccc;</div><div class="line">	&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">//html</div><div class="line">&lt;header&gt;</div><div class="line">    	hello world!</div><div class="line">&lt;/header&gt;</div></pre></td></tr></table></figure>
+<p>看上面的代码，我们可以想象出来如果引入正确ie8下，应该是灰色背景下小红字,先来看下正确的效果</p>
+<p><img src="/image/h5a.png" alt="&#39;正确引入&#39;"></p>
+<p>下面来看下各种错误引入html5shiv.js的条件注释语句及带来的后果（ie8下测试）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!-- [if lt ie 9]&gt;</div><div class="line">&lt;script src=&quot;lib/html5shiv/html5shiv.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
+<p>看条件注释语句似乎没什么不妥，看效果<br><img src="/image/h5b.png" alt="&#39;错误引入1&#39;"></p>
+<p>怎么没效果？？？F12看控制台<br><img src="/image/h5b1.png" alt="&#39;控制台&#39;"></p>
+<p>header标签未识别，坑爹啊，看起来没错啊，换html5shiv.js版本，换cdn统统没用,再仔细检查发现在中括号前多了个空格，把空格去掉，效果变正常。还有在中括号之后加空格也会引起异常，上面ie和9之间也一定要有空格不然也会异常。看似漫不经心的一个小空格也会引起大错误,用条件注释时一定要严格地按照格式来写如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if lt ie 9]&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/08/html5shiv,respond引入不起作用/" data-id="cjaltlbuz00074ssri6leui47" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-width100%和绝对定位同时存在时 偏移" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/04/width100%和绝对定位同时存在时 偏移/" class="article-date">
+  <time datetime="2017-07-04T00:03:19.644Z" itemprop="datePublished">2017-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/04/width100%和绝对定位同时存在时 偏移/">width100%与绝对定位同时存在，偏移出父级容器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当父级容器内的子元素width设为100%，而子元素又有绝对定位时，子元素伸展超出父级容器，像下面</p>
+<p><img src="/image/position.png" alt="&quot;position&quot;"></p>
+<p>出现这种情况的原因，width：100%，这个百分之百是相对其定位父级而言的，其定位父级有多宽，这个子元素就有多宽，所以子元素跑到了父级容器外</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span>好的<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">			<span class="attribute">position</span>:relative;</div><div class="line">			<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">			<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">			<span class="attribute">background</span>:red;</div><div class="line">			<span class="attribute">margin</span>:<span class="number">10px</span>;</div><div class="line">			<span class="attribute">padding</span>:<span class="number">10px</span>;</div><div class="line">			<span class="attribute">border</span>:<span class="number">5px</span> solid <span class="number">#000</span>;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">		<span class="selector-class">.content</span> &#123;</div><div class="line">			<span class="attribute">text-align</span>:center;</div><div class="line">			 <span class="attribute">width</span>:<span class="number">100%</span>; </div><div class="line">			 <span class="attribute">position</span>:absolute;</div><div class="line">			<span class="attribute">left</span>:<span class="number">30px</span>;</div><div class="line">			<span class="attribute">right</span>:<span class="number">30px</span>; </div><div class="line">			<span class="attribute">background</span>:blue;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+<p>如何实现子元素看起来在父级容器之内居中显示？其实很简单，把子元素的width：100%改为width：auto即可<br>效果如下图</p>
+<p><img src="/image/position2.png" alt="&quot;position&quot;"></p>
+<p>题外话：绝对定位是一般是根据其定位父级border内侧开始定位的，若无定位父级则是根据视口边定位</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/04/width100%和绝对定位同时存在时 偏移/" data-id="cjaltlbvz000f4ssr36p9tkzm" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-my97DatePicker显示当时时间" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/17/my97DatePicker显示当时时间/" class="article-date">
+  <time datetime="2017-06-17T07:45:28.736Z" itemprop="datePublished">2017-06-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/17/my97DatePicker显示当时时间/">js使用my97插件显示当前时间，且计算时间差</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>做页面需要两个时间输入框一个显示当前时间，一个显示之前的时间，并且需要一个select下拉框控制两个时间输入框之间的差,效果如下图：</p>
+<p><img src="/image/time1.png" alt="&quot;时间&quot;"></p>
+<p>这里使用的是My97DatePicer,简单方便,引入my97插件，设置input时间框的格式，这里设置的时间最大是当前时间，开始时间框不能比结束时间框的时间大</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;lib/date/WdatePicker.js&quot;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">选择时间范围：&lt;select name=&quot;selectDate&quot; id=&quot;sDate&quot;&gt;</div><div class="line">				&lt;option value=&quot;1&quot;&gt;一天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;2&quot;&gt;两天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;3&quot;&gt;三天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;7&quot;&gt;一周&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;14&quot;&gt;二周&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;21&quot;&gt;三周&lt;/option&gt;</div><div class="line">			&lt;/select&gt;</div><div class="line">			&lt;br/&gt;</div><div class="line">			开始时间：&lt;input type=&quot;text&quot; id=&quot;startTime&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;lang:&apos;zh-cn&apos;,dateFmt:&apos;yyyy-MM-dd HH:mm:ss&apos;,maxDate:&apos;#F&#123;$dp.$D(\&apos;endTime\&apos;)&#125;&apos;&amp;&amp;&apos;%y-%M-%d&apos;&#125;)&quot;&gt;</div><div class="line">			&lt;br/&gt;</div><div class="line">			结束时间：&lt;input type=&quot;text&quot; id=&quot;endTime&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;lang:&apos;zh-cn&apos;,dateFmt:&apos;yyyy-MM-dd HH:mm:ss&apos;,minDate:&apos;#F&#123;$dp.$D(\&apos;startTime\&apos;)&#125;&apos;,maxDate:&apos;%y-%M-%d&apos;&#125;)&quot;&gt;</div></pre></td></tr></table></figure>
+<p>弄完这些，就可以点出时间了，但需要的是进入页面就显示当时时间，原理就是获取当前时间值再输入到时间框里</p>
+<p>获取当时时间,因为获得的月份是从0-11，所以获得月份加一，才是真实月份</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"><span class="keyword">var</span> year = date.getFullYear();</div><div class="line"><span class="keyword">var</span> month = date.getMonth()+<span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> day = date.getDate();</div><div class="line"><span class="keyword">var</span> hour = date.getHours();</div><div class="line"><span class="keyword">var</span> minutes = date.getMinutes();</div><div class="line"><span class="keyword">var</span> seconds = date.getSeconds();</div></pre></td></tr></table></figure>
+<p>将获得的时间拼成字符串，因为考虑到获取的时间数字小于10时，格式是这样的2017-9-1 10:1:8,所以小于10时拼接一下，更符合习惯</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">var endTimeStr,startTimeStr;</div><div class="line">		var str1,str2,str3,str4,str5;</div><div class="line">		if(month&lt;10)&#123;</div><div class="line">			str1=&apos;-0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str1=&apos;-&apos;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(day&lt;10)&#123;</div><div class="line">			str2=&apos;-0&apos;;</div><div class="line">		&#125;else&#123;</div><div class="line">			str2=&apos;-&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(hour&lt;10)&#123;</div><div class="line">			str3=&apos; 0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str3=&apos; &apos;;</div><div class="line">		&#125;</div><div class="line">		if(minutes&lt;10)&#123;</div><div class="line">			str4=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str4=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line">		if(seconds&lt;10)&#123;</div><div class="line">			str5=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str5=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line"></div><div class="line">	endTimeStr = year+str1+month+str2+day+str3 +hour+str4+minutes+str5+seconds;</div></pre></td></tr></table></figure>
+<p>这得到的是结束时间的，因为select下拉框控制的范围是到当前时间的，开始时间受下拉框限制，我们需要找出时间差</p>
+<p>这是当前时间的毫秒数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var time = date.getTime();</div></pre></td></tr></table></figure>
+<p>这是下拉框控制的时间范围，转化为毫秒数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var cTime = $(&apos;#sDate&apos;).val()*24*3600*1000;</div></pre></td></tr></table></figure>
+<p>当前时间-下拉框时间=开始时间，再将开始时间转化为标准的格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">var dif = time-cTime;</div><div class="line">var nTime = new Date(dif);</div><div class="line"></div><div class="line">var year1 = nTime.getFullYear();</div><div class="line">var month1 = nTime.getMonth()+1;</div><div class="line"></div><div class="line">var day1 = nTime.getDate();</div><div class="line"></div><div class="line">var hour1 = nTime.getHours();</div><div class="line">var minutes1 = nTime.getMinutes();</div><div class="line">var seconds1 = nTime.getSeconds();</div><div class="line">var str11.str12,str13,str14,str15;</div><div class="line"></div><div class="line">		if(month1&lt;10)&#123;</div><div class="line">			str11=&apos;-0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str11=&apos;-&apos;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(day1&lt;10)&#123;</div><div class="line">			str12=&apos;-0&apos;;</div><div class="line">		&#125;else&#123;</div><div class="line">			str12=&apos;-&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(hour1&lt;10)&#123;</div><div class="line">			str13=&apos; 0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str13=&apos; &apos;;</div><div class="line">		&#125;</div><div class="line">		if(minutes1&lt;10)&#123;</div><div class="line">			str14=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str14=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line">		if(seconds1&lt;10)&#123;</div><div class="line">			str15=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str15=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	startTimeStr = year1+str11+month1+str12+day1+str13 +hour1+str14+minutes1+str15+seconds1;</div></pre></td></tr></table></figure>
+<p>得到开始时间和结束时间将它们输入到时间输入框即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(&apos;#endTime&apos;).val(endTimeStr);</div><div class="line">$(&apos;#startTime&apos;).val(startTimeStr);</div></pre></td></tr></table></figure>
+<p>可将以上js写成一个函数，select控制函数执行控制时间,完整如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line">function timeSet()&#123;</div><div class="line">  </div><div class="line">		 var date = new Date();</div><div class="line">		 var time = date.getTime();</div><div class="line"></div><div class="line">		 var year = date.getFullYear();</div><div class="line">		 var month = date.getMonth()+1;</div><div class="line">		</div><div class="line">		 var day = date.getDate();</div><div class="line"></div><div class="line">		 </div><div class="line">		</div><div class="line"></div><div class="line">		var hour = date.getHours();</div><div class="line">		var minutes = date.getMinutes();</div><div class="line">		var seconds = date.getSeconds();</div><div class="line">		var endTimeStr,startTimeStr;</div><div class="line">		var str1,str2,str3,str4,str5;</div><div class="line">		if(month&lt;10)&#123;</div><div class="line">			str1=&apos;-0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str1=&apos;-&apos;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(day&lt;10)&#123;</div><div class="line">			str2=&apos;-0&apos;;</div><div class="line">		&#125;else&#123;</div><div class="line">			str2=&apos;-&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(hour&lt;10)&#123;</div><div class="line">			str3=&apos; 0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str3=&apos; &apos;;</div><div class="line">		&#125;</div><div class="line">		if(minutes&lt;10)&#123;</div><div class="line">			str4=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str4=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line">		if(seconds&lt;10)&#123;</div><div class="line">			str5=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str5=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line"></div><div class="line">	endTimeStr = year+str1+month+str2+day+str3 +hour+str4+minutes+str5+seconds;</div><div class="line"> //求时间差，</div><div class="line"> var cTime = $(&apos;#sDate&apos;).val()*24*3600*1000;</div><div class="line">	</div><div class="line">	var dif = time-cTime;</div><div class="line">	</div><div class="line">	var nTime = new Date(dif);</div><div class="line"></div><div class="line">	var year1 = nTime.getFullYear();</div><div class="line"> 	var month1 = nTime.getMonth()+1;</div><div class="line"></div><div class="line">	 var day1 = nTime.getDate();</div><div class="line"></div><div class="line">	var hour1 = nTime.getHours();</div><div class="line">	var minutes1 = nTime.getMinutes();</div><div class="line">	var seconds1 = nTime.getSeconds();</div><div class="line"></div><div class="line">	var str11.str12,str13,str14,str15;</div><div class="line"></div><div class="line">		if(month1&lt;10)&#123;</div><div class="line">			str11=&apos;-0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str11=&apos;-&apos;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(day1&lt;10)&#123;</div><div class="line">			str12=&apos;-0&apos;;</div><div class="line">		&#125;else&#123;</div><div class="line">			str12=&apos;-&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(hour1&lt;10)&#123;</div><div class="line">			str13=&apos; 0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str13=&apos; &apos;;</div><div class="line">		&#125;</div><div class="line">		if(minutes1&lt;10)&#123;</div><div class="line">			str14=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str14=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line">		if(seconds1&lt;10)&#123;</div><div class="line">			str15=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str15=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	startTimeStr = year1+str11+month1+str12+day1+str13 +hour1+str14+minutes1+str15+seconds1;</div><div class="line"></div><div class="line">	$(&apos;#endTime&apos;).val(endTimeStr);</div><div class="line">	$(&apos;#startTime&apos;).val(startTimeStr);</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">	timeSet();</div><div class="line"></div><div class="line">	$(&apos;#sDate&apos;).on(&apos;change&apos;,function()&#123;</div><div class="line"></div><div class="line">		timeSet();</div><div class="line">	</div><div class="line">	&#125;);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/17/my97DatePicker显示当时时间/" data-id="cjaltlbw4000g4ssryv21smoo" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-line-height为百分数垂直方向不居中" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -96,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/14/line-height为百分数垂直方向不居中/" data-id="cj9ffq2zg000kdosrjrhow4m7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/14/line-height为百分数垂直方向不居中/" data-id="cjaltlbvr000d4ssr0lnu7x9s" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -143,7 +289,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/13/高德地图--插件使用/" data-id="cj9ffq2ya000hdosrdmakg704" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/13/高德地图--插件使用/" data-id="cjaltlbxe000l4ssrxacw5bza" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -177,7 +323,7 @@
       
         <p>当你想要页面占满整个页面时，一定会设置width：100%，height：100%<br>但是当height:100%时，并没有撑起高度，W3C的规范，百分比的高度在设定时需要根据这个元素的父元素容器的高度</p>
 <h4 id="height无效"><a href="#height无效" class="headerlink" title="height无效"></a>height无效</h4><p>Web浏览器在计算有效宽度时会考虑浏览器窗口的打开宽度。如果你不给宽度设定任何缺省值，那浏览器会自动将页面内容平铺填满整个横向宽度。<br>但是高度的计算方式完全不一样。事实上，浏览器根本就不计算内容的高度，除非内容超出了视窗范围(导致滚动条出现)。或者你给整个页面设置一个绝对高度。否则，浏览器就会简单的让内容往下堆砌，页面的高度根本就无需考虑。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">	div &#123;</div><div class="line">		width:100%;</div><div class="line">		height:100%;</div><div class="line">		background:#eee;</div><div class="line">	&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">	<span class="selector-tag">div</span> &#123;</div><div class="line">		<span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">		<span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">		<span class="attribute">background</span>:<span class="number">#eee</span>;</div><div class="line">	&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
 <p><img src="/image/h.png" alt="&quot;height失效&quot;"></p>
 <p>从以上可以看出height失效</p>
 <h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>给此元素所有父级加上height：100%；</p>
@@ -188,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/07/height100%失效/" data-id="cj9ffq2ur0000dosrrwlfdy22" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/07/height100%失效/" data-id="cjaltlbua00024ssrfeipa2kz" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -243,7 +389,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/box-sizing的那点小玩意/" data-id="cj9ffq2xj000adosrtzjqelfk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/box-sizing的那点小玩意/" data-id="cjaltlbs400004ssrbiqnjp44" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -280,7 +426,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/01/字符串中重复的字符及个数/" data-id="cj9ffq2xz000ddosrfhx1ylpu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/01/字符串中重复的字符及个数/" data-id="cjaltlbw6000h4ssrpjlmlkz5" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -321,7 +467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/24/sticky foot 布局/" data-id="cj9ffq2y5000fdosrlgdf1kqy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/24/sticky foot 布局/" data-id="cjaltlbxq000o4ssrgxdcx3yd" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -392,126 +538,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cj9ffq2x50006dosrptn1kar8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue router-link及router-view不渲染问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/17/vue router-link及router-view不渲染问题/" class="article-date">
-  <time datetime="2017-05-17T14:45:51.360Z" itemprop="datePublished">2017-05-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/17/vue router-link及router-view不渲染问题/">router-link及router-view不渲染</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在vue设置路由时，出现router-link及router-view不渲染，或者只能出现router-link,而不出现router-view</p>
-<h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><p>[TOC]</p>
-<h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><h4 id="components"><a href="#components" class="headerlink" title="components"></a>components</h4><h5 id="goods"><a href="#goods" class="headerlink" title="goods"></a>goods</h5><h6 id="goods-vue"><a href="#goods-vue" class="headerlink" title="goods.vue"></a>goods.vue</h6><h4 id="App-vue"><a href="#App-vue" class="headerlink" title="App.vue"></a>App.vue</h4><h4 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h4><h3 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h3><h3 id="index-js-1"><a href="#index-js-1" class="headerlink" title="index.js"></a>index.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">   &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</div><div class="line">   &lt;!-- built files will be auto injected --&gt;</div><div class="line"> &lt;/body&gt;</div></pre></td></tr></table></figure>
-<h3 id="App-vue-1"><a href="#App-vue-1" class="headerlink" title="App.vue"></a>App.vue</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;v-header&gt;&lt;/v-header&gt;</div><div class="line">    &lt;div class=&quot;tab&quot;&gt;</div><div class="line">      &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">        &lt;router-link to=&quot;/goods&quot;&gt;商品&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt; </div><div class="line">     &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">       &lt;router-link to=&quot;/ratings&quot;&gt;评价&lt;/router-link&gt;</div><div class="line">     &lt;/div&gt; </div><div class="line">     &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">      &lt;router-link to=&quot;/seller&quot;&gt;商家&lt;/router-link&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  </div><div class="line">   &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
-<h3 id="main-js-1"><a href="#main-js-1" class="headerlink" title="main.js"></a>main.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;</div><div class="line">import VueRouter from &apos;vue-router&apos;</div><div class="line">import App from &apos;./App&apos;</div><div class="line">import goods from &apos;./components/goods/goods&apos;</div><div class="line">import ratings from &apos;./components/ratings/ratings&apos;</div><div class="line">import seller from &apos;./components/seller/seller&apos;</div><div class="line"></div><div class="line"> Vue.use(VueRouter);</div><div class="line"></div><div class="line">const routes = [</div><div class="line">	&#123;path:&apos;/goods&apos;,component:goods&#125;,</div><div class="line">	&#123;path:&apos;/ratings&apos;,component:ratings&#125;,</div><div class="line">	&#123;path:&apos;/seller&apos;,component:seller&#125;</div><div class="line"></div><div class="line">];</div><div class="line"></div><div class="line">const router = new VueRouter(&#123;</div><div class="line">	routes</div><div class="line">&#125;);</div><div class="line">const app = new Vue(&#123;	</div><div class="line">	router,</div><div class="line">	**render:h=&gt;h(App)**</div><div class="line">&#125;).$mount(&apos;#app&apos;);</div><div class="line"></div><div class="line">router.push(&apos;/goods&apos;);</div></pre></td></tr></table></figure>
-<p>根据官方文档，以下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const app = new Vue(&#123;	</div><div class="line">	router,</div><div class="line">	**render:h=&gt;h(App)**</div><div class="line">&#125;).$mount(&apos;#app&apos;);</div></pre></td></tr></table></figure></p>
-<p>没有render：h=&gt;h(App) (讲文档迁移时有)此时router-link,无法渲染成a标签，添上render:h=&gt;h(App)则全部渲染出来了，注意接口h(App)<br><a href="https://cn.vuejs.org/v2/guide/migration-vue-router.html#main" target="_blank" rel="external">文档迁移地址</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/17/vue router-link及router-view不渲染问题/" data-id="cj9ffq2xx000cdosrckb3jbga" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vuejs调试错误更改" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/16/vuejs调试错误更改/" class="article-date">
-  <time datetime="2017-05-16T13:58:59.432Z" itemprop="datePublished">2017-05-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/16/vuejs调试错误更改/">vuejs调试错误Error:Cannot find module &#39;stylus&#39;</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在使用vue-cli时,使用的预处理语言为stylus，出现的[Err:dependency is not …]以及出现的[Cannot find module ‘stylus’]</p>
-<h2 id="处理方式及原因"><a href="#处理方式及原因" class="headerlink" title="处理方式及原因"></a>处理方式及原因</h2><p>webpack里面使用了stylus-loader,但是没有找到装的stylus,用npm安装stylus开发依赖（第二句没用到已解决）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install stylus --save -dev</div><div class="line">$ npm install stylus-loader --save -dev</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/16/vuejs调试错误更改/" data-id="cj9ffq2zi000ldosrxagv1s31" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/13/hello/" class="article-date">
-  <time datetime="2017-05-13T03:30:59.000Z" itemprop="datePublished">2017-05-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/13/hello/">hello</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>hello world ! my first blog</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello/" data-id="cj9ffq2wl0001dosrapiyvf8o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/22/ie6 7下的那些事/" data-id="cjaltlbuq00054ssr9mj6p1am" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -542,7 +569,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
     </div>
   </div>
 
@@ -550,9 +577,21 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/11/30/react爬坑之路（一）--报错output.path不是绝对路径/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/17/利用jsplumb和碰撞检测自动生成流程图/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/13/jquery-ui拖拽与overflow同时存在/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2017/10/31/高德地图--编辑矩形/">(no title)</a>
@@ -560,18 +599,6 @@
         
           <li>
             <a href="/2017/10/20/mustache.js 数组循环索引及多层嵌套/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/10/10/jquery datatable获取当前分页数据/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/09/19/高德地图-轨迹回放（二）/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/09/11/高德地图（一）--轨迹回放/">(no title)</a>
           </li>
         
       </ul>
@@ -587,7 +614,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Waterdroppp<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

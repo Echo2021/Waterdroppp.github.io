@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,125 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-vue router-link及router-view不渲染问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/17/vue router-link及router-view不渲染问题/" class="article-date">
+  <time datetime="2017-05-17T14:45:51.360Z" itemprop="datePublished">2017-05-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/17/vue router-link及router-view不渲染问题/">router-link及router-view不渲染</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在vue设置路由时，出现router-link及router-view不渲染，或者只能出现router-link,而不出现router-view</p>
+<h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><p>[TOC]</p>
+<h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><h4 id="components"><a href="#components" class="headerlink" title="components"></a>components</h4><h5 id="goods"><a href="#goods" class="headerlink" title="goods"></a>goods</h5><h6 id="goods-vue"><a href="#goods-vue" class="headerlink" title="goods.vue"></a>goods.vue</h6><h4 id="App-vue"><a href="#App-vue" class="headerlink" title="App.vue"></a>App.vue</h4><h4 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h4><h3 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h3><h3 id="index-js-1"><a href="#index-js-1" class="headerlink" title="index.js"></a>index.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">   &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</div><div class="line">   &lt;!-- built files will be auto injected --&gt;</div><div class="line"> &lt;/body&gt;</div></pre></td></tr></table></figure>
+<h3 id="App-vue-1"><a href="#App-vue-1" class="headerlink" title="App.vue"></a>App.vue</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;v-header&gt;&lt;/v-header&gt;</div><div class="line">    &lt;div class=&quot;tab&quot;&gt;</div><div class="line">      &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">        &lt;router-link to=&quot;/goods&quot;&gt;商品&lt;/router-link&gt;</div><div class="line">      &lt;/div&gt; </div><div class="line">     &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">       &lt;router-link to=&quot;/ratings&quot;&gt;评价&lt;/router-link&gt;</div><div class="line">     &lt;/div&gt; </div><div class="line">     &lt;div class=&quot;tab-item&quot;&gt;</div><div class="line">      &lt;router-link to=&quot;/seller&quot;&gt;商家&lt;/router-link&gt;</div><div class="line">     &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  </div><div class="line">   &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
+<h3 id="main-js-1"><a href="#main-js-1" class="headerlink" title="main.js"></a>main.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;</div><div class="line">import VueRouter from &apos;vue-router&apos;</div><div class="line">import App from &apos;./App&apos;</div><div class="line">import goods from &apos;./components/goods/goods&apos;</div><div class="line">import ratings from &apos;./components/ratings/ratings&apos;</div><div class="line">import seller from &apos;./components/seller/seller&apos;</div><div class="line"></div><div class="line"> Vue.use(VueRouter);</div><div class="line"></div><div class="line">const routes = [</div><div class="line">	&#123;path:&apos;/goods&apos;,component:goods&#125;,</div><div class="line">	&#123;path:&apos;/ratings&apos;,component:ratings&#125;,</div><div class="line">	&#123;path:&apos;/seller&apos;,component:seller&#125;</div><div class="line"></div><div class="line">];</div><div class="line"></div><div class="line">const router = new VueRouter(&#123;</div><div class="line">	routes</div><div class="line">&#125;);</div><div class="line">const app = new Vue(&#123;	</div><div class="line">	router,</div><div class="line">	**render:h=&gt;h(App)**</div><div class="line">&#125;).$mount(&apos;#app&apos;);</div><div class="line"></div><div class="line">router.push(&apos;/goods&apos;);</div></pre></td></tr></table></figure>
+<p>根据官方文档，以下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const app = new Vue(&#123;	</div><div class="line">	router,</div><div class="line">	**render:h=&gt;h(App)**</div><div class="line">&#125;).$mount(&apos;#app&apos;);</div></pre></td></tr></table></figure></p>
+<p>没有render：h=&gt;h(App) (讲文档迁移时有)此时router-link,无法渲染成a标签，添上render:h=&gt;h(App)则全部渲染出来了，注意接口h(App)<br><a href="https://cn.vuejs.org/v2/guide/migration-vue-router.html#main" target="_blank" rel="external">文档迁移地址</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/17/vue router-link及router-view不渲染问题/" data-id="cjaltlbx6000i4ssryma4cecf" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vuejs调试错误更改" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/16/vuejs调试错误更改/" class="article-date">
+  <time datetime="2017-05-16T13:58:59.432Z" itemprop="datePublished">2017-05-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/16/vuejs调试错误更改/">vuejs调试错误Error:Cannot find module &#39;stylus&#39;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用vue-cli时,使用的预处理语言为stylus，出现的[Err:dependency is not …]以及出现的[Cannot find module ‘stylus’]</p>
+<h2 id="处理方式及原因"><a href="#处理方式及原因" class="headerlink" title="处理方式及原因"></a>处理方式及原因</h2><p>webpack里面使用了stylus-loader,但是没有找到装的stylus,用npm安装stylus开发依赖（第二句没用到已解决）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install stylus --save -dev</div><div class="line">$ npm install stylus-loader --save -dev</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/16/vuejs调试错误更改/" data-id="cjaltlbvx000e4ssr53guaixn" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/13/hello/" class="article-date">
+  <time datetime="2017-05-13T03:30:59.000Z" itemprop="datePublished">2017-05-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/13/hello/">hello</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>hello world ! my first blog</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/13/hello/" data-id="cjaltlbu500014ssrchf7la8c" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-hello-world2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -97,7 +216,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello-world2/" data-id="cj9ffq2wp0002dosrjuv1hpqd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/hello-world2/" data-id="cjaltlbue00034ssrzvwlyxnm" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -142,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/13/hello-world/" data-id="cj9ffq2wu0003dosrdg710ny8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/13/hello-world/" data-id="cjaltlbvp000c4ssr660axidf" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -173,7 +292,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
     </div>
   </div>
 
@@ -181,9 +300,21 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/11/30/react爬坑之路（一）--报错output.path不是绝对路径/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/17/利用jsplumb和碰撞检测自动生成流程图/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/13/jquery-ui拖拽与overflow同时存在/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2017/10/31/高德地图--编辑矩形/">(no title)</a>
@@ -191,18 +322,6 @@
         
           <li>
             <a href="/2017/10/20/mustache.js 数组循环索引及多层嵌套/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/10/10/jquery datatable获取当前分页数据/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/09/19/高德地图-轨迹回放（二）/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/09/11/高德地图（一）--轨迹回放/">(no title)</a>
           </li>
         
       </ul>
@@ -218,7 +337,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Waterdroppp<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

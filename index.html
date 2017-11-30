@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,98 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-react爬坑之路（一）--报错output.path不是绝对路径" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/30/react爬坑之路（一）--报错output.path不是绝对路径/" class="article-date">
+  <time datetime="2017-11-30T00:56:15.836Z" itemprop="datePublished">2017-11-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="react爬坑之路（一）–报错output-path不是绝对路径"><a href="#react爬坑之路（一）–报错output-path不是绝对路径" class="headerlink" title="react爬坑之路（一）–报错output.path不是绝对路径"></a>react爬坑之路（一）–报错output.path不是绝对路径</h2><p>之前，一直在纠结是学习angular好，学习vue好，还是学习react好，网上一搜索，也是各种对比，各种互喷，看过之后更纠结。就跟小时候一样纠结长大了是上清华好，还是上北大好，最后证明我想多了。总之，选择一个中意的，管他好不好，就是干，不试又怎么知道～<br>我学习react是从<a href="http://react-china.org/t/react-webpack-todomvc/11098" target="_blank" rel="external">新手教程</a>这篇大神的帖子开始的。虽然是跟着大神的步骤一步一步来，但还是免不了出错。遇到的第一个错误就是output.path不是绝对路径。报错是这样式儿的<br><img src="/image/error1.png" alt="&#39;报错1&#39;"><br>最后通过查文档查资料，终于解决了，两种方法，分别是这样式儿的。<br>（一）不引入nodejs的path<br><img src="/image/correct.png" alt="&#39;解决&#39;"></p>
+<p>注意path必须放在filename下面，放在上面会报这样的错<br><img src="/image/error2.png" alt="&#39;报错2&#39;"><br>(二)引入nodejs的path<br>引入path就是在webpack的配置文件头部加上那么一句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const path = require(&apos;path&apos;);</div></pre></td></tr></table></figure></p>
+<p>之后就是这样的<br><img src="/image/correct2.png" alt="&#39;解决2&#39;"></p>
+<p>这就是我遇到的第一个坑，仅作总结！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/30/react爬坑之路（一）--报错output.path不是绝对路径/" data-id="cjaltlbvj000b4ssrbr1fkk6m" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-利用jsplumb和碰撞检测自动生成流程图" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/17/利用jsplumb和碰撞检测自动生成流程图/" class="article-date">
+  <time datetime="2017-11-17T06:51:38.040Z" itemprop="datePublished">2017-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="title-利用jsplumb和碰撞检测自动生成流程图"><a href="#title-利用jsplumb和碰撞检测自动生成流程图" class="headerlink" title="title:利用jsplumb和碰撞检测自动生成流程图"></a>title:利用jsplumb和碰撞检测自动生成流程图</h2><p>使用jsplumb构建流程图模型时，有一个需求要求，选项可以从选项表中拖拽到指定容器，并且两个选项要接触到的时候才能连接起来，不接触不能连接。效果图如下<br><img src="/image/drag.png" alt="&quot;drag&quot;"><br>略丑～<br>因为这里用到了拖拽，拖放功能，所以用到的有jquery，jquery-ui，jsplumb，考虑到兼容ie8，用到的是jsplumb-1.7.10版本。<br>首先简单的布局</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span> &#123;</div><div class="line">	<span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span>;</div><div class="line">	<span class="attribute">margin</span>:<span class="number">0</span>;</div><div class="line">&#125;</div><div class="line">	<span class="selector-id">#container</span>&#123;</div><div class="line">		<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">		<span class="attribute">height</span>:<span class="number">500px</span>;</div><div class="line">	</div><div class="line">		<span class="attribute">background</span>:<span class="number">#eee</span>;</div><div class="line">		<span class="attribute">float</span>:left;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	<span class="selector-id">#container</span> <span class="selector-class">.node</span> &#123;</div><div class="line">		<span class="attribute">width</span>:<span class="number">50px</span>;</div><div class="line">		<span class="attribute">height</span>:<span class="number">50px</span>;</div><div class="line">		<span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#000</span>;</div><div class="line">		<span class="attribute">margin-top</span>:<span class="number">20px</span>;</div><div class="line">		<span class="attribute">margin-left</span>:<span class="number">20px</span>;</div><div class="line">		<span class="attribute">z-index</span>:<span class="number">999</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="selector-id">#wrapper</span> &#123;</div><div class="line">		</div><div class="line">		<span class="attribute">width</span>:<span class="number">500px</span>;</div><div class="line">		<span class="attribute">height</span>:<span class="number">500px</span>;</div><div class="line">		<span class="attribute">margin-left</span>:<span class="number">200px</span>;</div><div class="line">		<span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#5182E4</span>;</div><div class="line">		<span class="attribute">background</span>:<span class="number">#ddd</span>;</div><div class="line">		<span class="attribute">position</span>:relative;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"node"</span> <span class="attr">id</span>=<span class="string">"Node1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"node"</span> <span class="attr">id</span>=<span class="string">"Node2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"node"</span> <span class="attr">id</span>=<span class="string">"Node3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"wrapper"</span>&gt;</span></div><div class="line">		</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>接下来就是功能实现,第一步拖拽<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#container .node'</span>).draggable(&#123;</div><div class="line">	  <span class="attr">helper</span>:<span class="string">'clone'</span>,</div><div class="line">	  <span class="attr">revert</span>: <span class="string">'invalid'</span>,<span class="comment">//放置不到位自动恢复原位	 </span></div><div class="line">	  stop:<span class="function"><span class="keyword">function</span>(<span class="params">event,ui</span>)</span>&#123;</div><div class="line">		<span class="comment">//准备碰撞检测所需要的条件</span></div><div class="line">	  	<span class="keyword">var</span> r1 = ui.offset.left+ui.helper.context.offsetWidth;</div><div class="line">	  	<span class="keyword">var</span> l1 = ui.offset.left;</div><div class="line">	  	<span class="keyword">var</span> b1 = ui.offset.top+ui.helper.context.offsetHeight;</div><div class="line">	  	<span class="keyword">var</span> t1 = ui.offset.top;</div><div class="line"></div><div class="line">	  	<span class="keyword">var</span> L = $(<span class="string">'#wrapper'</span>)[<span class="number">0</span>].offsetLeft;</div><div class="line"></div><div class="line">	  	<span class="keyword">var</span> T = $(<span class="string">'#wrapper'</span>)[<span class="number">0</span>].offsetTop;</div><div class="line"></div><div class="line">	  	<span class="keyword">var</span> id= ui.helper.context.id;</div><div class="line"></div><div class="line">	  	<span class="keyword">var</span> len = $(<span class="string">'#wrapper'</span>).children(<span class="string">'.node'</span>).length;</div><div class="line"></div><div class="line">	</div><div class="line">	 	<span class="keyword">var</span> uid = <span class="string">'dragNode'</span>+len;</div><div class="line"></div><div class="line">	  	<span class="keyword">var</span> arr=[];</div><div class="line">	  </div><div class="line">	  	$(<span class="string">'#wrapper'</span>).children(<span class="string">'.node'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">	  		</div><div class="line">	  		<span class="keyword">var</span> json=&#123;&#125;;</div><div class="line"></div><div class="line">	  		json.id = $(<span class="keyword">this</span>).context.id;</div><div class="line">	  		json.left = $(<span class="keyword">this</span>).context.offsetLeft+L;</div><div class="line">	  		json.right = $(<span class="keyword">this</span>).context.offsetLeft+L+$(<span class="keyword">this</span>)[<span class="number">0</span>].offsetWidth;</div><div class="line">	  		json.top = $(<span class="keyword">this</span>).context.offsetTop+T;</div><div class="line">	  		json.bottom = $(<span class="keyword">this</span>).context.offsetTop+T+$(<span class="keyword">this</span>)[<span class="number">0</span>].offsetHeight;</div><div class="line"></div><div class="line">	  		arr.push(json);</div><div class="line"></div><div class="line">	  	&#125;);</div><div class="line"></div><div class="line">	</div><div class="line">		<span class="comment">//jsplumb 设置样式</span></div><div class="line">	  	<span class="keyword">var</span> common = &#123;</div><div class="line">	  				<span class="attr">anchors</span>:[<span class="string">'Left'</span>,<span class="string">'Right'</span>],</div><div class="line">	  				<span class="attr">endpoint</span>:[<span class="string">'Dot'</span>,&#123;<span class="attr">radius</span>:<span class="number">2</span>&#125;],</div><div class="line">	  			</div><div class="line">	  				<span class="attr">paintStyle</span>:&#123;</div><div class="line">						<span class="attr">strokeStyle</span>:<span class="string">'#1e8151'</span>,</div><div class="line">						<span class="attr">fillStyle</span>:<span class="string">'transparent'</span>,</div><div class="line">						<span class="attr">radius</span>:<span class="number">2</span>,</div><div class="line">						<span class="attr">lineWidth</span>:<span class="number">2</span>,</div><div class="line">					&#125;</div><div class="line">				</div><div class="line">	  				</div><div class="line">	  			&#125;;</div><div class="line"></div><div class="line">	  </div><div class="line"></div><div class="line">	  	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">	  		<span class="keyword">if</span>(arr[i].id!=uid)&#123;</div><div class="line"></div><div class="line">	  			<span class="keyword">var</span> id3= arr[i].id;</div><div class="line">				<span class="comment">//碰撞检测</span></div><div class="line">	  			<span class="keyword">if</span>(r1&lt;arr[i].left||b1&lt;arr[i].top||l1&gt;arr[i].right||t1&gt;arr[i].bottom)&#123;</div><div class="line"></div><div class="line">	  				$(<span class="string">'#'</span>+id3).css(<span class="string">'background'</span>,<span class="string">'red'</span>)</div><div class="line">	  				<span class="built_in">console</span>.log(<span class="number">2</span>);</div><div class="line">	  			&#125;<span class="keyword">else</span> &#123;</div><div class="line">	  				$(<span class="string">'#'</span>+id3).css(<span class="string">'background'</span>,<span class="string">'green'</span>);</div><div class="line"></div><div class="line">	  			<span class="comment">//碰撞后，连接到一起</span></div><div class="line">					jsPlumb.connect(&#123;</div><div class="line">						<span class="attr">source</span>:uid,</div><div class="line">						<span class="attr">target</span>:arr[i].id,</div><div class="line">						<span class="attr">scope</span>:<span class="string">''</span>,</div><div class="line">						<span class="attr">connector</span>:[</div><div class="line">							<span class="string">'Straight'</span>,</div><div class="line">							&#123;</div><div class="line">								<span class="attr">stub</span>:[<span class="number">10</span>,<span class="number">10</span>],</div><div class="line">								<span class="attr">gap</span>:<span class="number">0</span></div><div class="line">							&#125;</div><div class="line">						],</div><div class="line">						<span class="attr">overlays</span>:[</div><div class="line">							[<span class="string">'Arrow'</span>,&#123;<span class="attr">width</span>:<span class="number">10</span>,<span class="attr">height</span>:<span class="number">10</span>,<span class="attr">location</span>:<span class="number">0.9</span>&#125;],</div><div class="line">							[<span class="string">'Label'</span>,&#123;<span class="attr">label</span>:<span class="string">'hello'</span>,<span class="attr">location</span>:<span class="number">0.5</span>&#125;]</div><div class="line">						]</div><div class="line">					&#125;,common);</div><div class="line"></div><div class="line">					<span class="keyword">var</span> lef = ui.offset.left+<span class="number">50</span>;</div><div class="line"></div><div class="line">					<span class="comment">//jsPlumb 动画，选项连接后自动分离开一段距离</span></div><div class="line"></div><div class="line">					jsPlumb.animate(uid,&#123;<span class="attr">left</span>:lef&#125;,&#123;<span class="attr">duration</span>:<span class="number">350</span>,<span class="attr">easing</span>:<span class="string">'easeOutBack'</span>&#125;);</div><div class="line"></div><div class="line">	  			&#125;</div><div class="line"></div><div class="line">	  		&#125;</div><div class="line">	  	&#125;</div><div class="line"></div><div class="line"></div><div class="line">	  &#125;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure></p>
+<p>选项可以拖拽后，还要有放置的地儿，当然draggable里也可以，这里使用droppable;<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#wrapper'</span>).droppable(&#123;</div><div class="line">			</div><div class="line">			<span class="attr">drop</span>:<span class="function"><span class="keyword">function</span>(<span class="params">event,ui</span>)</span>&#123;</div><div class="line"></div><div class="line">				<span class="keyword">var</span> leng = $(<span class="string">'#wrapper'</span>).children(<span class="string">'.node'</span>).length+<span class="number">1</span>;</div><div class="line"></div><div class="line">				 <span class="keyword">var</span> arr=[];</div><div class="line"></div><div class="line">				<span class="keyword">var</span> id = <span class="string">"dragNode"</span>+leng;</div><div class="line"></div><div class="line">				<span class="keyword">var</span> id2 = ui.draggable[<span class="number">0</span>].id;</div><div class="line"></div><div class="line">				<span class="keyword">var</span> left = <span class="built_in">parseInt</span>(ui.offset.left-$(<span class="keyword">this</span>).offset().left);</div><div class="line">				<span class="keyword">var</span> top = <span class="built_in">parseInt</span>(ui.offset.top-$(<span class="keyword">this</span>).offset().top);</div><div class="line"></div><div class="line">				<span class="keyword">var</span> width = ui.draggable[<span class="number">0</span>].clientWidth;</div><div class="line">				<span class="keyword">var</span> height = ui.draggable[<span class="number">0</span>].clientHeight;</div><div class="line">			</div><div class="line">		</div><div class="line"></div><div class="line">				<span class="keyword">var</span> len = $(<span class="keyword">this</span>).children(<span class="string">'.node'</span>).length;</div><div class="line"></div><div class="line">			<span class="comment">//判断容器内拖拽的是否重复</span></div><div class="line">				<span class="keyword">if</span>(!len)&#123;</div><div class="line">					$(<span class="keyword">this</span>).append($(<span class="string">'&lt;div style="position:absolute;" class="node" id="'</span>+id+<span class="string">'"&gt;'</span>+$(ui.helper).html()+<span class="string">'&lt;/div&gt;'</span>));</div><div class="line">					$(<span class="string">'#'</span>+id).css(<span class="string">'left'</span>,left).css(<span class="string">'top'</span>,top);</div><div class="line">					$(<span class="string">'#'</span>+id).css(<span class="string">'width'</span>,width).css(<span class="string">'height'</span>,height);</div><div class="line"></div><div class="line">					$(<span class="string">'#'</span>+id).css(<span class="string">'border'</span>,<span class="string">'1px solid #000'</span>);</div><div class="line">				&#125;<span class="keyword">else</span> &#123;</div><div class="line">						$(<span class="keyword">this</span>).children(<span class="string">'.node'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">							 <span class="comment">// console.log($(this).html());</span></div><div class="line"></div><div class="line">							 arr.push($(<span class="keyword">this</span>).html());</div><div class="line"></div><div class="line">						&#125;);</div><div class="line"></div><div class="line">					</div><div class="line"></div><div class="line">						<span class="keyword">if</span>(arr.indexOf($(ui.helper).html())&gt;<span class="number">-1</span>)&#123;</div><div class="line">							alert(<span class="string">'已存在！'</span>);</div><div class="line">							<span class="keyword">return</span>;</div><div class="line">						&#125;<span class="keyword">else</span> &#123;</div><div class="line">							$(<span class="keyword">this</span>).append($(<span class="string">'&lt;div style="position:absolute;" class="node" id="'</span>+id+<span class="string">'"&gt;'</span>+$(ui.helper).html()+<span class="string">'&lt;/div&gt;'</span>));</div><div class="line">							$(<span class="string">'#'</span>+id).css(<span class="string">'left'</span>,left).css(<span class="string">'top'</span>,top);</div><div class="line">							$(<span class="string">'#'</span>+id).css(<span class="string">'width'</span>,width).css(<span class="string">'height'</span>,height);</div><div class="line"></div><div class="line">							$(<span class="string">'#'</span>+id).css(<span class="string">'border'</span>,<span class="string">'1px solid #000'</span>);</div><div class="line">						&#125;</div><div class="line">				&#125;</div><div class="line"></div><div class="line">			</div><div class="line">				arr.push(id2);</div><div class="line">			</div><div class="line">			<span class="comment">//限制容器内选项的拖拽范围</span></div><div class="line">				jsPlumb.draggable(id,&#123;</div><div class="line">					<span class="attr">containment</span>:<span class="string">'parent'</span></div><div class="line">				&#125;);</div><div class="line"></div><div class="line">			<span class="comment">//</span></div><div class="line">				<span class="keyword">var</span> connectorPaintStyle=&#123;</div><div class="line">					<span class="attr">lineWidth</span>:<span class="number">4</span>,</div><div class="line">					<span class="attr">strokeStyle</span>:<span class="string">'#61B7CF'</span>,</div><div class="line">					<span class="attr">joinstyle</span>:<span class="string">'round'</span>,</div><div class="line">					</div><div class="line">				&#125;;</div><div class="line">				<span class="keyword">var</span> connectorHoverStyle = &#123;</div><div class="line">					<span class="attr">lineWidth</span>:<span class="number">4</span>,</div><div class="line">					<span class="attr">strokeStyle</span>:<span class="string">'#216477'</span>,</div><div class="line">					</div><div class="line">				&#125;;</div><div class="line">				<span class="keyword">var</span> defaults = &#123;</div><div class="line">					<span class="attr">endpoint</span>:[<span class="string">'Dot'</span>,&#123;<span class="attr">radius</span>:<span class="number">2</span>&#125;],</div><div class="line">					<span class="attr">connectorStyle</span>:connectorPaintStyle,</div><div class="line">					<span class="attr">connectorHoverStyle</span>:connectorHoverStyle,</div><div class="line">					<span class="attr">paintStyle</span>:&#123;</div><div class="line">						<span class="attr">strokeStyle</span>:<span class="string">'#1e8151'</span>,</div><div class="line">						<span class="attr">fillStyle</span>:<span class="string">'transparent'</span>,</div><div class="line">						<span class="attr">radius</span>:<span class="number">2</span>,</div><div class="line">						<span class="attr">lineWidth</span>:<span class="number">2</span>,</div><div class="line"></div><div class="line">					&#125;,</div><div class="line">					<span class="attr">isSource</span>:<span class="literal">true</span>,</div><div class="line">					<span class="attr">connector</span>:[<span class="string">'Flowchart'</span>,&#123;<span class="attr">stub</span>:[<span class="number">40</span>,<span class="number">60</span>],<span class="attr">gap</span>:<span class="number">5</span>,<span class="attr">cornerRadius</span>:<span class="number">5</span>,<span class="attr">alwaysRespectStubs</span>:<span class="literal">true</span>&#125;],</div><div class="line">					<span class="attr">isTarget</span>:<span class="literal">true</span>,</div><div class="line">					<span class="attr">maxConnections</span>:<span class="number">-1</span>,</div><div class="line">					<span class="attr">connectorOverlays</span>:[</div><div class="line">						[<span class="string">'Arrow'</span>,&#123;<span class="attr">width</span>:<span class="number">10</span>,<span class="attr">length</span>:<span class="number">10</span>,<span class="attr">location</span>:<span class="number">1</span>&#125;],</div><div class="line">						[<span class="string">'Label'</span>,&#123;<span class="attr">label</span>:<span class="string">'yes'</span>,<span class="attr">width</span>:<span class="number">10</span>,<span class="attr">height</span>:<span class="number">10</span>&#125;]</div><div class="line">						]</div><div class="line">				&#125;;</div><div class="line"></div><div class="line">				<span class="comment">//在添加连接点</span></div><div class="line">				jsPlumb.addEndpoint(id,&#123;<span class="attr">anchors</span>:<span class="string">'TopCenter'</span>&#125;,defaults);</div><div class="line">				jsPlumb.addEndpoint(id,&#123;<span class="attr">anchors</span>:<span class="string">'BottomCenter'</span>&#125;,defaults);</div><div class="line">				jsPlumb.addEndpoint(id,&#123;<span class="attr">anchors</span>:<span class="string">'RightMiddle'</span>&#125;,defaults);</div><div class="line">				jsPlumb.addEndpoint(id,&#123;<span class="attr">anchors</span>:<span class="string">'LeftMiddle'</span>&#125;,defaults);</div><div class="line"></div><div class="line"></div><div class="line">	</div><div class="line"></div><div class="line">				</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;);</div></pre></td></tr></table></figure></p>
+<p>利用jsplumb与碰撞检测，自动生成流程图的过程基本就这样了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/17/利用jsplumb和碰撞检测自动生成流程图/" data-id="cjaltlbx9000j4ssrou81ekc8" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jquery-ui拖拽与overflow同时存在" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/13/jquery-ui拖拽与overflow同时存在/" class="article-date">
+  <time datetime="2017-11-13T09:13:39.614Z" itemprop="datePublished">2017-11-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="title-jquery-ui拖拽与overflow同时存在时，问题解决"><a href="#title-jquery-ui拖拽与overflow同时存在时，问题解决" class="headerlink" title="title:jquery-ui拖拽与overflow同时存在时，问题解决"></a>title:jquery-ui拖拽与overflow同时存在时，问题解决</h2><p>在使用jquery-ui的拖拽功能对列表内的选项拖拽时，发现无法将选项拖拽出列表的范围，一出范围就自动隐藏在列表下，查找到最后的原因是css中的overflow的原因，overflow存在则不能将选项拖拽出列表，<br>解决办法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'ul li'</span>).draggable(&#123;</div><div class="line">    			<span class="attr">zIndex</span>:<span class="number">999</span>,<span class="comment">//zIndex主要是让选项在上层显示出来</span></div><div class="line">    			helper:<span class="string">'clone'</span>,</div><div class="line">    			<span class="attr">revert</span>:<span class="string">'invalid'</span>,</div><div class="line">    			<span class="attr">appendTo</span>:<span class="string">'body'</span><span class="comment">//加上这句就可以将选项拖拽出来</span></div><div class="line">    	&#125;);</div></pre></td></tr></table></figure></p>
+<p>以上仅作总结。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/13/jquery-ui拖拽与overflow同时存在/" data-id="cjaltlbv900084ssr071ryczf" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-高德地图--编辑矩形" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -80,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/31/高德地图--编辑矩形/" data-id="cj9ffq2y8000gdosrz079fuhz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/31/高德地图--编辑矩形/" data-id="cjaltlbxc000k4ssrqzhees0d" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -110,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/20/mustache.js 数组循环索引及多层嵌套/" data-id="cj9ffq2xf0008dosrydzdpot4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/20/mustache.js 数组循环索引及多层嵌套/" data-id="cjaltlbve00094ssr3zm31ir4" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -139,7 +231,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/10/jquery datatable获取当前分页数据/" data-id="cj9ffq2x00005dosr8omyuwbh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/10/jquery datatable获取当前分页数据/" data-id="cjaltlbuw00064ssrolrcwr48" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -168,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/19/高德地图-轨迹回放（二）/" data-id="cj9ffq2yc000idosr4f9gzwve" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/19/高德地图-轨迹回放（二）/" data-id="cjaltlbxh000m4ssrt3apqmhz" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -199,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/11/高德地图（一）--轨迹回放/" data-id="cj9ffq2ye000jdosrf88bfa90" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/11/高德地图（一）--轨迹回放/" data-id="cjaltlbxj000n4ssrf5a4yu0e" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -235,7 +327,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/17/push/" data-id="cj9ffq2xh0009dosr9hmg4aev" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/17/push/" data-id="cjaltlbvg000a4ssrrzy7cpfs" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -276,153 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/13/iframe 下使用niceScroll报错/" data-id="cj9ffq2ww0004dosrid9kj7hq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-html5shiv,respond引入不起作用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/08/html5shiv,respond引入不起作用/" class="article-date">
-  <time datetime="2017-07-08T13:39:48.878Z" itemprop="datePublished">2017-07-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/08/html5shiv,respond引入不起作用/">html5shiv.js和respond.js引入不起作用解决</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当项目需求需要兼容ie7，8这些奇葩浏览器时，考虑到h5的便捷性及响应式，我们往往引入html5shiv.js和respond.js来让ie7，8兼容h5及一些响应式变化，引入时就需要用到条件注释，原来写条件注释要么copy其他项目上的，要么随便写写，从没当回事，也没注意格式上有什么要求，下面来看看因为条件注释引起的大麻烦。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//css</div><div class="line">&lt;style&gt;</div><div class="line">	header &#123;</div><div class="line">		width:100px;</div><div class="line">		height:100px;</div><div class="line">		color:red;</div><div class="line">		background:#ccc;</div><div class="line">	&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">//html</div><div class="line">&lt;header&gt;</div><div class="line">    	hello world!</div><div class="line">&lt;/header&gt;</div></pre></td></tr></table></figure>
-<p>看上面的代码，我们可以想象出来如果引入正确ie8下，应该是灰色背景下小红字,先来看下正确的效果</p>
-<p><img src="/image/h5a.png" alt="&#39;正确引入&#39;"></p>
-<p>下面来看下各种错误引入html5shiv.js的条件注释语句及带来的后果（ie8下测试）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!-- [if lt ie 9]&gt;</div><div class="line">&lt;script src=&quot;lib/html5shiv/html5shiv.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
-<p>看条件注释语句似乎没什么不妥，看效果<br><img src="/image/h5b.png" alt="&#39;错误引入1&#39;"></p>
-<p>怎么没效果？？？F12看控制台<br><img src="/image/h5b1.png" alt="&#39;控制台&#39;"></p>
-<p>header标签未识别，坑爹啊，看起来没错啊，换html5shiv.js版本，换cdn统统没用,再仔细检查发现在中括号前多了个空格，把空格去掉，效果变正常。还有在中括号之后加空格也会引起异常，上面ie和9之间也一定要有空格不然也会异常。看似漫不经心的一个小空格也会引起大错误,用条件注释时一定要严格地按照格式来写如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if lt ie 9]&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/08/html5shiv,respond引入不起作用/" data-id="cj9ffq2x70007dosr9cdfec8v" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-width100%和绝对定位同时存在时 偏移" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/04/width100%和绝对定位同时存在时 偏移/" class="article-date">
-  <time datetime="2017-07-04T00:03:19.644Z" itemprop="datePublished">2017-07-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/04/width100%和绝对定位同时存在时 偏移/">width100%与绝对定位同时存在，偏移出父级容器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当父级容器内的子元素width设为100%，而子元素又有绝对定位时，子元素伸展超出父级容器，像下面</p>
-<p><img src="/image/position.png" alt="&quot;position&quot;"></p>
-<p>出现这种情况的原因，width：100%，这个百分之百是相对其定位父级而言的，其定位父级有多宽，这个子元素就有多宽，所以子元素跑到了父级容器外</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span>好的<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">			<span class="attribute">position</span>:relative;</div><div class="line">			<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">			<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">			<span class="attribute">background</span>:red;</div><div class="line">			<span class="attribute">margin</span>:<span class="number">10px</span>;</div><div class="line">			<span class="attribute">padding</span>:<span class="number">10px</span>;</div><div class="line">			<span class="attribute">border</span>:<span class="number">5px</span> solid <span class="number">#000</span>;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">		<span class="selector-class">.content</span> &#123;</div><div class="line">			<span class="attribute">text-align</span>:center;</div><div class="line">			 <span class="attribute">width</span>:<span class="number">100%</span>; </div><div class="line">			 <span class="attribute">position</span>:absolute;</div><div class="line">			<span class="attribute">left</span>:<span class="number">30px</span>;</div><div class="line">			<span class="attribute">right</span>:<span class="number">30px</span>; </div><div class="line">			<span class="attribute">background</span>:blue;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
-<p>如何实现子元素看起来在父级容器之内居中显示？其实很简单，把子元素的width：100%改为width：auto即可<br>效果如下图</p>
-<p><img src="/image/position2.png" alt="&quot;position&quot;"></p>
-<p>题外话：绝对定位是一般是根据其定位父级border内侧开始定位的，若无定位父级则是根据视口边定位</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/04/width100%和绝对定位同时存在时 偏移/" data-id="cj9ffq2y1000edosr9kqwvelj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-my97DatePicker显示当时时间" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/17/my97DatePicker显示当时时间/" class="article-date">
-  <time datetime="2017-06-17T07:45:28.736Z" itemprop="datePublished">2017-06-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/17/my97DatePicker显示当时时间/">js使用my97插件显示当前时间，且计算时间差</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>做页面需要两个时间输入框一个显示当前时间，一个显示之前的时间，并且需要一个select下拉框控制两个时间输入框之间的差,效果如下图：</p>
-<p><img src="/image/time1.png" alt="&quot;时间&quot;"></p>
-<p>这里使用的是My97DatePicer,简单方便,引入my97插件，设置input时间框的格式，这里设置的时间最大是当前时间，开始时间框不能比结束时间框的时间大</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;lib/date/WdatePicker.js&quot;&gt;&lt;/script&gt;</div><div class="line"></div><div class="line">选择时间范围：&lt;select name=&quot;selectDate&quot; id=&quot;sDate&quot;&gt;</div><div class="line">				&lt;option value=&quot;1&quot;&gt;一天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;2&quot;&gt;两天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;3&quot;&gt;三天&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;7&quot;&gt;一周&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;14&quot;&gt;二周&lt;/option&gt;</div><div class="line">				&lt;option value=&quot;21&quot;&gt;三周&lt;/option&gt;</div><div class="line">			&lt;/select&gt;</div><div class="line">			&lt;br/&gt;</div><div class="line">			开始时间：&lt;input type=&quot;text&quot; id=&quot;startTime&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;lang:&apos;zh-cn&apos;,dateFmt:&apos;yyyy-MM-dd HH:mm:ss&apos;,maxDate:&apos;#F&#123;$dp.$D(\&apos;endTime\&apos;)&#125;&apos;&amp;&amp;&apos;%y-%M-%d&apos;&#125;)&quot;&gt;</div><div class="line">			&lt;br/&gt;</div><div class="line">			结束时间：&lt;input type=&quot;text&quot; id=&quot;endTime&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;lang:&apos;zh-cn&apos;,dateFmt:&apos;yyyy-MM-dd HH:mm:ss&apos;,minDate:&apos;#F&#123;$dp.$D(\&apos;startTime\&apos;)&#125;&apos;,maxDate:&apos;%y-%M-%d&apos;&#125;)&quot;&gt;</div></pre></td></tr></table></figure>
-<p>弄完这些，就可以点出时间了，但需要的是进入页面就显示当时时间，原理就是获取当前时间值再输入到时间框里</p>
-<p>获取当时时间,因为获得的月份是从0-11，所以获得月份加一，才是真实月份</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"><span class="keyword">var</span> year = date.getFullYear();</div><div class="line"><span class="keyword">var</span> month = date.getMonth()+<span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> day = date.getDate();</div><div class="line"><span class="keyword">var</span> hour = date.getHours();</div><div class="line"><span class="keyword">var</span> minutes = date.getMinutes();</div><div class="line"><span class="keyword">var</span> seconds = date.getSeconds();</div></pre></td></tr></table></figure>
-<p>将获得的时间拼成字符串，因为考虑到获取的时间数字小于10时，格式是这样的2017-9-1 10:1:8,所以小于10时拼接一下，更符合习惯</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">var endTimeStr,startTimeStr;</div><div class="line">		var str1,str2,str3,str4,str5;</div><div class="line">		if(month&lt;10)&#123;</div><div class="line">			str1=&apos;-0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str1=&apos;-&apos;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(day&lt;10)&#123;</div><div class="line">			str2=&apos;-0&apos;;</div><div class="line">		&#125;else&#123;</div><div class="line">			str2=&apos;-&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(hour&lt;10)&#123;</div><div class="line">			str3=&apos; 0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str3=&apos; &apos;;</div><div class="line">		&#125;</div><div class="line">		if(minutes&lt;10)&#123;</div><div class="line">			str4=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str4=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line">		if(seconds&lt;10)&#123;</div><div class="line">			str5=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str5=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line"></div><div class="line">	endTimeStr = year+str1+month+str2+day+str3 +hour+str4+minutes+str5+seconds;</div></pre></td></tr></table></figure>
-<p>这得到的是结束时间的，因为select下拉框控制的范围是到当前时间的，开始时间受下拉框限制，我们需要找出时间差</p>
-<p>这是当前时间的毫秒数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var time = date.getTime();</div></pre></td></tr></table></figure>
-<p>这是下拉框控制的时间范围，转化为毫秒数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var cTime = $(&apos;#sDate&apos;).val()*24*3600*1000;</div></pre></td></tr></table></figure>
-<p>当前时间-下拉框时间=开始时间，再将开始时间转化为标准的格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">var dif = time-cTime;</div><div class="line">var nTime = new Date(dif);</div><div class="line"></div><div class="line">var year1 = nTime.getFullYear();</div><div class="line">var month1 = nTime.getMonth()+1;</div><div class="line"></div><div class="line">var day1 = nTime.getDate();</div><div class="line"></div><div class="line">var hour1 = nTime.getHours();</div><div class="line">var minutes1 = nTime.getMinutes();</div><div class="line">var seconds1 = nTime.getSeconds();</div><div class="line">var str11.str12,str13,str14,str15;</div><div class="line"></div><div class="line">		if(month1&lt;10)&#123;</div><div class="line">			str11=&apos;-0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str11=&apos;-&apos;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(day1&lt;10)&#123;</div><div class="line">			str12=&apos;-0&apos;;</div><div class="line">		&#125;else&#123;</div><div class="line">			str12=&apos;-&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(hour1&lt;10)&#123;</div><div class="line">			str13=&apos; 0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str13=&apos; &apos;;</div><div class="line">		&#125;</div><div class="line">		if(minutes1&lt;10)&#123;</div><div class="line">			str14=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str14=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line">		if(seconds1&lt;10)&#123;</div><div class="line">			str15=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str15=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	startTimeStr = year1+str11+month1+str12+day1+str13 +hour1+str14+minutes1+str15+seconds1;</div></pre></td></tr></table></figure>
-<p>得到开始时间和结束时间将它们输入到时间输入框即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(&apos;#endTime&apos;).val(endTimeStr);</div><div class="line">$(&apos;#startTime&apos;).val(startTimeStr);</div></pre></td></tr></table></figure>
-<p>可将以上js写成一个函数，select控制函数执行控制时间,完整如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line">function timeSet()&#123;</div><div class="line">  </div><div class="line">		 var date = new Date();</div><div class="line">		 var time = date.getTime();</div><div class="line"></div><div class="line">		 var year = date.getFullYear();</div><div class="line">		 var month = date.getMonth()+1;</div><div class="line">		</div><div class="line">		 var day = date.getDate();</div><div class="line"></div><div class="line">		 </div><div class="line">		</div><div class="line"></div><div class="line">		var hour = date.getHours();</div><div class="line">		var minutes = date.getMinutes();</div><div class="line">		var seconds = date.getSeconds();</div><div class="line">		var endTimeStr,startTimeStr;</div><div class="line">		var str1,str2,str3,str4,str5;</div><div class="line">		if(month&lt;10)&#123;</div><div class="line">			str1=&apos;-0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str1=&apos;-&apos;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(day&lt;10)&#123;</div><div class="line">			str2=&apos;-0&apos;;</div><div class="line">		&#125;else&#123;</div><div class="line">			str2=&apos;-&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(hour&lt;10)&#123;</div><div class="line">			str3=&apos; 0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str3=&apos; &apos;;</div><div class="line">		&#125;</div><div class="line">		if(minutes&lt;10)&#123;</div><div class="line">			str4=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str4=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line">		if(seconds&lt;10)&#123;</div><div class="line">			str5=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str5=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line"></div><div class="line">	endTimeStr = year+str1+month+str2+day+str3 +hour+str4+minutes+str5+seconds;</div><div class="line"> //求时间差，</div><div class="line"> var cTime = $(&apos;#sDate&apos;).val()*24*3600*1000;</div><div class="line">	</div><div class="line">	var dif = time-cTime;</div><div class="line">	</div><div class="line">	var nTime = new Date(dif);</div><div class="line"></div><div class="line">	var year1 = nTime.getFullYear();</div><div class="line"> 	var month1 = nTime.getMonth()+1;</div><div class="line"></div><div class="line">	 var day1 = nTime.getDate();</div><div class="line"></div><div class="line">	var hour1 = nTime.getHours();</div><div class="line">	var minutes1 = nTime.getMinutes();</div><div class="line">	var seconds1 = nTime.getSeconds();</div><div class="line"></div><div class="line">	var str11.str12,str13,str14,str15;</div><div class="line"></div><div class="line">		if(month1&lt;10)&#123;</div><div class="line">			str11=&apos;-0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str11=&apos;-&apos;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(day1&lt;10)&#123;</div><div class="line">			str12=&apos;-0&apos;;</div><div class="line">		&#125;else&#123;</div><div class="line">			str12=&apos;-&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		if(hour1&lt;10)&#123;</div><div class="line">			str13=&apos; 0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str13=&apos; &apos;;</div><div class="line">		&#125;</div><div class="line">		if(minutes1&lt;10)&#123;</div><div class="line">			str14=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str14=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line">		if(seconds1&lt;10)&#123;</div><div class="line">			str15=&apos;:0&apos;;</div><div class="line">		&#125;else &#123;</div><div class="line">			str15=&apos;:&apos;;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	startTimeStr = year1+str11+month1+str12+day1+str13 +hour1+str14+minutes1+str15+seconds1;</div><div class="line"></div><div class="line">	$(&apos;#endTime&apos;).val(endTimeStr);</div><div class="line">	$(&apos;#startTime&apos;).val(startTimeStr);</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">	timeSet();</div><div class="line"></div><div class="line">	$(&apos;#sDate&apos;).on(&apos;change&apos;,function()&#123;</div><div class="line"></div><div class="line">		timeSet();</div><div class="line">	</div><div class="line">	&#125;);</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/17/my97DatePicker显示当时时间/" data-id="cj9ffq2xp000bdosrb5ye8a9o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/13/iframe 下使用niceScroll报错/" data-id="cjaltlbuh00044ssrw1psdy3v" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -453,7 +399,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
     </div>
   </div>
 
@@ -461,9 +407,21 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/11/30/react爬坑之路（一）--报错output.path不是绝对路径/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/17/利用jsplumb和碰撞检测自动生成流程图/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/13/jquery-ui拖拽与overflow同时存在/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2017/10/31/高德地图--编辑矩形/">(no title)</a>
@@ -471,18 +429,6 @@
         
           <li>
             <a href="/2017/10/20/mustache.js 数组循环索引及多层嵌套/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/10/10/jquery datatable获取当前分页数据/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/09/19/高德地图-轨迹回放（二）/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/09/11/高德地图（一）--轨迹回放/">(no title)</a>
           </li>
         
       </ul>
@@ -498,7 +444,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Waterdroppp<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
