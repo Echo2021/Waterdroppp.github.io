@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>我的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="title:react爬坑之路（二）–热更新使用react+webpack搭建react开发遇到的坑着实不少，网上大把大把的教程，试过去坑更多。终于搭建成功，仅作总结只用。 在项目目录里初始化1npm init *建立项目目录123456789app/	--package.json(初始化自动生成)	--index.html（手动建立）	--src（手动建立）		--index.js（手动建立，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的博客">
+<meta property="og:url" content="http://yoursite.com/2017/12/19/react-热更新/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="title:react爬坑之路（二）–热更新使用react+webpack搭建react开发遇到的坑着实不少，网上大把大把的教程，试过去坑更多。终于搭建成功，仅作总结只用。 在项目目录里初始化1npm init *建立项目目录123456789app/	--package.json(初始化自动生成)	--index.html（手动建立）	--src（手动建立）		--index.js（手动建立，">
+<meta property="og:updated_time" content="2017-12-26T08:53:27.983Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我的博客">
+<meta name="twitter:description" content="title:react爬坑之路（二）–热更新使用react+webpack搭建react开发遇到的坑着实不少，网上大把大把的教程，试过去坑更多。终于搭建成功，仅作总结只用。 在项目目录里初始化1npm init *建立项目目录123456789app/	--package.json(初始化自动生成)	--index.html（手动建立）	--src（手动建立）		--index.js（手动建立，">
+  
+    <link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">我的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-react-热更新" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/19/react-热更新/" class="article-date">
+  <time datetime="2017-12-19T03:42:03.805Z" itemprop="datePublished">2017-12-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="title-react爬坑之路（二）–热更新"><a href="#title-react爬坑之路（二）–热更新" class="headerlink" title="title:react爬坑之路（二）–热更新"></a>title:react爬坑之路（二）–热更新</h2><p>使用react+webpack搭建react开发遇到的坑着实不少，网上大把大把的教程，试过去坑更多。终于搭建成功，仅作总结只用。</p>
+<h2 id="在项目目录里初始化"><a href="#在项目目录里初始化" class="headerlink" title="在项目目录里初始化"></a>在项目目录里初始化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init</div></pre></td></tr></table></figure>
+<p>*建立项目目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">app/</div><div class="line">	--package.json(初始化自动生成)</div><div class="line">	--index.html（手动建立）</div><div class="line">	--src（手动建立）</div><div class="line">		--index.js（手动建立，入口文件）</div><div class="line">		--components/（手动建立）</div><div class="line">		--less/（手动建立）</div><div class="line">		--js/（手动建立）</div><div class="line">		--images/（手动建立）</div></pre></td></tr></table></figure></p>
+<p>*安装webpack，配置简单的webpack配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install webpack --save-dev</div></pre></td></tr></table></figure></p>
+<p>在根目录下新建文件webpack.config.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">const path = require(&apos;path&apos;);</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">    entry: &apos;./src/index.js&apos;, //相对路径</div><div class="line">    output: &#123;</div><div class="line">        path: path.resolve(__dirname, &apos;./dist&apos;), //打包后文件的输出路径</div><div class="line">        filename: &apos;bundle.js&apos; //打包文件名</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">package.json</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">    &quot;start&quot;: &quot;webpack --progress --watch --hot&quot;</div><div class="line">  &#125;,</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">index.html</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;My App&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>index.html为入口的html文件，安装html-webpack-plugin之后，则不必手动引入打包后的js文件,安装clean-webpack-plugin之后可清理打包文件夹dist<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install html-webpack-plugin clean-webpack-plugin --save-dev</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack.config.js</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">const HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);</div><div class="line">const CleanWebpackPlugin = require(&apos;clean-webpack-plugin&apos;);</div><div class="line">module.exports = &#123;</div><div class="line">    plugins: [</div><div class="line">        new HtmlWebpackPlugin(&#123;</div><div class="line">            template: &apos;./index.html&apos;, //指定模板路径</div><div class="line">            filename: &apos;index.html&apos;, //指定文件名</div><div class="line">        &#125;),</div><div class="line">		new CleanWebpackPlugin([&apos;dist&apos;])</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><p>*安装react及babel（用来解析jsx及编译es6）相关<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install react react-dom babel-core  babel-loader babel-preset-env babel-preset-react --save-dev</div></pre></td></tr></table></figure></p>
+<p>修改入口文件index.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;;</div><div class="line">import ReactDOM from &apos;react-dom&apos;;</div><div class="line"></div><div class="line"></div><div class="line">class App extends React.Component&#123;</div><div class="line">	render()&#123;</div><div class="line">		return &lt;h1&gt;hello world&lt;/h1&gt;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">		&lt;App/&gt;,</div><div class="line">		document.getElementById(&apos;app&apos;)</div><div class="line">	);</div></pre></td></tr></table></figure></p>
+<p>修改webpack.config.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">module:&#123;</div><div class="line">		rules:[</div><div class="line">			&#123;</div><div class="line">				test:/\.js$/,</div><div class="line">				use:[</div><div class="line">					&apos;babel-loader&apos;</div><div class="line">				],</div><div class="line">				exclude:path.resolve(__dirname,&apos;node_modules&apos;)</div><div class="line">			&#125;,</div><div class="line">			</div><div class="line">		]</div><div class="line">	&#125;,</div></pre></td></tr></table></figure></p>
+<p>根目录下新建.babelrc文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;presets&quot;:[&apos;env&apos;,&apos;react&apos;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>*加载解析css样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install style-loader css-loader less less-loader --save-dev</div></pre></td></tr></table></figure></p>
+<p>修改index.js,引入样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import styles from &apos;./less/index.less&apos;;</div></pre></td></tr></table></figure></p>
+<p>修改webpack.config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">rules:[</div><div class="line">&#123;</div><div class="line">				test:/\.less$/,</div><div class="line">				use:[</div><div class="line">					&apos;style-loader&apos;,</div><div class="line">					&apos;css-loader&apos;,</div><div class="line">					&apos;less-loader&apos;</div><div class="line">				]</div><div class="line">			&#125;,</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm start</div></pre></td></tr></table></figure></p>
+<p>双击打开dist文件夹下的index.html 可以看到hello world</p>
+<p>*加载解析图片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install file-loader url-loader --save-dev</div></pre></td></tr></table></figure></p>
+<p>修改webpack.config.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">				test:/\.(png|svg|jpg|gif)$/,</div><div class="line">				use:[</div><div class="line">					&apos;url-loader&apos;</div><div class="line">				]</div><div class="line">			&#125;</div></pre></td></tr></table></figure></p>
+<p>修改样式表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">h1&#123;</div><div class="line">	text-align:center;</div><div class="line">	color:red;</div><div class="line">	background:url(&quot;../image/9.jpg&quot;) no-repeat center center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>##热更新<br>利用webpack-dev-server实现热更新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install webpack-dev-server --save-dev</div></pre></td></tr></table></figure></p>
+<p>修改webpack.config.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">const webpack = require(&apos;webpack&apos;);</div><div class="line">module.exports=&#123;</div><div class="line">	entry:&apos;./src/index.js&apos;,</div><div class="line">	output:&#123;</div><div class="line">		path:path.resolve(__dirname,&apos;./dist&apos;),</div><div class="line">		filename:&apos;bundle.js&apos;,</div><div class="line">		publicPath:&apos;/&apos;</div><div class="line">	&#125;,</div><div class="line">	devtool:&apos;inline-source-map&apos;,</div><div class="line">	devServer:&#123;</div><div class="line">		publicPath:&apos;/&apos;,</div><div class="line">		contentBase:path.resolve(__dirname,&apos;dist&apos;),</div><div class="line">		inline:true,</div><div class="line">		hot:true</div><div class="line">	&#125;,</div><div class="line">	</div><div class="line">	plugins:[</div><div class="line">	</div><div class="line">		new webpack.HotModuleReplacementPlugin()</div><div class="line">	]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里还不是热更新，而是自动刷新，刷新的是整个页面<br>这里修改入口文件index.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">if(module.hot)&#123;</div><div class="line">	module.hot.accept(()=&gt;&#123;</div><div class="line">		ReactDOM.render(</div><div class="line">				&lt;App /&gt;,</div><div class="line">				document.getElementById(&apos;app&apos;)</div><div class="line">			)</div><div class="line">	&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>修改package.json文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;start&quot;:&quot;webpack-dev-server&quot;</div></pre></td></tr></table></figure></p>
+<p>这样是热更新，但是还没完，webpack设置热更新，无法保存状态，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install react-hot-loader --save</div></pre></td></tr></table></figure></p>
+<p>修改.babelrc文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;presets&quot;:[&apos;env&apos;,&apos;react&apos;],</div><div class="line">	&quot;plugins&quot;:[&apos;react-hot-loader/babel&apos;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>修改webpack.config.js文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">entry:[</div><div class="line">		&apos;react-hot-loader/patch&apos;,</div><div class="line">		path.resolve(__dirname,&apos;./src/index.js&apos;)</div><div class="line">		],</div><div class="line">output:&#123;</div><div class="line">	path:path.resolve(__dirname,&apos;./dist&apos;),</div><div class="line">	filename:&apos;bundle.js&apos;,</div><div class="line">	publicPath:&apos;/&apos;</div><div class="line">&#125;,</div><div class="line">devtool:&apos;inline-source-map&apos;,</div><div class="line">devServer:&#123;</div><div class="line">	publicPath:&apos;/&apos;,</div><div class="line">	contentBase:path.resolve(__dirname,&apos;dist&apos;),</div><div class="line">	inline:true,</div><div class="line">	hot:true</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>新建组件components/home.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;;</div><div class="line">import ReactDOM from &apos;react-dom&apos;;</div><div class="line"></div><div class="line">class Home extends React.Component&#123;</div><div class="line">	constructor(props)&#123;</div><div class="line">		super(props);</div><div class="line">		this.state=&#123;</div><div class="line">			count:0</div><div class="line">		&#125;;</div><div class="line">		this.add = this.add.bind(this);</div><div class="line">		this.minus = this.minus.bind(this);</div><div class="line">	&#125;</div><div class="line">	add()&#123;</div><div class="line">		this.setState((preState)=&gt;&#123;</div><div class="line">			return&#123;</div><div class="line">				count:preState.count+1</div><div class="line">			&#125;</div><div class="line">		&#125;)</div><div class="line">	&#125;</div><div class="line">	minus()&#123;</div><div class="line">		this.setState((preState)=&gt;&#123;</div><div class="line">			return&#123;</div><div class="line">				count:preState.count-1</div><div class="line">			&#125;</div><div class="line">		&#125;)</div><div class="line">	&#125;</div><div class="line">	render()&#123;</div><div class="line">		return(</div><div class="line">				&lt;div className=&quot;container&quot;&gt;</div><div class="line">					&lt;h1&gt;&#123;this.state.count&#125;&lt;/h1&gt;</div><div class="line">					&lt;button onClick=&#123;this.add&#125;&gt;count+1&lt;/button&gt;</div><div class="line">					&lt;button onClick=&#123;this.minus&#125;&gt;count-1&lt;/button&gt;</div><div class="line">					&lt;h2&gt;hello6 React&lt;/h2&gt;</div><div class="line">				&lt;/div&gt;</div><div class="line">			);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default Home</div></pre></td></tr></table></figure></p>
+<p>修改index.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import &#123; AppContainer &#125; from &apos;react-hot-loader&apos;;</div><div class="line">import Home from &apos;./components/Home&apos;;</div><div class="line"></div><div class="line">if(module.hot)&#123;</div><div class="line">	module.hot.accept(()=&gt;&#123;</div><div class="line">		ReactDOM.render(</div><div class="line">				&lt;AppContainer&gt;</div><div class="line">					&lt;Home /&gt;</div><div class="line">				&lt;/AppContainer&gt;,</div><div class="line">				document.getElementById(&apos;app&apos;)</div><div class="line">			)</div><div class="line">	&#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">		&lt;AppContainer&gt;</div><div class="line">			&lt;Home/&gt;</div><div class="line">		&lt;/AppContainer&gt;,</div><div class="line">		document.getElementById(&apos;app&apos;)</div><div class="line">	);</div></pre></td></tr></table></figure></p>
+<p>这就是完整的react热更新！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/19/react-热更新/" data-id="cjc9uvtz3000fcwsrjh0p9jno" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/22/calc浏览器不识别/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/30/react爬坑之路（一）--报错output.path不是绝对路径/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/29/无法识别es6的扩展运算符/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/22/calc浏览器不识别/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/19/react-热更新/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/30/react爬坑之路（一）--报错output.path不是绝对路径/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/17/利用jsplumb和碰撞检测自动生成流程图/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Waterdroppp<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
